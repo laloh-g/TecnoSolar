@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-[#0a0a0a]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TecnoSolar Santa Cruz - Herramientas e Iluminación Premium</title>
+  
+  <!-- Fonts Integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Theme Customization -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7d1829',
+              light: '#9e2539',
+              dark: '#580e1a'
+            },
+            neon: {
+              orange: '#ff5a1f',
+              orangeHover: '#e04913'
+            },
+            metal: {
+              darker: '#0a0a0a',
+              dark: '#121212',
+              card: '#181818',
+              border: '#262626',
+              light: '#2a2a2a',
+              highlight: '#3f3f46'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Extra Styles for custom custom utilities and animations -->
+  <style>
+    /* Styling Custom Forms and Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7d1829;
+    }
+    
+    .glow-orange {
+      text-shadow: 0 0 10px rgba(255, 90, 31, 0.4);
+    }
+    .glow-border {
+      box-shadow: 0 0 15px rgba(255, 90, 31, 0.1);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-gray-200 font-sans antialiased bg-[#0a0a0a]">
+
+  <!-- TOP BAR BANNER (Important Commercial Details) -->
+  <div class="bg-burgundy text-white px-4 py-2 text-center text-xs font-mono tracking-widest uppercase flex items-center justify-center gap-3">
+    <span class="flex h-2 w-2 relative">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-orange opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-orange"></span>
+    </span>
+    <span>Soporte Técnico Especializado e Importación Directa</span>
+    <span class="hidden md:inline">| Despacho Especial en la VI Región</span>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-metal-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand identity -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+          <div class="bg-burgundy p-2.5 rounded-sm border border-neon-orange/30">
+            <i data-lucide="sun-dim" class="w-6 h-6 text-neon-orange"></i>
+          </div>
+          <div>
+            <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight text-white uppercase">
+              TecnoSolar<span class="text-neon-orange">.cl</span>
+            </h1>
+            <p class="text-[9px] font-mono tracking-widest text-[#9e2539] uppercase leading-none mt-0.5">Santa Cruz - Chile</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs (Desktop) -->
+        <nav class="hidden md:flex items-center gap-1">
+          <button onclick="navigateTo('home')" id="nav-home" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-white border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
+            Inicio
+          </button>
+          <button onclick="navigateTo('catalog')" id="nav-catalog" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
+            Catálogo
+          </button>
+          <button onclick="navigateTo('cart')" id="nav-cart" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-neon-orange transition-all font-medium flex items-center gap-2">
+            Carrito
+            <span id="cart-counter-desktop" class="bg-burgundy text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-neon-orange/40 hidden">0</span>
+          </button>
+          <button onclick="navigateTo('contact')" id="nav-contact" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
+            Contacto
+          </button>
+        </nav>
+
+        <!-- CTAs / Mobile toggler -->
+        <div class="flex items-center gap-4">
+          <!-- Quick Cart Shortcut button -->
+          <button onclick="navigateTo('cart')" class="relative p-2.5 rounded-sm bg-metal-light border border-metal-border hover:border-burgundy-light transition-all group" title="Ver Carrito">
+            <i data-lucide="shopping-cart" class="w-5 h-5 text-gray-300 group-hover:text-neon-orange transition-colors"></i>
+            <span id="cart-badge-floating" class="absolute -top-1.5 -right-1.5 bg-burgundy text-white text-[9px] font-bold h-5 w-5 flex items-center justify-center rounded-full border border-neon-orange/50 hidden animate-bounce">0</span>
+          </button>
+
+          <!-- Cotizar WhatsApp direct desktop button -->
+          <a href="https://wa.me/56931930339" target="_blank" class="hidden sm:flex btn-primary bg-burgundy hover:bg-burgundy-light border border-neon-orange/20 text-white font-mono text-xs tracking-wider uppercase px-4 py-2.5 rounded-sm items-center gap-2 transition-all">
+            <i data-lucide="message-square" class="w-4 h-4 text-neon-orange"></i>
+            WhatsApp
+          </a>
+
+          <!-- Mobile Menu Trigger -->
+          <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-sm bg-metal-light border border-metal-border hover:border-neon-orange transition-all">
+            <i id="menu-icon" data-lucide="menu" class="w-6 h-6 text-white"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-metal-dark border-t border-metal-border py-4 px-6 space-y-3">
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left font-mono text-xs uppercase tracking-widest py-2.5 text-gray-300 hover:text-white border-b border-metal-border/50">Inicio</button>
+      <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="block w-full text-left font-mono text-xs uppercase tracking-widest py-2.5 text-gray-300 hover:text-white border-b border-metal-border/50">Catálogo / Tienda</button>
+      <button onclick="navigateTo('cart'); toggleMobileMenu()" class="block w-full text-left font-mono text-xs uppercase tracking-widest py-2.5 text-gray-300 hover:text-white border-b border-metal-border/50 flex items-center justify-between">
+        Carrito
+        <span id="cart-counter-mobile" class="bg-burgundy text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-neon-orange/30 hidden">0</span>
+      </button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left font-mono text-xs uppercase tracking-widest py-2.5 text-gray-300 hover:text-white">Contacto</button>
+      <div class="pt-2">
+        <a href="https://wa.me/56931930339" target="_blank" class="flex w-full justify-center bg-burgundy py-3 text-xs font-mono uppercase tracking-widest text-[#fff] border border-neon-orange/40 rounded-sm items-center gap-2">
+          <i data-lucide="message-square" class="w-4 h-4 text-neon-orange"></i>
+          WhatsApp Comercial
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP ROUTER WRAPPER -->
+  <main class="flex-grow">
+
+    <!-- HOME PAGE TAB -->
+    <section id="page-home" class="tab-view block">
+      <!-- HERO SECTOR -->
+      <div class="relative bg-gradient-to-b from-metal-dark to-metal-darker py-24 md:py-32 overflow-hidden border-b border-metal-border">
+        <!-- Ambient radial glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(125,24,41,0.18),transparent_70%)] pointer-events-none"></div>
+        <div class="absolute top-12 right-12 w-64 h-64 bg-neon-orange/5 rounded-full filter blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-metal-light border border-metal-border font-mono text-[10px] uppercase tracking-widest text-neon-orange glow-orange">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> INDUSTRIAL & SOLAR PREEMINENCE
+              </div>
+              
+              <h2 class="text-4.5xl md:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[0.95]">
+                Equipos de Alta<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-orange to-burgundy-light">Resistencia</span>
+              </h2>
+              
+              <p class="text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Importamos y distribuimos herramientas inalámbricas de fuerza industrial y sistemas de iluminación solar de alta autonomía. Rendimiento certificado para el trabajo agrícola y vitivinícola de Colchagua.
+              </p>
+
+              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <button onclick="navigateTo('catalog')" class="bg-burgundy hover:bg-burgundy-light hover:scale-[1.02] text-white font-mono text-xs uppercase tracking-widest font-bold py-4 px-8 rounded-sm transition-all border border-neon-orange/30 shadow-lg shadow-burgundy/20 flex items-center justify-center gap-2">
+                  <i data-lucide="grid" class="w-4 h-4"></i> Explorar Catálogo
+                </button>
+                <button onclick="navigateTo('contact')" class="bg-metal-light hover:bg-metal-border hover:scale-[1.02] text-gray-300 font-mono text-xs uppercase tracking-widest py-4 px-8 rounded-sm transition-all border border-metal-border flex items-center justify-center gap-2">
+                  <i data-lucide="mail" class="w-4 h-4"></i> Cotización Especial
+                </button>
+              </div>
+
+              <!-- Badges parameters micro -->
+              <div class="grid grid-cols-3 gap-4 pt-4 border-t border-metal-border max-w-md mx-auto lg:mx-0">
+                <div>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">100%</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Garantía Real</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">IP67</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Resistencia Solar</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">V-MAX</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Potencia Brushless</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual banner slider representation static -->
+            <div class="lg:col-span-5 relative flex justify-center">
+              <div class="relative bg-metal-dark/50 p-6 md:p-10 rounded-sm border border-metal-border glow-border max-w-sm w-full mx-auto">
+                <div class="absolute top-4 right-4 bg-burgundy/80 text-white border border-neon-orange/40 font-mono text-[9px] px-2 py-0.5 rounded-sm uppercase tracking-wide">Destacado Semanal</div>
+                <div class="aspect-square bg-[#fff]/95 rounded-sm p-8 flex items-center justify-center border border-white/10 mix-blend-normal">
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8" alt="Taladro industrial" class="max-h-56 object-contain">
+                </div>
+                <div class="mt-6 space-y-2 text-center sm:text-left">
+                  <p class="text-[10px] font-mono tracking-widest text-burgundy-light uppercase font-bold">Herramientas Eléctricas</p>
+                  <h3 class="text-lg font-display font-bold text-white uppercase tracking-tight">Taladro Percutor Inalámbrico 20V MAX</h3>
+                  <p class="text-[#ff5a1f] font-mono font-bold text-xl">$185.990 CLP</p>
+                  <button onclick="navigateTo('catalog')" class="w-full mt-4 bg-metal-light hover:bg-burgundy text-white font-mono text-xs uppercase tracking-wider py-3 px-4 border border-metal-border hover:border-neon-orange/30 rounded-sm transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="eye" class="w-4 h-4 text-neon-orange"></i> Ver en Catálogo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURES SPECIFIC ADVANTAGES (BENTO GRID STYLE) -->
+      <div class="py-20 bg-metal-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="label-heading font-mono text-xs uppercase tracking-widest text-[#9e2539]">ESTRUCTURA DE DESEMPEÑO INDUSTRIAL</span>
+            <h2 class="text-3xl md:text-5xl font-display font-extrabold uppercase text-white tracking-tight leading-none">Beneficios Técnicos de Nuestra Alianza</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-relaxed">Garantizamos estándares mecánicos y eléctricos optimizados para contratistas agrícolas, bodegas vitivinícolas y zonas de iluminación aisladas.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Box 1 -->
+            <div class="bg-metal-card p-8 border border-metal-border rounded-sm hover:border-burgundy-light transition-all flex flex-col justify-between group">
+              <div class="space-y-6">
+                <div class="bg-burgundy/30 border border-neon-orange/20 w-12 h-12 flex items-center justify-center rounded-sm">
+                  <i data-lucide="zap" class="w-6 h-6 text-neon-orange"></i>
+                </div>
+                <h3 class="text-xl font-display font-bold text-white uppercase">Motores Brushless</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Cero carbones, menos recalentamiento y hasta un 50% mayor autonomía de batería en faenas prolongadas de perforación o desbaste.
+                </p>
+              </div>
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+                Alto Torque Estándar <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="bg-metal-card p-8 border border-metal-border rounded-sm hover:border-burgundy-light transition-all flex flex-col justify-between group">
+              <div class="space-y-6">
+                <div class="bg-burgundy/30 border border-neon-orange/20 w-12 h-12 flex items-center justify-center rounded-sm">
+                  <i data-lucide="battery-charging" class="w-6 h-6 text-neon-orange"></i>
+                </div>
+                <h3 class="text-xl font-display font-bold text-white uppercase">Baterías Litio-LFP Solares</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Células de Litio Ferro-Fosfato de alto rendimiento que mantienen carga óptima incluso en días invernales cubiertos en Santa Cruz.
+                </p>
+              </div>
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+                Autonomía IP67 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="bg-metal-card p-8 border border-metal-border rounded-sm hover:border-burgundy-light transition-all flex flex-col justify-between group">
+              <div class="space-y-6">
+                <div class="bg-burgundy/30 border border-neon-orange/20 w-12 h-12 flex items-center justify-center rounded-sm">
+                  <i data-lucide="wrench" class="w-6 h-6 text-neon-orange"></i>
+                </div>
+                <h3 class="text-xl font-display font-bold text-white uppercase">Soporte y Repuestos Real</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  No dependas de envíos internacionales interminables. Contamos con taller de servicio técnico local y entrega de consumibles en Santa Cruz.
+                </p>
+              </div>
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+                Taller Propio VI Región <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOG PAGE TAB -->
+    <section id="page-catalog" class="tab-view hidden py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header catalog filter -->
+        <header class="mb-12 border-b border-metal-border pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+          <div class="space-y-2">
+            <div class="font-mono text-xs uppercase tracking-widest text-burgundy-light font-bold flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-neon-orange"></span> Equipamiento Industrial Certificado
+            </div>
+            <h2 class="text-4xl md:text-5xl font-display font-extrabold uppercase text-white tracking-tight">Catálogo Técnico</h2>
+            <p class="text-gray-400 text-sm max-w-xl">Haga clic en un producto para consultar detalles o agréguelos directamente a su carrito para generar estimaciones de cotización.</p>
+          </div>
+          
+          <!-- Category Select Tabs inside Catalog -->
+          <div class="flex flex-wrap gap-2">
+            <button onclick="filterCatalog('all')" id="filter-all" class="p-btn-filter px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-sm border bg-[#ff5a1f] text-white border-neon-orange transition-all font-semibold">
+              Todos
+            </button>
+            <button onclick="filterCatalog('electric')" id="filter-electric" class="p-btn-filter px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-sm border bg-metal-light text-gray-300 border-metal-border hover:border-burgundy transition-all">
+              Herramientas Eléctricas
+            </button>
+            <button onclick="filterCatalog('solar')" id="filter-solar" class="p-btn-filter px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-sm border bg-metal-light text-gray-300 border-metal-border hover:border-burgundy transition-all">
+              Iluminación Solar
+            </button>
+          </div>
+        </header>
+
+        <!-- Loader Spinner (Shown during dynamic products fetch) -->
+        <div id="catalog-loader" class="flex flex-col items-center justify-center py-20 space-y-4">
+          <div class="relative w-16 h-16">
+            <div class="absolute inset-0 border-4 border-metal-border rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-transparent border-t-neon-orange rounded-full animate-spin"></div>
+          </div>
+          <p class="font-mono text-xs uppercase tracking-widest text-gray-500 animate-pulse">Cargando catálogo dinámico desde productos.json...</p>
+        </div>
+
+        <!-- Catalog Product Grid Container -->
+        <div id="catalog-container" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Dynamic injected articles go here -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SHOPPING CART TAB -->
+    <section id="page-cart" class="tab-view hidden py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <header class="mb-12 border-b border-metal-border pb-8">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#9e2539] font-bold">Resumen de Equipos</div>
+          <h2 class="text-4xl md:text-5xl font-display font-extrabold uppercase text-white tracking-tight">Carrito de Compras</h2>
+          <p class="text-gray-400 text-sm mt-1">Gestione las cantidades y compruebe los cálculos antes de generar el código de confirmación para WhatsApp.</p>
+        </header>
+
+        <!-- EMPTY STATE SCREEN -->
+        <div id="cart-empty-view" class="text-center py-20 bg-metal-card border border-metal-border rounded-sm max-w-2xl mx-auto space-y-6">
+          <div class="bg-metal-light p-5 rounded-full inline-flex border border-metal-border text-gray-500">
+            <i data-lucide="shopping-bag" class="w-12 h-12"></i>
+          </div>
+          <h3 class="text-2xl font-display font-bold text-white uppercase">El carrito está vacío</h3>
+          <p class="text-gray-400 text-sm max-w-sm mx-auto">Agregue máquinas profesionales o kits de focos de alta gama dentro de nuestro catálogo de distribución.</p>
+          <button onclick="navigateTo('catalog')" class="bg-burgundy text-white font-mono text-xs uppercase tracking-widest py-3 px-6 rounded-sm border border-neon-orange/20 hover:bg-burgundy-light transition-all">
+            Ir a la Tienda
+          </button>
+        </div>
+
+        <!-- FILLED CART CONTAINER -->
+        <div id="cart-filled-view" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Products Table block -->
+          <div class="lg:col-span-8 space-y-4">
+            <div class="bg-metal-card border border-metal-border rounded-sm overflow-hidden hidden md:block">
+              <table class="w-full text-left text-xs font-mono tracking-wider uppercase text-gray-400 border-collapse">
+                <thead>
+                  <tr class="border-b border-metal-border bg-metal-light/50">
+                    <th class="p-4">Código / Producto</th>
+                    <th class="p-4 text-center">Cantidad</th>
+                    <th class="p-4 text-right">Precio Unitario</th>
+                    <th class="p-4 text-right">Subtotal</th>
+                    <th class="p-4"></th>
+                  </tr>
+                </thead>
+                <tbody id="cart-desktop-table-body" class="divide-y divide-metal-border/50 text-white font-sans">
+                  <!-- Dynamic content -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Mobile list of items -->
+            <div id="cart-mobile-items-container" class="md:hidden space-y-4">
+              <!-- Dynamic mobile list -->
+            </div>
+          </div>
+
+          <!-- Total summary and Bank transaction section -->
+          <div class="lg:col-span-4 space-y-8">
+            <!-- Checkout totals summary -->
+            <div class="bg-metal-card p-6 border border-metal-border rounded-sm space-y-6">
+              <h3 class="font-display font-bold text-lg text-white uppercase border-b border-metal-border pb-4 flex items-center gap-2">
+                <i data-lucide="receipt" class="w-5 h-5 text-neon-orange"></i> Cómputo Comercial
+              </h3>
+              
+              <div class="space-y-3 font-mono text-xs">
+                <div class="flex justify-between">
+                  <span class="text-gray-400">NETO ESTIMADO:</span>
+                  <span id="price-neto" class="text-white font-bold">$0 CLP</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-400">IVA REGULAR (19%):</span>
+                  <span id="price-iva" class="text-white font-bold">$0 CLP</span>
+                </div>
+                <hr class="border-metal-border">
+                <div class="flex justify-between items-baseline pt-2">
+                  <span class="text-sm text-white font-bold uppercase">VALOR TOTAL:</span>
+                  <span id="price-total" class="text-xl text-neon-orange font-bold font-display">$0 CLP</span>
+                </div>
+              </div>
+
+              <!-- Checkout action buttons -->
+              <div class="space-y-3">
+                <button onclick="executeWhatsAppCheckout()" class="w-full bg-[#25d366] hover:bg-[#20ba5a] text-[#052d14] font-mono text-xs font-bold uppercase tracking-wider py-4 px-4 rounded-sm transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4"></i> Cerrar Venta por WhatsApp
+                </button>
+                <button onclick="clearShoppingBag()" class="w-full bg-metal-light hover:bg-[#262626] text-gray-400 hover:text-white font-mono text-xs uppercase tracking-wider py-2.5 px-4 rounded-sm border border-metal-border/75 transition-all">
+                  Vaciar Todo el Carrito
+                </button>
+              </div>
+
+              <div class="p-3 bg-burgundy/10 border border-burgundy/30 rounded-sm flex gap-3 items-start text-[10px] text-gray-400 leading-relaxed font-mono">
+                <i data-lucide="info" class="w-4 h-4 text-neon-orange shrink-0 mt-0.5"></i>
+                <span>Estimación no incluye costo de flete. El despacho se coordina vía telefónica o WhatsApp según localidad específica.</span>
+              </div>
+            </div>
+
+            <!-- Quick copy bank details card -->
+            <div class="bg-metal-card p-6 border border-metal-border rounded-sm space-y-6 glow-border">
+              <div class="flex items-center justify-between border-b border-metal-border pb-4">
+                <h3 class="font-display font-bold text-[#f5f5f5] uppercase tracking-tight flex items-center gap-2 text-sm">
+                  <i data-lucide="wallet" class="text-neon-orange w-4 h-4"></i> Datos Bancarios (Pago Rápido)
+                </h3>
+                <span class="animate-pulse bg-burgundy text-[#fff] text-[8px] font-mono tracking-widest uppercase px-2 py-0.5 rounded-sm">Rut Comercial</span>
+              </div>
+
+              <div class="space-y-4 font-mono text-[11px] leading-relaxed relative">
+                <div class="p-4 bg-metal-dark border border-metal-light rounded-sm space-y-2.5">
+                  <div>
+                    <span class="text-gray-500 block uppercase text-[9px] tracking-wider font-bold">Banco Receptor:</span>
+                    <span id="bank-name" class="text-white font-medium">Banco del Estado de Chile</span>
+                  </div>
+                  <div>
+                    <span class="text-gray-500 block uppercase text-[9px] tracking-wider font-bold">Tipo de Cuenta:</span>
+                    <span id="bank-type" class="text-white font-medium">Cuenta Corriente</span>
+                  </div>
+                  <div class="flex justify-between items-center group">
+                    <div>
+                      <span class="text-gray-500 block uppercase text-[9px] tracking-wider font-bold">Número de Cuenta:</span>
+                      <span id="bank-acc" class="text-white font-bold select-all tracking-wider">1210928374</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <span class="text-gray-500 block uppercase text-[9px] tracking-wider font-bold">Rut de la Empresa:</span>
+                      <span id="bank-rut" class="text-white font-bold select-all">76.993.441-2</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span class="text-gray-500 block uppercase text-[9px] tracking-wider font-bold">Correo Electrónico:</span>
+                    <span id="bank-mail" class="text-white font-sans hover:text-[#ff5a1f] cursor-pointer">pagos@tecnosolaresantacruz.cl</span>
+                  </div>
+                </div>
+
+                <!-- Quick Copy Button -->
+                <button onclick="copyBankDetails()" id="btn-copy-bank" class="w-full bg-burgundy hover:bg-neutral-800 text-white font-mono text-xs uppercase tracking-wider py-3 px-4 rounded-sm border border-neon-orange/20 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="copy" class="w-4 h-4 text-neon-orange"></i> Copiar Datos Comerciales
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & WEB3FORM TAB -->
+    <section id="page-contact" class="tab-view hidden py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-metal-card border border-metal-border rounded-sm p-6 md:p-12 space-y-10">
+          <div class="border-b border-metal-border pb-6 space-y-2">
+            <span class="font-mono text-xs uppercase text-burgundy-light font-bold">Atención Comercial Técnica</span>
+            <h2 class="text-3xl md:text-4.5xl font-display font-extrabold uppercase text-white tracking-tight">Formulario de Cotización</h2>
+            <p class="text-gray-400 text-sm">¿Requiere volúmenes específicos para proyectos públicos o fundaciones? Háganos llegar sus consultas y le responderemos en menos de 24 horas hábiles.</p>
+          </div>
+
+          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <!-- Access Key for web3forms -->
+            <input type="hidden" name="access_key" value="9d34b9e2-59cb-4c2d-9860-2ef83c3eefee">
+            <input type="hidden" name="subject" value="Nuevo contacto desde TecnoSolar Santa Cruz">
+            <input type="hidden" name="from_name" value="TecnoSolar Santa Cruz">
+            
+            <!-- Honeypot anti-spam -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2 animate-fade">
+                <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Nombre Completo: <span class="text-neon-orange">*</span></label>
+                <input type="text" name="name" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Francisco Guerrero">
+              </div>
+              <div class="space-y-2">
+                <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Email de Contacto: <span class="text-neon-orange">*</span></label>
+                <input type="email" name="email" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="francisco@contacto.cl">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Teléfono Celular: <span class="text-neon-orange">*</span></label>
+                <input type="tel" name="phone" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="+56 9 3193 0339">
+              </div>
+              <div class="space-y-2">
+                <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Comuna de Despacho:</label>
+                <input type="text" name="comuna" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Santa Cruz, Peralillo, Nancagua">
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Tipo de Solicitud:</label>
+              <select name="subject_type" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors">
+                <option value="cotizacion_maquinaria">Cotización de Maquinaria Profesional</option>
+                <option value="iluminacion_solar">Diseño de Iluminación Exterior Solar</option>
+                <option value="servicio_tecnico">Servicio Técnico y Reparaciones</option>
+                <option value="distribuidor">Postulación para Distribuidor en O'Higgins</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Mensaje / Especificaciones Técnicas: <span class="text-neon-orange">*</span></label>
+              <textarea name="message" rows="5" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Describa el proyecto, número de unidades o dudas particulares..."></textarea>
+            </div>
+
+            <!-- Submit form -->
+            <button type="submit" class="w-full bg-burgundy hover:bg-burgundy-light font-mono text-xs uppercase tracking-widest font-bold text-white py-4 px-6 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-neon-orange animate-pulse"></i> Enviar Mensaje y Registrar Ticket
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRODUCT SPECIFICATION DETAIL MODAL -->
+  <div id="spec-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-metal-card border border-metal-border rounded-sm max-w-lg w-full overflow-hidden shadow-2xl relative">
+      <!-- Modal Header -->
+      <div class="bg-metal-light p-4 flex items-center justify-between border-b border-metal-border">
+        <h4 id="modal-product-name" class="font-display font-bold uppercase text-white tracking-tight line-clamp-1 pr-6">Ficha Técnica</h4>
+        <button onclick="closeSpecModal()" class="text-gray-400 hover:text-white p-1 rounded-sm hover:bg-burgundy/20 transition-all">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modal-product-body" class="p-6 space-y-6">
+        <div class="flex gap-4">
+          <div class="w-24 h-24 bg-[#fff] rounded-sm p-2 flex items-center justify-center shrink-0 border border-metal-border">
+            <img id="modal-product-image" src="" alt="preview" class="max-h-full object-contain">
+          </div>
+          <div class="space-y-1">
+            <span id="modal-product-category" class="font-mono text-[9px] uppercase tracking-wider text-burgundy-light font-bold">Categoría</span>
+            <h5 id="modal-product-title" class="text-md font-bold text-white line-clamp-2 uppercase leading-snug">Nombre de Producto</h5>
+            <p id="modal-product-price" class="text-neon-orange font-mono font-bold font-display"></p>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <span class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Especificaciones del Fabricante:</span>
+          <div class="border border-metal-border rounded-sm overflow-hidden bg-metal-dark">
+            <table class="w-full text-xs text-left text-gray-300 border-collapse">
+              <tbody id="modal-specs-table-body" class="divide-y divide-metal-border">
+                <!-- Injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p id="modal-product-descr" class="text-xs text-gray-400 leading-relaxed font-sans mt-2"></p>
+      </div>
+
+      <!-- Modal Footer actions -->
+      <div class="bg-metal-dark p-4 flex justify-end gap-3 border-t border-metal-border">
+        <button onclick="closeSpecModal()" class="px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-gray-400 hover:text-white hover:bg-metal-light transition-all rounded-sm border border-metal-border">
+          Cerrar
+        </button>
+        <button id="modal-btn-add-to-cart" class="bg-burgundy hover:bg-burgundy-light text-white font-mono text-[11px] uppercase tracking-widest px-4 py-2 border border-neon-orange/20 rounded-sm transition-all flex items-center gap-1.5 font-bold">
+          <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-neon-orange"></i> Añadir al Carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING ACTION NOTIFICATIONS TOAST -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden max-w-sm bg-metal-light border-2 border-neon-orange/40 text-white p-4 shadow-xl flex items-center gap-3 animate-fade-in rounded-sm">
+    <div class="bg-burgundy/40 p-1.5 rounded-full text-neon-orange border border-neon-orange/20">
+      <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+    </div>
+    <div class="font-sans">
+      <p id="toast-title" class="font-bold text-xs uppercase leading-none tracking-tight">Acción Exitosa</p>
+      <p id="toast-message" class="text-[10px] text-gray-400 mt-1">El listado ha sido actualizado.</p>
+    </div>
+  </div>
+
+  <!-- INDUSTRIAL FOOTER -->
+  <footer class="bg-metal-darker border-t border-metal-border pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Column 1: Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="bg-[#1a1415] p-2 rounded-sm border border-neon-orange/20">
+              <i data-lucide="sun-dim" class="w-5 h-5 text-neon-orange animate-pulse"></i>
+            </div>
+            <h3 class="text-lg font-display font-bold uppercase tracking-tight text-white">TECNOSOLAR</h3>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed font-sans">
+            Líderes de distribución mayorista en la zona de Colchagua. Herramientas eléctricas potentes y soluciones integradas de iluminación fotovoltaica.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-mono text-xs uppercase tracking-widest text-[#9e2539] font-bold">Enlaces Técnicos</h4>
+          <ul class="space-y-2 text-xs font-mono">
+            <li><button onclick="navigateTo('home')" class="text-gray-400 hover:text-white transition-colors">Inicio</button></li>
+            <li><button onclick="navigateTo('catalog')" class="text-gray-400 hover:text-white transition-colors">Catálogo Completo</button></li>
+            <li><button onclick="navigateTo('cart')" class="text-gray-400 hover:text-white transition-colors">Mi Carrito de Compras</button></li>
+            <li><button onclick="navigateTo('contact')" class="text-gray-400 hover:text-white transition-colors">Formulario de Cotización</button></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact info -->
+        <div class="space-y-3">
+          <h4 class="font-mono text-xs uppercase tracking-widest text-[#9e2539] font-bold">Ubicación y Despacho</h4>
+          <p class="text-xs text-gray-400 font-sans leading-relaxed">
+            Local Comercial y Servicio Técnico:<br>
+            Av. Bernardo O'Higgins 741, Santa Cruz - Valle de Colchagua, Región del Libertador Bernardo O'Higgins.
+          </p>
+        </div>
+
+        <!-- Column 4: Hours -->
+        <div class="space-y-3">
+          <h4 class="font-mono text-xs uppercase tracking-widest text-[#9e2539] font-bold">Horarios de Faena</h4>
+          <ul class="space-y-1.5 text-xs text-gray-400 font-mono">
+            <li>Lunes a Viernes: 09:00 - 18:30 (Continuado)</li>
+            <li>Sábado: 09:00 - 14:00 hrs</li>
+            <li class="text-burgundy-light font-bold">Domingo: Cerrado</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-metal-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[10px] font-mono text-gray-500 uppercase">
+          &copy; 2026 TecnoSolar Santa Cruz S.A. Todos los derechos reservados.
+        </p>
+        <div class="flex items-center gap-6 text-[10px] font-mono text-gray-400">
+          <a href="#" class="hover:text-white">Políticas de Garantía</a>
+          <a href="#" class="hover:text-white">Despachos Colchagua</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT WORKFLOW LOGIC -->
+  <script>
+    // System Global State Vars
+    let ProductsDatabase = [];
+    let CurrentCategoryFilter = 'all';
+    let CartData = [];
+
+    // Initialize application on load
+    window.addEventListener('DOMContentLoaded', async () => {
+      // Step 1: Initialize Lucide Icons
+      lucide.createIcons();
+      
+      // Step 2: Load Cart from localStorage
+      loadCartFromStorage();
+      
+      // Step 3: Fetch dynamic products database
+      await fetchProductsDatabase();
+      
+      // Step 4: Initial Render
+      renderCatalogGrid();
+      
+      // Select correct starting view based on hash or default ('home')
+      navigateTo('home');
+    });
+
+    // 1. DYNAMIC FETCH FOR PRODUCTS
+    async function fetchProductsDatabase() {
+      const loader = document.getElementById('catalog-loader');
+      const gridContainer = document.getElementById('catalog-container');
+      
+      try {
+        const response = await fetch('productos.json');
+        if (!response.ok) {
+          throw new Error('La respuesta HTTP no fue exitosa: ' + response.status);
+        }
+        
+        ProductsDatabase = await response.json();
+        console.log('Productos cargados dinámicamente:', ProductsDatabase);
+        
+        // Hide loader, show grid
+        if (loader) loader.classList.add('hidden');
+        if (gridContainer) gridContainer.classList.remove('hidden');
+        
+      } catch (error) {
+        console.error('Error al realizar fetch en productos.json:', error);
+        // Fallback local array in case file is absent just for robustness
+        ProductsDatabase = [
+          {
+            "id": 1,
+            "name": "Taladro Percutor Inalámbrico 20V MAX",
+            "sku": "TS-DRL-20V-MX",
+            "category": "Herramientas Eléctricas",
+            "price": 185990,
+            "tag": "Nuevo",
+            "description": "Ingeniería de alto torque diseñada para trabajos pesados en agricultura e industria. Motor Brushless que maximiza la vida útil y la potencia.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8",
+            "specs": [
+              { "label": "Voltaje", "value": "20V MAX" },
+              { "label": "Torque Máximo", "value": "65 Nm" },
+              { "label": "Velocidad sin carga", "value": "0-500 / 0-1750 RPM" },
+              { "label": "Impactos por minuto", "value": "0-29750 IPM" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Esmeril Angular Inalámbrico Industrial",
+            "sku": "TS-GRN-20V-PRO",
+            "category": "Herramientas Eléctricas",
+            "price": 145000,
+            "tag": "Profesional",
+            "description": "Corte y desbaste de precisión sin cables. Equipado con freno electrónico y guardas de seguridad de ajuste rápido.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD7BtFmtuj48E46_bD3YBBqEUbII3AOzOS7Cll26Z5bJ4xi2xyp3qzkD_EichXoGYLLywjoUz2FBodJ-6c3JPphQAAnpLxsrTm3e_KwIeaLzKhBwk6887llbFzuc3jegLYcSKOwmZ1158RByqWuaLtmqaNQk_KIryFv90NgJjxOGfSdqqWCOIN8gsDOjhkGeKFr8DPIxl0fUyJQNKE1nJ159jsVneve2Cuu7yOOA74ezYtLnSHpuvcAzu3tX4PgqzcCaCwyycLlBxA",
+            "specs": [
+              { "label": "Diámetro Disco", "value": "125 mm" },
+              { "label": "Motor", "value": "Sin carbones (Brushless)" },
+              { "label": "Peso", "value": "1.7 kg" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Foco Solar Exterior 400W LED",
+            "sku": "TS-SOL-400W-HD",
+            "category": "Iluminación Solar",
+            "price": 85000,
+            "tag": "Eficiencia",
+            "description": "Máxima potencia lumínica con energía limpia. Chasis de aluminio inyectado y panel fotovoltaico de alta eficiencia.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAefhTDYepVhgPnALPfAI9Ynt3Ct2RweFHsWLw46wX9y5kBDb1JRvFe9gYX9RlF-e60iSEGdxhWPJsJyzju43lD4awlUcBFAZ6GVglA_01eV5omIpm4H0LLKKO8mY01-LntyzLf-AmGNjeEc5aZ2YZWvOBqSE3nDa7lTVrE5I-2bFZhkGH1lSKRKbYSvk3xzAsV5oEeC0fvfciwYT97AxAorqUoozAg9FpKA70g09DhGCQ3EvqLE4ezhywq2CPurTzIAnb39985fjk",
+            "specs": [
+              { "label": "Potencia", "value": "400W LED" },
+              { "label": "Autonomía", "value": "12-14 horas" },
+              { "label": "Certificación", value: "IP67 (Intemperie)" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Lámpara de Emergencia Solar Pro",
+            "sku": "TS-EM-LIT-05",
+            "category": "Iluminación Solar",
+            "price": 45000,
+            "tag": "Seguridad",
+            "description": "Solución confiable para cortes de energía o zonas críticas sin red eléctrica. Activación automática.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1uWyysqvjchZ4E61MQdU246xtYux2Oy7jtXBBB88K--LmiRnQGn_0YATqegVkA3xYkfdNOEOmnBnQ-9fl7SFAcBxP0jZSYyUzYekFyJiSm2OLXBrhWb4ljRn7QKIY8xc-1iAYc3e4ThZx0pbLzjCBkr-1drMYlttLweT8Aw70dyqTMnF4Zk0QZguZGbeCShqudmengUfbjXxRWldWHvFyltwF6SyigoquZe4pPbbtVsPgjohSA5St0_lUlugV8ciyYneh7nN_7VM",
+            "specs": [
+              { "label": "Lúmenes", "value": "2500" },
+              { "label": "Batería", "value": "Litio LFP" },
+              { "label": "Modos", "value": "Sensor Movimiento / Fijo" }
+            ]
+          }
+        ];
+        
+        if (loader) loader.classList.add('hidden');
+        if (gridContainer) gridContainer.classList.remove('hidden');
+      }
+    }
+
+    // 2. NAVIGATE TABS
+    function navigateTo(tabId) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-view').forEach(view => {
+        view.classList.add('hidden');
+        view.classList.remove('block');
+      });
+
+      // Show selected tab
+      const selectedView = document.getElementById(`page-${tabId}`);
+      if (selectedView) {
+        selectedView.classList.remove('hidden');
+        selectedView.classList.add('block');
+      }
+
+      // Update Nav active style
+      document.querySelectorAll('.nav-tab').forEach(btn => {
+        btn.classList.add('text-gray-400', 'border-transparent');
+        btn.classList.remove('text-white', 'border-neon-orange');
+      });
+
+      const currentNavBtn = document.getElementById(`nav-${tabId}`);
+      if (currentNavBtn) {
+        currentNavBtn.classList.remove('text-gray-400', 'border-transparent');
+        currentNavBtn.classList.add('text-white', 'border-neon-orange');
+      }
+
+      // Scroll window to top
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // If opening cart, render up-to-date items
+      if (tabId === 'cart') {
+        renderCartView();
+      }
+    }
+
+    // Toggle menu dropdown for small devices
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        menu.classList.add('hidden');
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    }
+
+    // 3. CATALOG RENDERING & FILTERING
+    function filterCatalog(categoryKey) {
+      CurrentCategoryFilter = categoryKey;
+      
+      // Update filter UI buttons
+      document.querySelectorAll('.p-btn-filter').forEach(btn => {
+        btn.classList.remove('bg-[#ff5a1f]', 'text-white', 'border-neon-orange', 'font-semibold');
+        btn.classList.add('bg-metal-light', 'text-gray-300', 'border-metal-border');
+      });
+
+      const activeBtn = document.getElementById(`filter-${categoryKey}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#ff5a1f]', 'text-white', 'border-neon-orange', 'font-semibold');
+        activeBtn.classList.remove('bg-metal-light', 'text-[#a0a0a0]', 'border-metal-border');
+      }
+
+      renderCatalogGrid();
+    }
+
+    function renderCatalogGrid() {
+      const catalogGrid = document.getElementById('catalog-container');
+      if (!catalogGrid) return;
+
+      let filtered = [];
+      if (CurrentCategoryFilter === 'all') {
+        filtered = ProductsDatabase;
+      } else if (CurrentCategoryFilter === 'electric') {
+        filtered = ProductsDatabase.filter(p => p.category.toLowerCase().includes('eléctrica') || p.category.toLowerCase().includes('electric'));
+      } else if (CurrentCategoryFilter === 'solar') {
+        filtered = ProductsDatabase.filter(p => p.category.toLowerCase().includes('solar') || p.category.toLowerCase().includes('iluminación'));
+      }
+
+      catalogGrid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        catalogGrid.innerHTML = `
+          <div class="col-span-full text-center py-10 font-mono text-gray-500 text-xs uppercase tracking-widest">
+            Ningún producto coincide con esta sección
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const tagHTML = p.tag ? `
+          <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
+            ${p.tag}
+          </span>
+        ` : '';
+
+        const card = document.createElement('article');
+        card.className = "bg-metal-card border border-metal-border hover:border-burgundy-light transition-all rounded-sm flex flex-col h-full relative group";
+        card.innerHTML = `
+          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal(${p.id})">
+            ${tagHTML}
+            <div class="w-full h-full bg-white rounded-sm p-4 flex items-center justify-center">
+              <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-grow space-y-4">
+            <div class="space-y-1 cursor-pointer" onclick="openSpecModal(${p.id})">
+              <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${p.category}</span>
+              <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
+                ${p.name}
+              </h4>
+              <p class="text-[10px] text-gray-500 font-mono">SKU: ${p.sku}</p>
+            </div>
+            
+            <div class="mt-auto space-y-4.5 pt-2">
+              <div class="flex items-baseline justify-between">
+                <span class="text-[9px] font-mono text-gray-500 uppercase">ClP Neto:</span>
+                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${p.price.toLocaleString("es-CL")}</span>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="openSpecModal(${p.id})" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
+                  Ver Ficha
+                </button>
+                <button onclick="addProductToCart(${p.id})" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        catalogGrid.appendChild(card);
+      });
+
+      // Update embedded icons
+      lucide.createIcons();
+    }
+
+    // 4. SPECIFICATIONS MODAL WINDOW
+    function openSpecModal(productId) {
+      const product = ProductsDatabase.find(p => p.id === Number(productId));
+      if (!product) return;
+
+      document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku}`;
+      document.getElementById('modal-product-title').innerText = product.name;
+      document.getElementById('modal-product-category').innerText = product.category;
+      document.getElementById('modal-product-price').innerText = `$${product.price.toLocaleString("es-CL")} CLP`;
+      document.getElementById('modal-product-descr').innerText = product.description;
+      document.getElementById('modal-product-image').setAttribute('src', product.image);
+
+      // Render specification rows
+      const specsBody = document.getElementById('modal-specs-table-body');
+      specsBody.innerHTML = '';
+      if (product.specs && product.specs.length > 0) {
+        product.specs.forEach((spec, index) => {
+          const row = document.createElement('tr');
+          row.className = index % 2 === 0 ? "bg-metal-dark" : "bg-metal-card";
+          row.innerHTML = `
+            <td class="p-3 font-semibold font-sans text-[#f5f5f5] text-xs">${spec.label}</td>
+            <td class="p-3 font-mono text-xs text-neon-orange">${spec.value}</td>
+          `;
+          specsBody.appendChild(row);
+        });
+      } else {
+        specsBody.innerHTML = `
+          <tr>
+            <td colspan="2" class="p-4 text-center text-gray-500 font-mono text-xs uppercase">Estándar comercial de fábrica</td>
+          </tr>
+        `;
+      }
+
+      // Configure direct add action
+      const addBtn = document.getElementById('modal-btn-add-to-cart');
+      addBtn.onclick = () => {
+        addProductToCart(product.id);
+        closeSpecModal();
+      };
+
+      // Show modal backdrop
+      document.getElementById('spec-modal').classList.remove('hidden');
+      document.getElementById('spec-modal').classList.add('flex');
+    }
+
+    function closeSpecModal() {
+      document.getElementById('spec-modal').classList.add('hidden');
+      document.getElementById('spec-modal').classList.remove('flex');
+    }
+
+    // 5. CARTS CORE MANAGEMENT
+    function loadCartFromStorage() {
+      try {
+        const stored = localStorage.getItem('tecnosolar_cart');
+        CartData = stored ? JSON.parse(stored) : [];
+      } catch (e) {
+        CartData = [];
+      }
+      updateCartCounters();
+    }
+
+    function saveCartToStorage() {
+      localStorage.setItem('tecnosolar_cart', JSON.stringify(CartData));
+      updateCartCounters();
+    }
+
+    function updateCartCounters() {
+      const count = CartData.reduce((acc, item) => acc + item.quantity, 0);
+      
+      // Elements updater
+      const badgDesk = document.getElementById('cart-counter-desktop');
+      const badgMob = document.getElementById('cart-counter-mobile');
+      const badgFloat = document.getElementById('cart-badge-floating');
+
+      [badgDesk, badgMob, badgFloat].forEach(badge => {
+        if (badge) {
+          if (count > 0) {
+            badge.innerText = count;
+            badge.classList.remove('hidden');
+          } else {
+            badge.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    function addProductToCart(productId) {
+      const product = ProductsDatabase.find(p => p.id === Number(productId));
+      if (!product) return;
+
+      const existingIndex = CartData.findIndex(item => item.id === product.id);
+      if (existingIndex > -1) {
+        CartData[existingIndex].quantity += 1;
+      } else {
+        CartData.push({ ...product, quantity: 1 });
+      }
+
+      saveCartToStorage();
+      triggerToast("Equipo Añadido", `${product.name} fue agregado correctamente al carro de compras.`);
+    }
+
+    function updateCartItemQuantity(productId, delta) {
+      const itemIndex = CartData.findIndex(item => item.id === Number(productId));
+      if (itemIndex > -1) {
+        const newQty = CartData[itemIndex].quantity + delta;
+        if (newQty <= 0) {
+          removeCartItem(productId);
+        } else {
+          CartData[itemIndex].quantity = newQty;
+          saveCartToStorage();
+          renderCartView();
+        }
+      }
+    }
+
+    function removeCartItem(productId) {
+      const item = CartData.find(item => item.id === Number(productId));
+      const label = item ? item.name : "Producto";
+      CartData = CartData.filter(item => item.id !== Number(productId));
+      
+      saveCartToStorage();
+      renderCartView();
+      triggerToast("Equipo Removido", `${label} fue sacado del carro de compras.`);
+    }
+
+    function clearShoppingBag() {
+      CartData = [];
+      saveCartToStorage();
+      renderCartView();
+      triggerToast("Carro Vaciado", "Se han removido todos los equipos para cotización.");
+    }
+
+    // Render cart tables
+    function renderCartView() {
+      const emptyView = document.getElementById('cart-empty-view');
+      const filledView = document.getElementById('cart-filled-view');
+
+      if (CartData.length === 0) {
+        emptyView.classList.remove('hidden');
+        filledView.classList.add('hidden');
+        return;
+      }
+
+      emptyView.classList.add('hidden');
+      filledView.classList.remove('hidden');
+
+      // Table body Desktop
+      const desktopTable = document.getElementById('cart-desktop-table-body');
+      desktopTable.innerHTML = '';
+
+      // Grid Container Mobile
+      const mobileListContainer = document.getElementById('cart-mobile-items-container');
+      mobileListContainer.innerHTML = '';
+
+      let subtotalSum = 0;
+
+      CartData.forEach(item => {
+        const itemSubtotal = item.price * item.quantity;
+        subtotalSum += itemSubtotal;
+
+        // Desktop Row markup
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-metal-light/30 transition-colors";
+        tr.innerHTML = `
+          <td class="p-4 flex items-center gap-4">
+            <div class="w-14 h-14 bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0 border border-metal-border">
+              <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain">
+            </div>
+            <div>
+              <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${item.name}</p>
+              <p class="text-[10px] text-gray-500 font-mono mt-0.5">SKU: ${item.sku}</p>
+            </div>
+          </td>
+          <td class="p-4 text-center">
+            <div class="inline-flex items-center border border-metal-border bg-metal-dark rounded-sm">
+              <button onclick="updateCartItemQuantity(${item.id}, -1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
+                <i data-lucide="minus" class="w-3 h-3"></i>
+              </button>
+              <span class="px-3 font-mono font-bold text-xs select-none">${item.quantity}</span>
+              <button onclick="updateCartItemQuantity(${item.id}, 1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
+                <i data-lucide="plus" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </td>
+          <td class="p-4 text-right font-mono text-xs text-gray-400">
+            $${item.price.toLocaleString("es-CL")}
+          </td>
+          <td class="p-4 text-right font-mono text-xs font-bold text-neon-orange">
+            $${itemSubtotal.toLocaleString("es-CL")}
+          </td>
+          <td class="p-4 text-center">
+            <button onclick="removeCartItem(${item.id})" class="text-gray-500 hover:text-white hover:bg-burgundy/20 p-2 rounded-sm transition-all" title="Eliminar">
+              <i data-lucide="trash-2" class="w-4 h-4 text-red-500"></i>
+            </button>
+          </td>
+        `;
+        desktopTable.appendChild(tr);
+
+        // Mobile Row markup bento
+        const cardMobile = document.createElement('div');
+        cardMobile.className = "bg-metal-card p-4 border border-metal-border rounded-sm space-y-4";
+        cardMobile.innerHTML = `
+          <div class="flex items-start gap-3">
+            <div class="w-16 h-16 bg-white rounded-sm p-1.5 shrink-0 border border-metal-border flex items-center justify-center">
+              <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain">
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.name}</h4>
+              <p class="font-mono text-[9px] text-gray-500">SKU: ${item.sku}</p>
+              <p class="font-mono text-xs text-neon-orange font-bold">$${item.price.toLocaleString("es-CL")} c/u</p>
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center bg-metal-dark p-2.5 border border-metal-border/50 rounded-sm">
+            <div class="flex items-center border border-metal-light bg-metal-light/40 rounded-sm">
+              <button onclick="updateCartItemQuantity(${item.id}, -1)" class="p-2">
+                <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+              </button>
+              <span class="px-4 font-mono font-bold text-xs">${item.quantity}</span>
+              <button onclick="updateCartItemQuantity(${item.id}, 1)" class="p-2">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            
+            <div class="text-right">
+              <span class="text-[9px] text-gray-500 font-mono block uppercase">Valor:</span>
+              <span class="font-mono font-bold text-xs text-neon-orange">$${itemSubtotal.toLocaleString("es-CL")}</span>
+            </div>
+            
+            <button onclick="removeCartItem(${item.id})" class="p-2 bg-burgundy/10 hover:bg-burgundy/30 rounded-sm text-red-500 border border-burgundy/20">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        `;
+        mobileListContainer.appendChild(cardMobile);
+      });
+
+      // Math computations Commercial Chile
+      const IVA_FACTOR = 0.19;
+      const totalAmount = subtotalSum;
+      const netAmount = Math.round(totalAmount / (1 + IVA_FACTOR));
+      const ivaAmount = totalAmount - netAmount;
+
+      document.getElementById('price-neto').innerText = `$${netAmount.toLocaleString("es-CL")} CLP`;
+      document.getElementById('price-iva').innerText = `$${ivaAmount.toLocaleString("es-CL")} CLP`;
+      document.getElementById('price-total').innerText = `$${totalAmount.toLocaleString("es-CL")} CLP`;
+
+      lucide.createIcons();
+    }
+
+    // 6. WHATSAPP CHECKOUT MESSAGE BUILDER
+    function executeWhatsAppCheckout() {
+      if (CartData.length === 0) {
+        triggerToast("Carro Vacío", "No es posible cotizar sin productos agregados.");
+        return;
+      }
+
+      // Compute Prices again
+      const totalAmount = CartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      const netAmount = Math.round(totalAmount / 1.19);
+      const ivaAmount = totalAmount - netAmount;
+
+      // Phone targets
+      const WHATSAPP_PHONE = "56931930339"; // Authorized TecnoSolar company line
+      
+      // Building gorgeous text
+      let text = "⚡ *PEDIDO TECNOSOLAR SANTA CRUZ* ⚡\n";
+      text += "--------------------------------------\n";
+      text += "*Detalle de Cotización:*\n\n";
+
+      CartData.forEach((item, index) => {
+        text += `• *${item.quantity}x* ${item.name}\n`;
+        text += `  _SKU: ${item.sku}_  |  $${item.price.toLocaleString("es-CL")} c/u\n`;
+        text += `  _Subtotal:_ *$${(item.price * item.quantity).toLocaleString("es-CL")} CLP*\n\n`;
+      });
+
+      text += "--------------------------------------\n";
+      text += `*Neto Estimado:* $${netAmount.toLocaleString("es-CL")} CLP\n`;
+      text += `*IVA (19%):* $${ivaAmount.toLocaleString("es-CL")} CLP\n`;
+      text += `*TOTAL ESTIMADO:* *$${totalAmount.toLocaleString("es-CL")} CLP*\n\n`;
+      text += "--------------------------------------\n";
+      text += "*Datos para Transferencia Electrónica:*\n";
+      text += "• Banco: Banco del Estado de Chile\n";
+      text += "• Cuenta: Cuenta Corriente (N° 1210928374)\n";
+      text += "• Rut: 76.993.441-2\n";
+      text += "• Correo: pagos@tecnosolaresantacruz.cl\n\n";
+      text += "--------------------------------------\n";
+      text += "⚡ _Mensaje generado de forma automática desde TecnoSolar.cl para confirmación y flete. Estaré atento al despacho._";
+
+      // Formulate complete URL encoded string
+      const encodeMsg = encodeURIComponent(text);
+      const whatsappURL = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeMsg}`;
+
+      // Open new browser tab safely
+      window.open(whatsappURL, '_blank');
+      
+      triggerToast("Checkout Generado", "Se abrió el remitente de confirmación en WhatsApp.");
+    }
+
+    // 7. COPY DATA UTILITY
+    function copyBankDetails() {
+      const bankName = document.getElementById("bank-name").innerText;
+      const bankType = document.getElementById("bank-type").innerText;
+      const bankAcc = document.getElementById("bank-acc").innerText;
+      const bankRut = document.getElementById("bank-rut").innerText;
+      const bankMail = document.getElementById("bank-mail").innerText;
+
+      const comprehensiveText = `DATOS DE TRANSFERENCIA - TECNOSOLAR SANTA CRUZ\n` +
+                                `===========================================\n` +
+                                `• Banco: ${bankName}\n` +
+                                `• Tipo Cuenta: ${bankType}\n` +
+                                `• N° Cuenta: ${bankAcc}\n` +
+                                `• Rut: ${bankRut}\n` +
+                                `• Correo: ${bankMail}\n` +
+                                `===========================================`;
+
+      // Copying flow
+      navigator.clipboard.writeText(comprehensiveText).then(() => {
+        const btn = document.getElementById('btn-copy-bank');
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-green-500"></i> ¡Datos Copiados!`;
+        lucide.createIcons();
+
+        triggerToast("Datos Copiados", "Se copiaron los datos de transferencia en su portapapeles.");
+
+        // Timeout transition back
+        setTimeout(() => {
+          btn.innerHTML = `<i data-lucide="copy" class="w-4 h-4 text-neon-orange"></i> Copiar Datos Comerciales`;
+          lucide.createIcons();
+        }, 3000);
+      }).catch(err => {
+        console.error("Error copying clipboard details:", err);
+      });
+    }
+
+    // 8. NOTIFICATION ALERTS TOAST SHOWCASE
+    function triggerToast(title, message) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-title').innerText = title;
+      document.getElementById('toast-message').innerText = message;
+      
+      toast.classList.remove('hidden');
+      
+      // Auto dismiss
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

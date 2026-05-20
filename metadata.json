@@ -1,0 +1,6 @@
+{
+  "name": "TecnoSolar Santa Cruz",
+  "description": "Premium industrial solar and power tool solutions for professional and agricultural use.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
