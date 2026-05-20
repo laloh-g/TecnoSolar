@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "Taladro Percutor Inalámbrico 20V MAX",
+    "sku": "TS-DRL-20V-MX",
+    "category": "Herramientas Eléctricas",
+    "price": 185990,
+    "tag": "Nuevo",
+    "description": "Ingeniería de alto torque diseñada para trabajos pesados en agricultura e industria. Motor Brushless que maximiza la vida útil y la potencia.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8",
+    "specs": [
+      { "label": "Voltaje", "value": "20V MAX" },
+      { "label": "Torque Máximo", "value": "65 Nm" },
+      { "label": "Velocidad sin carga", "value": "0-500 / 0-1750 RPM" },
+      { "label": "Impactos por minuto", "value": "0-29750 IPM" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Esmeril Angular Inalámbrico Industrial",
+    "sku": "TS-GRN-20V-PRO",
+    "category": "Herramientas Eléctricas",
+    "price": 145000,
+    "tag": "Profesional",
+    "description": "Corte y desbaste de precisión sin cables. Equipado con freno electrónico y guardas de seguridad de ajuste rápido.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD7BtFmtuj48E46_bD3YBBqEUbII3AOzOS7Cll26Z5bJ4xi2xyp3qzkD_EichXoGYLLywjoUz2FBodJ-6c3JPphQAAnpLxsrTm3e_KwIeaLzKhBwk6887llbFzuc3jegLYcSKOwmZ1158RByqWuaLtmqaNQk_KIryFv90NgJjxOGfSdqqWCOIN8gsDOjhkGeKFr8DPIxl0fUyJQNKE1nJ159jsVneve2Cuu7yOOA74ezYtLnSHpuvcAzu3tX4PgqzcCaCwyycLlBxA",
+    "specs": [
+      { "label": "Diámetro Disco", "value": "125 mm" },
+      { "label": "Motor", "value": "Sin carbones (Brushless)" },
+      { "label": "Peso", "value": "1.7 kg" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Foco Solar Exterior 400W LED",
+    "sku": "TS-SOL-400W-HD",
+    "category": "Iluminación Solar",
+    "price": 85000,
+    "tag": "Eficiencia",
+    "description": "Máxima potencia lumínica con energía limpia. Chasis de aluminio inyectado y panel fotovoltaico de alta eficiencia.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAefhTDYepVhgPnALPfAI9Ynt3Ct2RweFHsWLw46wX9y5kBDb1JRvFe9gYX9RlF-e60iSEGdxhWPJsJyzju43lD4awlUcBFAZ6GVglA_01eV5omIpm4H0LLKKO8mY01-LntyzLf-AmGNjeEc5aZ2YZWvOBqSE3nDa7lTVrE5I-2bFZhkGH1lSKRKbYSvk3xzAsV5oEeC0fvfciwYT97AxAorqUoozAg9FpKA70g09DhGCQ3EvqLE4ezhywq2CPurTzIAnb39985fjk",
+    "specs": [
+      { "label": "Potencia", "value": "400W LED" },
+      { "label": "Autonomía", "value": "12-14 horas" },
+      { "label": "Certificación", "value": "IP67 (Intemperie)" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Lámpara de Emergencia Solar Pro",
+    "sku": "TS-EM-LIT-05",
+    "category": "Iluminación Solar",
+    "price": 45000,
+    "tag": "Seguridad",
+    "description": "Solución confiable para cortes de energía o zonas críticas sin red eléctrica. Activación automática.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1uWyysqvjchZ4E61MQdU246xtYux2Oy7jtXBBB88K--LmiRnQGn_0YATqegVkA3xYkfdNOEOmnBnQ-9fl7SFAcBxP0jZSYyUzYekFyJiSm2OLXBrhWb4ljRn7QKIY8xc-1iAYc3e4ThZx0pbLzjCBkr-1drMYlttLweT8Aw70dyqTMnF4Zk0QZguZGbeCShqudmengUfbjXxRWldWHvFyltwF6SyigoquZe4pPbbtVsPgjohSA5St0_lUlugV8ciyYneh7nN_7VM",
+    "specs": [
+      { "label": "Lúmenes", "value": "2500 lm" },
+      { "label": "Batería", "value": "Litio LFP" },
+      { "label": "Modos", "value": "Sensor Movimiento / Fijo" }
+    ]
+  }
+]
