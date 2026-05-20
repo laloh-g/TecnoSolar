@@ -1092,7 +1092,7 @@
             <div class="mt-auto space-y-4.5 pt-2">
               <div class="flex items-baseline justify-between">
                 <span class="text-[9px] font-mono text-gray-400 uppercase">ClP Neto:</span>
-                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${product.precio.toLocaleString("es-CL")}</span>
+                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${precio.toLocaleString("es-CL")}</span>
               </div>
               
               <div class="grid grid-cols-2 gap-2">
@@ -1121,7 +1121,7 @@
       document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku}`;
       document.getElementById('modal-product-title').innerText = product.nombre;
       document.getElementById('modal-product-category').innerText = product.categoria;
-      document.getElementById('modal-product-price').innerText = `$${product.precio.toLocaleString("es-CL")} CLP`;
+      document.getElementById('modal-product-price').innerText = `$${(product.precio || 0).toLocaleString("es-CL")} CLP`;
       document.getElementById('modal-product-descr').innerText = product.descripcion;
       document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.imagen));
 
@@ -1168,7 +1168,26 @@
     function loadCartFromStorage() {
       try {
         const stored = localStorage.getItem('tecnosolar_cart');
-        CartData = stored ? JSON.parse(stored) : [];
+        const rawCart = stored ? JSON.parse(stored) : [];
+        CartData = rawCart.map(item => {
+          const id = Number(item.id !== undefined ? item.id : (item.ID !== undefined ? item.ID : 0));
+          const nombre = item.nombre || item.name || 'Producto';
+          const precio = Math.max(0, Number(item.precio !== undefined ? item.precio : (item.price !== undefined ? item.price : 0)));
+          const descripcion = item.descripcion || item.description || '';
+          const sku = item.sku || `TS-${id}`;
+          const imagen = item.imagen || item.image || '';
+          const categoria = item.categoria || item.category || 'Equipos';
+          return {
+            id,
+            nombre,
+            precio,
+            descripcion,
+            sku,
+            imagen,
+            categoria,
+            quantity: Number(item.quantity || 1)
+          };
+        });
       } catch (e) {
         CartData = [];
       }
@@ -1299,10 +1318,10 @@
             </div>
           </td>
           <td class="p-4 text-right font-mono text-xs text-gray-400">
-            $${item.precio.toLocaleString("es-CL")}
+            $${(item.precio || 0).toLocaleString("es-CL")}
           </td>
           <td class="p-4 text-right font-mono text-xs font-bold text-neon-orange">
-            $${itemSubtotal.toLocaleString("es-CL")}
+            $${(itemSubtotal || 0).toLocaleString("es-CL")}
           </td>
           <td class="p-4 text-center">
             <button onclick="removeCartItem(${item.id})" class="text-gray-500 hover:text-white hover:bg-burgundy/20 p-2 rounded-sm transition-all" title="Eliminar">
@@ -1323,7 +1342,7 @@
             <div class="space-y-1">
               <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.nombre}</h4>
               <p class="font-mono text-[9px] text-gray-400">SKU: ${item.sku}</p>
-              <p class="font-mono text-xs text-neon-orange font-bold">$${item.precio.toLocaleString("es-CL")} c/u</p>
+              <p class="font-mono text-xs text-neon-orange font-bold">$${(item.precio || 0).toLocaleString("es-CL")} c/u</p>
             </div>
           </div>
           
@@ -1340,7 +1359,7 @@
             
             <div class="text-right">
               <span class="text-[9px] text-gray-500 font-mono block uppercase">Valor:</span>
-              <span class="font-mono font-bold text-xs text-neon-orange">$${itemSubtotal.toLocaleString("es-CL")}</span>
+              <span class="font-mono font-bold text-xs text-neon-orange">$${(itemSubtotal || 0).toLocaleString("es-CL")}</span>
             </div>
             
             <button onclick="removeCartItem(${item.id})" class="p-2 bg-burgundy/10 hover:bg-burgundy/30 rounded-sm text-red-500 border border-burgundy/20">
@@ -1386,8 +1405,8 @@
 
       CartData.forEach((item, index) => {
         text += `• *${item.quantity}x* ${item.nombre}\n`;
-        text += `  _SKU: ${item.sku}_  |  $${item.precio.toLocaleString("es-CL")} c/u\n`;
-        text += `  _Subtotal:_ *$${(item.precio * item.quantity).toLocaleString("es-CL")} CLP*\n\n`;
+        text += `  _SKU: ${item.sku}_  |  $${(item.precio || 0).toLocaleString("es-CL")} c/u\n`;
+        text += `  _Subtotal:_ *$${((item.precio || 0) * item.quantity).toLocaleString("es-CL")} CLP*\n\n`;
       });
 
       text += "--------------------------------------\n";
