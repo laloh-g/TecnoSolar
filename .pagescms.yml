@@ -1,0 +1,60 @@
+# Plano Maestro de Administración Total para TecnoSolar
+content:
+  # ----------------------------------------------------
+  # FORMULARIO 1: CONTROL DE DISEÑO, COLORES Y TEMPORADAS
+  # ----------------------------------------------------
+  - id: ajustes_tienda
+    label: "Diseño y Temporadas de la Tienda"
+    type: file
+    path: public/ajustes.json
+    format: json
+    fields:
+      - id: nombre_tienda
+        label: "Nombre de la Vitrina"
+        type: string
+      - id: banner_inicial
+        label: "Imagen de Portada Principal (Banner)"
+        type: image
+        media_url: public/diseno
+      - id: mensaje_bienvenida
+        label: "Texto de Bienvenida de la Temporada"
+        type: string
+      - id: color_principal
+        label: "Color de la Barra Superior (Código Hex, ej: #800020 para Burdeo)"
+        type: string
+      - id: color_fondo
+        label: "Color de Fondo de la Web (ej: #111111 para Negro Industrial o #FFFFFF para Blanco Invierno)"
+        type: string
+      - id: aviso_alerta
+        label: "Texto de la barra de anuncios (ej: ¡Ofertas de Invierno - Despachos a todo Colchagua!)"
+        type: string
+
+  # ----------------------------------------------------
+  # FORMULARIO 2: EL CATÁLOGO DE HERRAMIENTAS
+  # ----------------------------------------------------
+  - id: productos
+    label: "Catálogo de Productos"
+    type: collection
+    path: public/productos.json
+    format: json
+    exclude: []
+    fields:
+      - id: id
+        label: "ID (Número único)"
+        type: number
+      - id: nombre
+        label: "Nombre de la Herramienta"
+        type: string
+      - id: precio
+        label: "Precio (Solo números)"
+        type: number
+      - id: sku
+        label: "Código SKU"
+        type: string
+      - id: descripcion
+        label: "Descripción"
+        type: text
+      - id: imagen
+        label: "Foto del Producto"
+        type: image
+        media_url: public/inventario
