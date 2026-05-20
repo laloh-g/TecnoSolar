@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-[#0a0a0a]">
+<html lang="es" class="h-full">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TecnoSolar Santa Cruz - Herramientas e Iluminación</title>
+  <title>TecnoSolar Santa Cruz - Herramientas e Iluminación Premium</title>
   
   <!-- Fonts Integration -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,11 +29,11 @@
               orangeHover: '#e04913'
             },
             metal: {
-              darker: '#0a0a0a',
-              dark: '#121212',
-              card: '#181818',
-              border: '#262626',
-              light: '#2a2a2a',
+              darker: 'var(--bg-darker)',
+              dark: 'var(--bg-dark)',
+              card: 'var(--bg-card)',
+              border: 'var(--border-color)',
+              light: 'var(--bg-light)',
               highlight: '#3f3f46'
             }
           },
@@ -50,17 +50,47 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Extra Styles for custom custom utilities and animations -->
+  <!-- Extra Styles for custom variables, theme switching and scrollbars -->
   <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-header: rgba(10, 10, 10, 0.95);
+      --bg-card: #181818;
+      --bg-darker: #0a0a0a;
+      --bg-light: #2a2a2a;
+      --bg-dark: #121212;
+      --border-color: #262626;
+      --text-gray-400: #9ca3af;
+      --text-gray-300: #d1d5db;
+      --text-gray-200: #e5e7eb;
+      --text-white: #ffffff;
+      --text-f5: #f5f5f5;
+    }
+
+    html.light {
+      --bg-primary: #f3f4f6;
+      --bg-header: rgba(243, 244, 246, 0.95);
+      --bg-card: #ffffff;
+      --bg-darker: #f9fafb;
+      --bg-light: #e5e7eb;
+      --bg-dark: #f3f4f6;
+      --border-color: #d1d5db;
+      --text-gray-400: #4b5563;
+      --text-gray-300: #374151;
+      --text-gray-200: #1f2937;
+      --text-white: #111827;
+      --text-f5: #111827;
+    }
+
     /* Styling Custom Forms and Scrollbars */
     ::-webkit-scrollbar {
       width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #0a0a0a;
+      background: var(--bg-darker);
     }
     ::-webkit-scrollbar-thumb {
-      background: #262626;
+      background: var(--bg-light);
       border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
@@ -73,9 +103,65 @@
     .glow-border {
       box-shadow: 0 0 15px rgba(255, 90, 31, 0.1);
     }
+
+    html.light .glow-border {
+      box-shadow: 0 0 15px rgba(125, 24, 41, 0.08);
+    }
+
+    /* Fluid transitional properties for elegant theme shift */
+    * {
+      transition-property: background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 200ms;
+    }
+
+    body {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-gray-200) !important;
+    }
+    header {
+      background-color: var(--bg-header) !important;
+    }
+    input, textarea, select {
+      background-color: var(--bg-dark) !important;
+      color: var(--text-white) !important;
+      border-color: var(--border-color) !important;
+    }
+    input::placeholder, textarea::placeholder {
+      color: var(--text-gray-400) !important;
+      opacity: 0.7;
+    }
+
+    /* CSS variable mapping classes */
+    .bg-metal-darker { background-color: var(--bg-darker) !important; }
+    .bg-metal-dark { background-color: var(--bg-dark) !important; }
+    .bg-metal-card { background-color: var(--bg-card) !important; }
+    .bg-metal-light { background-color: var(--bg-light) !important; }
+    .border-metal-border { border-color: var(--border-color) !important; }
+    .border-metal-light { border-color: var(--border-color) !important; }
+
+    .text-white { color: var(--text-white) !important; }
+    .text-gray-400 { color: var(--text-gray-400) !important; }
+    .text-gray-300 { color: var(--text-gray-300) !important; }
+    .text-gray-200 { color: var(--text-gray-200) !important; }
+    .text-gray-500 { color: var(--text-gray-400) !important; opacity: 0.8; }
+    .text-\[\#f5f5f5\] { color: var(--text-f5) !important; }
+
+    html.light .font-display.text-white,
+    html.light h2.text-white,
+    html.light h1.text-white,
+    html.light h3.text-white,
+    html.light h4.text-white,
+    html.light h5.text-white {
+      color: var(--text-white) !important;
+    }
+
+    html.light .bg-clip-text {
+      background-image: linear-gradient(to right, #111827, #ff5a1f, #7d1829) !important;
+    }
   </style>
 </head>
-<body class="flex flex-col min-h-screen text-gray-200 font-sans antialiased bg-[#0a0a0a]">
+<body class="flex flex-col min-h-screen font-sans antialiased text-gray-200">
 
   <!-- TOP BAR BANNER (Important Commercial Details) -->
   <div class="bg-burgundy text-white px-4 py-2 text-center text-xs font-mono tracking-widest uppercase flex items-center justify-center gap-3">
@@ -83,8 +169,8 @@
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-orange opacity-75"></span>
       <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-orange"></span>
     </span>
-    <span>Un mundo en herramientas y Soluciones solares</span>
-    <span class="hidden md:inline">| Despacho Especial en Santa Cruz</span>
+    <span>Soporte Técnico Especializado e Importación Directa</span>
+    <span class="hidden md:inline">| Despacho Especial en la VI Región</span>
   </div>
 
   <!-- NAVIGATION HEADER -->
@@ -100,13 +186,13 @@
             <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight text-white uppercase">
               TecnoSolar<span class="text-neon-orange">.cl</span>
             </h1>
-            <p class="text-[9px] font-mono tracking-widest text-[#9e2539] uppercase leading-none mt-0.5">Santa Cruz - Chile</p>
+            <p class="text-[9px] font-mono tracking-widest text-burgundy-light uppercase leading-none mt-0.5">Santa Cruz - Chile</p>
           </div>
         </div>
 
         <!-- Navigation Tabs (Desktop) -->
         <nav class="hidden md:flex items-center gap-1">
-          <button onclick="navigateTo('home')" id="nav-home" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-white border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
+          <button onclick="navigateTo('home')" id="nav-home" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-[#9e2539] border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
             Inicio
           </button>
           <button onclick="navigateTo('catalog')" id="nav-catalog" class="nav-tab px-4 py-2 font-mono text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-neon-orange transition-all font-medium">
@@ -123,6 +209,11 @@
 
         <!-- CTAs / Mobile toggler -->
         <div class="flex items-center gap-4">
+          <!-- Theme Toggle Button -->
+          <button onclick="toggleTheme()" class="p-2.5 rounded-sm bg-metal-light border border-metal-border hover:border-burgundy-light transition-all flex items-center justify-center relative" id="theme-toggle-btn" title="Cambiar Tema">
+            <i data-lucide="sun" class="w-5 h-5 text-gray-300 hover:text-neon-orange transition-colors"></i>
+          </button>
+
           <!-- Quick Cart Shortcut button -->
           <button onclick="navigateTo('cart')" class="relative p-2.5 rounded-sm bg-metal-light border border-metal-border hover:border-burgundy-light transition-all group" title="Ver Carrito">
             <i data-lucide="shopping-cart" class="w-5 h-5 text-gray-300 group-hover:text-neon-orange transition-colors"></i>
@@ -180,13 +271,13 @@
                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> INDUSTRIAL & SOLAR PREEMINENCE
               </div>
               
-              <h2 class="text-4.5xl md:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[0.95]">
+              <h2 class="text-4xl md:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[0.95]">
                 Equipos de Alta<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-orange to-burgundy-light">Resistencia</span>
               </h2>
               
               <p class="text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Importamos y distribuimos herramientas inalámbricas y sistemas de iluminación solar de alta autonomía. Rendimiento certificado para el trabajo de Colchagua.
+                Importamos y distribuimos herramientas inalámbricas de fuerza industrial y sistemas de iluminación solar de alta autonomía. Rendimiento certificado para el trabajo agrícola y vitivinícola de Colchagua.
               </p>
 
               <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
@@ -201,12 +292,12 @@
               <!-- Badges parameters micro -->
               <div class="grid grid-cols-3 gap-4 pt-4 border-t border-metal-border max-w-md mx-auto lg:mx-0">
                 <div>
-                  <p class="text-2xl font-mono font-bold text-white leading-none">30 Dias</p>
-                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Garantía</p>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">100%</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Garantía Real</p>
                 </div>
                 <div>
-                  <p class="text-2xl font-mono font-bold text-white leading-none">Calidad</p>
-                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Al mejor precio</p>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">IP67</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Resistencia Solar</p>
                 </div>
                 <div>
                   <p class="text-2xl font-mono font-bold text-white leading-none">V-MAX</p>
@@ -217,13 +308,13 @@
 
             <!-- Visual banner slider representation static -->
             <div class="lg:col-span-5 relative flex justify-center">
-              <div class="relative bg-metal-dark/50 p-6 md:p-10 rounded-sm border border-metal-border glow-border max-w-sm w-full mx-auto">
+              <div class="relative bg-metal-dark border border-metal-border p-6 md:p-10 rounded-sm glow-border max-w-sm w-full mx-auto">
                 <div class="absolute top-4 right-4 bg-burgundy/80 text-white border border-neon-orange/40 font-mono text-[9px] px-2 py-0.5 rounded-sm uppercase tracking-wide">Destacado Semanal</div>
-                <div class="aspect-square bg-[#fff]/95 rounded-sm p-8 flex items-center justify-center border border-white/10 mix-blend-normal">
+                <div class="aspect-square bg-white rounded-sm p-8 flex items-center justify-center border border-white/10 mix-blend-normal">
                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8" alt="Taladro industrial" class="max-h-56 object-contain">
                 </div>
                 <div class="mt-6 space-y-2 text-center sm:text-left">
-                  <p class="text-[10px] font-mono tracking-widest text-burgundy-light uppercase font-bold">Herramientas Eléctricas</p>
+                  <p class="text-[10px] font-mono tracking-widest text-[#9e2539] uppercase font-bold">Herramientas Eléctricas</p>
                   <h3 class="text-lg font-display font-bold text-white uppercase tracking-tight">Taladro Percutor Inalámbrico 20V MAX</h3>
                   <p class="text-[#ff5a1f] font-mono font-bold text-xl">$185.990 CLP</p>
                   <button onclick="navigateTo('catalog')" class="w-full mt-4 bg-metal-light hover:bg-burgundy text-white font-mono text-xs uppercase tracking-wider py-3 px-4 border border-metal-border hover:border-neon-orange/30 rounded-sm transition-all flex items-center justify-center gap-2">
@@ -258,7 +349,7 @@
                   Cero carbones, menos recalentamiento y hasta un 50% mayor autonomía de batería en faenas prolongadas de perforación o desbaste.
                 </p>
               </div>
-              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-[#9e2539] group-hover:text-neon-orange transition-colors uppercase font-bold">
                 Alto Torque Estándar <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </div>
             </div>
@@ -274,7 +365,7 @@
                   Células de Litio Ferro-Fosfato de alto rendimiento que mantienen carga óptima incluso en días invernales cubiertos en Santa Cruz.
                 </p>
               </div>
-              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-[#9e2539] group-hover:text-neon-orange transition-colors uppercase font-bold">
                 Autonomía IP67 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </div>
             </div>
@@ -290,7 +381,7 @@
                   No dependas de envíos internacionales interminables. Contamos con taller de servicio técnico local y entrega de consumibles en Santa Cruz.
                 </p>
               </div>
-              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-burgundy-light group-hover:text-neon-orange transition-colors uppercase font-bold">
+              <div class="pt-6 border-t border-metal-border mt-8 flex items-center gap-2 text-xs font-mono tracking-widest text-[#9e2539] group-hover:text-neon-orange transition-colors uppercase font-bold">
                 Taller Propio VI Región <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </div>
             </div>
@@ -306,7 +397,7 @@
         <!-- Header catalog filter -->
         <header class="mb-12 border-b border-metal-border pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div class="space-y-2">
-            <div class="font-mono text-xs uppercase tracking-widest text-burgundy-light font-bold flex items-center gap-2">
+            <div class="font-mono text-xs uppercase tracking-widest text-[#9e2539] font-bold flex items-center gap-2">
               <span class="h-2 w-2 rounded-full bg-neon-orange"></span> Equipamiento Industrial Certificado
             </div>
             <h2 class="text-4xl md:text-5xl font-display font-extrabold uppercase text-white tracking-tight">Catálogo Técnico</h2>
@@ -374,7 +465,7 @@
             <div class="bg-metal-card border border-metal-border rounded-sm overflow-hidden hidden md:block">
               <table class="w-full text-left text-xs font-mono tracking-wider uppercase text-gray-400 border-collapse">
                 <thead>
-                  <tr class="border-b border-metal-border bg-metal-light/50">
+                  <tr class="border-b border-metal-border bg-metal-light/30">
                     <th class="p-4">Código / Producto</th>
                     <th class="p-4 text-center">Cantidad</th>
                     <th class="p-4 text-right">Precio Unitario</th>
@@ -567,7 +658,7 @@
 
       <div id="modal-product-body" class="p-6 space-y-6">
         <div class="flex gap-4">
-          <div class="w-24 h-24 bg-[#fff] rounded-sm p-2 flex items-center justify-center shrink-0 border border-metal-border">
+          <div class="w-24 h-24 bg-white rounded-sm p-2 flex items-center justify-center shrink-0 border border-metal-border">
             <img id="modal-product-image" src="" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500'" alt="preview" class="max-h-full object-contain">
           </div>
           <div class="space-y-1">
@@ -615,7 +706,7 @@
   </div>
 
   <!-- INDUSTRIAL FOOTER -->
-  <footer class="bg-metal-darker border-t border-metal-border pt-16 pb-8">
+  <footer class="bg-[#050505] border-t border-metal-border pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         
@@ -693,25 +784,60 @@
     let CurrentCategoryFilter = 'all';
     let CartData = [];
 
+    // Initialize theme state from localStorage
+    function initTheme() {
+      const storedTheme = localStorage.getItem('tecnosolar_theme');
+      const isLight = storedTheme === 'light';
+      if (isLight) {
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.remove('light');
+      }
+      updateThemeButton(isLight);
+    }
+
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isLight = htmlEl.classList.toggle('light');
+      localStorage.setItem('tecnosolar_theme', isLight ? 'light' : 'dark');
+      updateThemeButton(isLight);
+    }
+
+    function updateThemeButton(isLight) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (!btn) return;
+      if (isLight) {
+        btn.innerHTML = `<i data-lucide="moon" class="w-5 h-5 text-burgundy transition-colors hover:text-neon-orange"></i>`;
+      } else {
+        btn.innerHTML = `<i data-lucide="sun" class="w-5 h-5 text-gray-300 hover:text-neon-orange transition-colors"></i>`;
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
     // Initialize application on load
     window.addEventListener('DOMContentLoaded', async () => {
-      // Step 1: Initialize Lucide Icons
+      // 1. Theme Configuration
+      initTheme();
+
+      // 2. Initialize Lucide Icons
       lucide.createIcons();
       
-      // Step 2: Load Cart from localStorage
+      // 3. Load Cart from localStorage
       loadCartFromStorage();
       
-      // Step 3: Fetch dynamic products database
+      // 4. Fetch dynamic products database
       await fetchProductsDatabase();
       
-      // Step 4: Initial Render
+      // 5. Initial Render
       renderCatalogGrid();
       
       // Select correct starting view based on hash or default ('home')
       navigateTo('home');
     });
 
-    // 1. DYNAMIC FETCH FOR PRODUCTS (Includes Robust Schema Normalization)
+    // 1. DYNAMIC FETCH FOR PRODUCTS (Map response keys strictly to lowercase variables)
     async function fetchProductsDatabase() {
       const loader = document.getElementById('catalog-loader');
       const gridContainer = document.getElementById('catalog-container');
@@ -724,27 +850,30 @@
         
         const rawProducts = await response.json();
         
-        const getProp = (obj, key, fallback = '') => {
-          if (!obj) return fallback;
-          const keyLower = key.toLowerCase();
-          for (const k in obj) {
-            if (k.toLowerCase() === keyLower) return obj[k];
-          }
-          return fallback;
-        };
-
         ProductsDatabase = rawProducts.map(p => {
-          const id = Number(getProp(p, 'id', 0));
+          // Robust ID helper
+          const id = Number(p.id !== undefined ? p.id : (p.ID !== undefined ? p.ID : 0));
+          
+          // Map to lowercase Spanish properties explicitly
+          const nombre = p.nombre || p.name || 'Producto';
+          const precio = Math.max(0, Number(p.precio !== undefined ? p.precio : (p.price !== undefined ? p.price : 0)));
+          const descripcion = p.descripcion || p.description || '';
+          const sku = p.sku || `TS-${id}`;
+          const imagen = p.imagen || p.image || '';
+          const categoria = p.categoria || p.category || 'Equipos';
+          const tag = p.tag || '';
+          const specs = p.specs || [];
+
           return {
-            id: id,
-            name: getProp(p, 'name', 'Producto'),
-            sku: getProp(p, 'sku') || `TS-${id}`,
-            category: getProp(p, 'category', 'Equipos'),
-            price: Math.max(0, Number(getProp(p, 'price', 0))),
-            tag: getProp(p, 'tag', ''),
-            description: getProp(p, 'description', ''),
-            image: getProp(p, 'image', ''),
-            specs: getProp(p, 'specs', [])
+            id,
+            nombre,
+            precio,
+            descripcion,
+            sku,
+            imagen,
+            categoria,
+            tag,
+            specs
           };
         });
         
@@ -756,17 +885,18 @@
         
       } catch (error) {
         console.error('Error al realizar fetch en productos.json:', error);
-        // Fallback local array in case file is absent just for robustness
+        
+        // Custom robust absolute fallback array designed strictly with lower case Spanish properties
         ProductsDatabase = [
           {
             "id": 1,
-            "name": "Taladro Percutor Inalámbrico 20V MAX",
+            "nombre": "Taladro Percutor Inalámbrico 20V MAX",
             "sku": "TS-DRL-20V-MX",
-            "category": "Herramientas Eléctricas",
-            "price": 185990,
+            "categoria": "Herramientas Eléctricas",
+            "precio": 185990,
             "tag": "Nuevo",
-            "description": "Ingeniería de alto torque diseñada para trabajos pesados en agricultura e industria. Motor Brushless que maximiza la vida útil y la potencia.",
-            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8",
+            "descripcion": "Ingeniería de alto torque diseñada para trabajos pesados en agricultura e industria. Motor Brushless que maximiza la vida útil y la potencia.",
+            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8",
             "specs": [
               { "label": "Voltaje", "value": "20V MAX" },
               { "label": "Torque Máximo", "value": "65 Nm" },
@@ -776,13 +906,13 @@
           },
           {
             "id": 2,
-            "name": "Esmeril Angular Inalámbrico Industrial",
+            "nombre": "Esmeril Angular Inalámbrico Industrial",
             "sku": "TS-GRN-20V-PRO",
-            "category": "Herramientas Eléctricas",
-            "price": 145000,
+            "categoria": "Herramientas Eléctricas",
+            "precio": 145000,
             "tag": "Profesional",
-            "description": "Corte y desbaste de precisión sin cables. Equipado con freno electrónico y guardas de seguridad de ajuste rápido.",
-            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD7BtFmtuj48E46_bD3YBBqEUbII3AOzOS7Cll26Z5bJ4xi2xyp3qzkD_EichXoGYLLywjoUz2FBodJ-6c3JPphQAAnpLxsrTm3e_KwIeaLzKhBwk6887llbFzuc3jegLYcSKOwmZ1158RByqWuaLtmqaNQk_KIryFv90NgJjxOGfSdqqWCOIN8gsDOjhkGeKFr8DPIxl0fUyJQNKE1nJ159jsVneve2Cuu7yOOA74ezYtLnSHpuvcAzu3tX4PgqzcCaCwyycLlBxA",
+            "descripcion": "Corte y desbaste de precisión sin cables. Equipado con freno electrónico y guardas de seguridad de ajuste rápido.",
+            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuD7BtFmtuj48E46_bD3YBBqEUbII3AOzOS7Cll26Z5bJ4xi2xyp3qzkD_EichXoGYLLywjoUz2FBodJ-6c3JPphQAAnpLxsrTm3e_KwIeaLzKhBwk6887llbFzuc3jegLYcSKOwmZ1158RByqWuaLtmqaNQk_KIryFv90NgJjxOGfSdqqWCOIN8gsDOjhkGeKFr8DPIxl0fUyJQNKE1nJ159jsVneve2Cuu7yOOA74ezYtLnSHpuvcAzu3tX4PgqzcCaCwyycLlBxA",
             "specs": [
               { "label": "Diámetro Disco", "value": "125 mm" },
               { "label": "Motor", "value": "Sin carbones (Brushless)" },
@@ -791,13 +921,13 @@
           },
           {
             "id": 3,
-            "name": "Foco Solar Exterior 400W LED",
+            "nombre": "Foco Solar Exterior 400W LED",
             "sku": "TS-SOL-400W-HD",
-            "category": "Iluminación Solar",
-            "price": 85000,
+            "categoria": "Iluminación Solar",
+            "precio": 85000,
             "tag": "Eficiencia",
-            "description": "Máxima potencia lumínica con energía limpia. Chasis de aluminio inyectado y panel fotovoltaico de alta eficiencia.",
-            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAefhTDYepVhgPnALPfAI9Ynt3Ct2RweFHsWLw46wX9y5kBDb1JRvFe9gYX9RlF-e60iSEGdxhWPJsJyzju43lD4awlUcBFAZ6GVglA_01eV5omIpm4H0LLKKO8mY01-LntyzLf-AmGNjeEc5aZ2YZWvOBqSE3nDa7lTVrE5I-2bFZhkGH1lSKRKbYSvk3xzAsV5oEeC0fvfciwYT97AxAorqUoozAg9FpKA70g09DhGCQ3EvqLE4ezhywq2CPurTzIAnb39985fjk",
+            "descripcion": "Máxima potencia lumínica con energía limpia. Chasis de aluminio inyectado y panel fotovoltaico de alta eficiencia.",
+            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuAefhTDYepVhgPnALPfAI9Ynt3Ct2RweFHsWLw46wX9y5kBDb1JRvFe9gYX9RlF-e60iSEGdxhWPJsJyzju43lD4awlUcBFAZ6GVglA_01eV5omIpm4H0LLKKO8mY01-LntyzLf-AmGNjeEc5aZ2YZWvOBqSE3nDa7lTVrE5I-2bFZhkGH1lSKRKbYSvk3xzAsV5oEeC0fvfciwYT97AxAorqUoozAg9FpKA70g09DhGCQ3EvqLE4ezhywq2CPurTzIAnb39985fjk",
             "specs": [
               { "label": "Potencia", "value": "400W LED" },
               { "label": "Autonomía", "value": "12-14 horas" },
@@ -806,13 +936,13 @@
           },
           {
             "id": 4,
-            "name": "Lámpara de Emergencia Solar Pro",
+            "nombre": "Lámpara de Emergencia Solar Pro",
             "sku": "TS-EM-LIT-05",
-            "category": "Iluminación Solar",
-            "price": 45000,
+            "categoria": "Iluminación Solar",
+            "precio": 45000,
             "tag": "Seguridad",
-            "description": "Solución confiable para cortes de energía o zonas críticas sin red eléctrica. Activación automática.",
-            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1uWyysqvjchZ4E61MQdU246xtYux2Oy7jtXBBB88K--LmiRnQGn_0YATqegVkA3xYkfdNOEOmnBnQ-9fl7SFAcBxP0jZSYyUzYekFyJiSm2OLXBrhWb4ljRn7QKIY8xc-1iAYc3e4ThZx0pbLzjCBkr-1drMYlttLweT8Aw70dyqTMnF4Zk0QZguZGbeCShqudmengUfbjXxRWldWHvFyltwF6SyigoquZe4pPbbtVsPgjohSA5St0_lUlugV8ciyYneh7nN_7VM",
+            "descripcion": "Solución confiable para cortes de energía o zonas críticas sin red eléctrica. Activación automática.",
+            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1uWyysqvjchZ4E61MQdU246xtYux2Oy7jtXBBB88K--LmiRnQGn_0YATqegVkA3xYkfdNOEOmnBnQ-9fl7SFAcBxP0jZSYyUzYekFyJiSm2OLXBrhWb4ljRn7QKIY8xc-1iAYc3e4ThZx0pbLzjCBkr-1drMYlttLweT8Aw70dyqTMnF4Zk0QZguZGbeCShqudmengUfbjXxRWldWHvFyltwF6SyigoquZe4pPbbtVsPgjohSA5St0_lUlugV8ciyYneh7nN_7VM",
             "specs": [
               { "label": "Lúmenes", "value": "2500" },
               { "label": "Batería", "value": "Litio LFP" },
@@ -844,7 +974,7 @@
       // Update Nav active style
       document.querySelectorAll('.nav-tab').forEach(btn => {
         btn.classList.add('text-gray-400', 'border-transparent');
-        btn.classList.remove('text-white', 'border-neon-orange');
+        btn.classList.remove('text-[#9e2539]', 'text-white', 'border-neon-orange');
       });
 
       const currentNavBtn = document.getElementById(`nav-${tabId}`);
@@ -905,12 +1035,12 @@
         filtered = ProductsDatabase;
       } else if (CurrentCategoryFilter === 'electric') {
         filtered = ProductsDatabase.filter(product => {
-          const cat = (product.categoria || product.category || 'Equipos').toLowerCase();
+          const cat = (product.categoria || '').toLowerCase();
           return cat.includes('eléctrica') || cat.includes('electric');
         });
       } else if (CurrentCategoryFilter === 'solar') {
         filtered = ProductsDatabase.filter(product => {
-          const cat = (product.categoria || product.category || 'Equipos').toLowerCase();
+          const cat = (product.categoria || '').toLowerCase();
           return cat.includes('solar') || cat.includes('iluminación');
         });
       }
@@ -931,7 +1061,7 @@
         const nombre = product.nombre || 'Producto';
         const precio = Math.max(0, Number(product.precio || 0));
         const tag = product.tag || '';
-        const categoria = product.categoria || product.category || 'Equipos';
+        const categoria = product.categoria || 'Equipos';
         const sku = product.sku || `TS-${id}`;
         const imagen = product.imagen || '';
 
@@ -956,13 +1086,13 @@
               <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
                 ${nombre}
               </h4>
-              <p class="text-[10px] text-gray-500 font-mono">SKU: ${sku}</p>
+              <p class="text-[10px] text-gray-400 font-mono">SKU: ${sku}</p>
             </div>
             
             <div class="mt-auto space-y-4.5 pt-2">
               <div class="flex items-baseline justify-between">
-                <span class="text-[9px] font-mono text-gray-500 uppercase">ClP Neto:</span>
-                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${precio.toLocaleString("es-CL")}</span>
+                <span class="text-[9px] font-mono text-gray-400 uppercase">ClP Neto:</span>
+                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${product.precio.toLocaleString("es-CL")}</span>
               </div>
               
               <div class="grid grid-cols-2 gap-2">
@@ -989,11 +1119,11 @@
       if (!product) return;
 
       document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku}`;
-      document.getElementById('modal-product-title').innerText = product.name;
-      document.getElementById('modal-product-category').innerText = product.category;
-      document.getElementById('modal-product-price').innerText = `$${product.price.toLocaleString("es-CL")} CLP`;
-      document.getElementById('modal-product-descr').innerText = product.description;
-      document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.image));
+      document.getElementById('modal-product-title').innerText = product.nombre;
+      document.getElementById('modal-product-category').innerText = product.categoria;
+      document.getElementById('modal-product-price').innerText = `$${product.precio.toLocaleString("es-CL")} CLP`;
+      document.getElementById('modal-product-descr').innerText = product.descripcion;
+      document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.imagen));
 
       // Render specification rows
       const specsBody = document.getElementById('modal-specs-table-body');
@@ -1003,8 +1133,8 @@
           const row = document.createElement('tr');
           row.className = index % 2 === 0 ? "bg-metal-dark" : "bg-metal-card";
           row.innerHTML = `
-            <td class="p-3 font-semibold font-sans text-[#f5f5f5] text-xs">${spec.label}</td>
-            <td class="p-3 font-mono text-xs text-neon-orange">${spec.value}</td>
+            <td class="p-3 font-semibold font-sans text-white text-xs">${spec.label || spec.etiqueta || ''}</td>
+            <td class="p-3 font-mono text-xs text-neon-orange">${spec.value || spec.valor || ''}</td>
           `;
           specsBody.appendChild(row);
         });
@@ -1028,6 +1158,7 @@
       document.getElementById('spec-modal').classList.add('flex');
     }
 
+    // Close spec modal view
     function closeSpecModal() {
       document.getElementById('spec-modal').classList.add('hidden');
       document.getElementById('spec-modal').classList.remove('flex');
@@ -1044,7 +1175,6 @@
       updateCartCounters();
     }
 
-    // Save cart correctly
     function saveCartToStorage() {
       localStorage.setItem('tecnosolar_cart', JSON.stringify(CartData));
       updateCartCounters();
@@ -1082,7 +1212,7 @@
       }
 
       saveCartToStorage();
-      triggerToast("Equipo Añadido", `${product.name} fue agregado correctamente al carro de compras.`);
+      triggerToast("Equipo Añadido", `${product.nombre} fue agregado correctamente al carro de compras.`);
     }
 
     function updateCartItemQuantity(productId, delta) {
@@ -1101,7 +1231,7 @@
 
     function removeCartItem(productId) {
       const item = CartData.find(item => item.id === Number(productId));
-      const label = item ? item.name : "Producto";
+      const label = item ? item.nombre : "Producto";
       CartData = CartData.filter(item => item.id !== Number(productId));
       
       saveCartToStorage();
@@ -1116,7 +1246,7 @@
       triggerToast("Carro Vaciado", "Se han removido todos los equipos para cotización.");
     }
 
-    // Render cart entries and sums
+    // Render cart tables
     function renderCartView() {
       const emptyView = document.getElementById('cart-empty-view');
       const filledView = document.getElementById('cart-filled-view');
@@ -1141,7 +1271,7 @@
       let subtotalSum = 0;
 
       CartData.forEach(item => {
-        const itemSubtotal = item.price * item.quantity;
+        const itemSubtotal = item.precio * item.quantity;
         subtotalSum += itemSubtotal;
 
         // Desktop Row markup
@@ -1150,11 +1280,11 @@
         tr.innerHTML = `
           <td class="p-4 flex items-center gap-4">
             <div class="w-14 h-14 bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0 border border-metal-border">
-              <img src="${getSafeImageUrl(item.image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.name}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.nombre}" class="max-h-full object-contain">
             </div>
             <div>
-              <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${item.name}</p>
-              <p class="text-[10px] text-gray-500 font-mono mt-0.5">SKU: ${item.sku}</p>
+              <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${item.nombre}</p>
+              <p class="text-[10px] text-gray-400 font-mono mt-0.5">SKU: ${item.sku}</p>
             </div>
           </td>
           <td class="p-4 text-center">
@@ -1169,7 +1299,7 @@
             </div>
           </td>
           <td class="p-4 text-right font-mono text-xs text-gray-400">
-            $${item.price.toLocaleString("es-CL")}
+            $${item.precio.toLocaleString("es-CL")}
           </td>
           <td class="p-4 text-right font-mono text-xs font-bold text-neon-orange">
             $${itemSubtotal.toLocaleString("es-CL")}
@@ -1188,12 +1318,12 @@
         cardMobile.innerHTML = `
           <div class="flex items-start gap-3">
             <div class="w-16 h-16 bg-white rounded-sm p-1.5 shrink-0 border border-metal-border flex items-center justify-center">
-              <img src="${getSafeImageUrl(item.image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.name}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.nombre}" class="max-h-full object-contain">
             </div>
             <div class="space-y-1">
-              <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.name}</h4>
-              <p class="font-mono text-[9px] text-gray-500">SKU: ${item.sku}</p>
-              <p class="font-mono text-xs text-neon-orange font-bold">$${item.price.toLocaleString("es-CL")} c/u</p>
+              <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.nombre}</h4>
+              <p class="font-mono text-[9px] text-gray-400">SKU: ${item.sku}</p>
+              <p class="font-mono text-xs text-neon-orange font-bold">$${item.precio.toLocaleString("es-CL")} c/u</p>
             </div>
           </div>
           
@@ -1242,22 +1372,22 @@
       }
 
       // Compute Prices again
-      const totalAmount = CartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      const totalAmount = CartData.reduce((acc, item) => acc + (item.precio * item.quantity), 0);
       const netAmount = Math.round(totalAmount / 1.19);
       const ivaAmount = totalAmount - netAmount;
 
       // Phone targets
       const WHATSAPP_PHONE = "56931930339"; // Authorized TecnoSolar company line
       
-      // Building gorgeous text
+      // Building text configuration
       let text = "⚡ *PEDIDO TECNOSOLAR SANTA CRUZ* ⚡\n";
       text += "--------------------------------------\n";
       text += "*Detalle de Cotización:*\n\n";
 
       CartData.forEach((item, index) => {
-        text += `• *${item.quantity}x* ${item.name}\n`;
-        text += `  _SKU: ${item.sku}_  |  $${item.price.toLocaleString("es-CL")} c/u\n`;
-        text += `  _Subtotal:_ *$${(item.price * item.quantity).toLocaleString("es-CL")} CLP*\n\n`;
+        text += `• *${item.quantity}x* ${item.nombre}\n`;
+        text += `  _SKU: ${item.sku}_  |  $${item.precio.toLocaleString("es-CL")} c/u\n`;
+        text += `  _Subtotal:_ *$${(item.precio * item.quantity).toLocaleString("es-CL")} CLP*\n\n`;
       });
 
       text += "--------------------------------------\n";
@@ -1266,7 +1396,7 @@
       text += `*TOTAL ESTIMADO:* *$${totalAmount.toLocaleString("es-CL")} CLP*\n\n`;
       text += "--------------------------------------\n";
       text += "*Datos para Transferencia Electrónica:*\n";
-      text += "• Banco: Banco de Chile\n";
+      text += "• Banco: Banco del Estado de Chile\n";
       text += "• Cuenta: Cuenta Corriente (N° 1210928374)\n";
       text += "• Rut: 76.993.441-2\n";
       text += "• Correo: pagos@tecnosolaresantacruz.cl\n\n";
@@ -1277,7 +1407,7 @@
       const encodeMsg = encodeURIComponent(text);
       const whatsappURL = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeMsg}`;
 
-      // Open new browser tab safely
+      // Open window
       window.open(whatsappURL, '_blank');
       
       triggerToast("Checkout Generado", "Se abrió el remitente de confirmación en WhatsApp.");
