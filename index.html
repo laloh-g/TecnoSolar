@@ -900,26 +900,17 @@
       const catalogGrid = document.getElementById('catalog-container');
       if (!catalogGrid) return;
 
-      const getProp = (obj, key, fallback = '') => {
-        if (!obj) return fallback;
-        const keyLower = key.toLowerCase();
-        for (const k in obj) {
-          if (k.toLowerCase() === keyLower) return obj[k];
-        }
-        return fallback;
-      };
-
       let filtered = [];
       if (CurrentCategoryFilter === 'all') {
         filtered = ProductsDatabase;
       } else if (CurrentCategoryFilter === 'electric') {
-        filtered = ProductsDatabase.filter(p => {
-          const cat = getProp(p, 'category').toLowerCase();
+        filtered = ProductsDatabase.filter(product => {
+          const cat = (product.categoria || product.category || 'Equipos').toLowerCase();
           return cat.includes('eléctrica') || cat.includes('electric');
         });
       } else if (CurrentCategoryFilter === 'solar') {
-        filtered = ProductsDatabase.filter(p => {
-          const cat = getProp(p, 'category').toLowerCase();
+        filtered = ProductsDatabase.filter(product => {
+          const cat = (product.categoria || product.category || 'Equipos').toLowerCase();
           return cat.includes('solar') || cat.includes('iluminación');
         });
       }
@@ -935,14 +926,14 @@
         return;
       }
 
-      filtered.forEach(p => {
-        const id = getProp(p, 'id', 0);
-        const name = getProp(p, 'name', 'Producto');
-        const price = Math.max(0, Number(getProp(p, 'price', 0)));
-        const tag = getProp(p, 'tag', '');
-        const category = getProp(p, 'category', 'Equipos');
-        const sku = getProp(p, 'sku', `TS-${id}`);
-        const image = getProp(p, 'image', '');
+      filtered.forEach(product => {
+        const id = product.id || 0;
+        const nombre = product.nombre || 'Producto';
+        const precio = Math.max(0, Number(product.precio || 0));
+        const tag = product.tag || '';
+        const categoria = product.categoria || product.category || 'Equipos';
+        const sku = product.sku || `TS-${id}`;
+        const imagen = product.imagen || '';
 
         const tagHTML = tag ? `
           <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
@@ -956,14 +947,14 @@
           <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal(${id})">
             ${tagHTML}
             <div class="w-full h-full bg-white rounded-sm p-4 flex items-center justify-center">
-              <img src="${getSafeImageUrl(image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <img src="${getSafeImageUrl(imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${nombre}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
           <div class="p-5 flex flex-col flex-grow space-y-4">
             <div class="space-y-1 cursor-pointer" onclick="openSpecModal(${id})">
-              <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${category}</span>
+              <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${categoria}</span>
               <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
-                ${name}
+                ${nombre}
               </h4>
               <p class="text-[10px] text-gray-500 font-mono">SKU: ${sku}</p>
             </div>
@@ -971,7 +962,7 @@
             <div class="mt-auto space-y-4.5 pt-2">
               <div class="flex items-baseline justify-between">
                 <span class="text-[9px] font-mono text-gray-500 uppercase">ClP Neto:</span>
-                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${price.toLocaleString("es-CL")}</span>
+                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${precio.toLocaleString("es-CL")}</span>
               </div>
               
               <div class="grid grid-cols-2 gap-2">
@@ -1275,7 +1266,7 @@
       text += `*TOTAL ESTIMADO:* *$${totalAmount.toLocaleString("es-CL")} CLP*\n\n`;
       text += "--------------------------------------\n";
       text += "*Datos para Transferencia Electrónica:*\n";
-      text += "• Banco: Banco del Estado de Chile\n";
+      text += "• Banco: Banco de Chile\n";
       text += "• Cuenta: Cuenta Corriente (N° 1210928374)\n";
       text += "• Rut: 76.993.441-2\n";
       text += "• Correo: pagos@tecnosolaresantacruz.cl\n\n";
