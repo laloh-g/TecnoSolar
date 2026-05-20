@@ -1,268 +1,306 @@
 [
   {
-    "Producto": "Alargador 5 mt",
-    "Precio": "CLP 6,000",
-    "SKU": "MLTP-5MT-BL",
-    "Imágenes": "INVENTARIO/bach39.png",
-    "Descripcion": "Extensión eléctrica de 5 metros con múltiples tomas para uso doméstico o taller."
+    "id": 1,
+    "nombre": "Alargador 5 mt",
+    "precio": 6000,
+    "sku": "MLTP-5MT-BL",
+    "imagen": "INVENTARIO/bach39.png",
+    "descripcion": "Extensión eléctrica de 5 metros con múltiples tomas para uso doméstico o taller."
   },
   {
-    "Producto": "Caladora inalámbrica",
-    "Precio": "CLP 39,990",
-    "SKU": "TSB-CAL-INM-CEL",
-    "Imágenes": "INVENTARIO/bach40.jpeg",
-    "Descripcion": "Sierra caladora con motor sin escobillas, velocidad variable y sistema de cambio rápido de hoja a batería."
+    "id": 2,
+    "nombre": "Caladora inalámbrica",
+    "precio": 39990,
+    "sku": "TSB-CAL-INM-CEL",
+    "imagen": "INVENTARIO/bach40.jpeg",
+    "descripcion": "Sierra caladora con motor sin escobillas, velocidad variable y sistema de cambio rápido de hoja a batería."
   },
   {
-    "Producto": "Cargador baterías",
-    "Precio": "CLP 14,000",
-    "SKU": "BACH-12V6A-RJ",
-    "Imágenes": "INVENTARIO/BACH1.jpg",
-    "Descripcion": "Cargador inteligente para baterías de plomo-ácido de 12V/24V con microprocesador para carga automática."
+    "id": 3,
+    "nombre": "Cargador baterías",
+    "precio": 14000,
+    "sku": "BACH-12V6A-RJ",
+    "imagen": "INVENTARIO/BACH1.jpg",
+    "descripcion": "Cargador inteligente para baterías de plomo-ácido de 12V/24V con microprocesador para carga automática."
   },
   {
-    "Producto": "Chicharra inalámbrica",
-    "Precio": "CLP 44,000",
-    "SKU": "TBL-CHI-INM-AMA",
-    "Imágenes": "INVENTARIO/BAch9.jpg",
-    "Descripcion": "Llave de trinquete eléctrica con batería recargable y alto torque para trabajos en espacios reducidos."
+    "id": 4,
+    "nombre": "Chicharra inalámbrica",
+    "precio": 44000,
+    "sku": "TBL-CHI-INM-AMA",
+    "imagen": "INVENTARIO/BAch9.jpg",
+    "descripcion": "Llave de trinquete eléctrica con batería recargable y alto torque para trabajos en espacios reducidos."
   },
   {
-    "Producto": "Compresor de aire 4 en 1",
-    "Precio": "CLP 34,990",
-    "SKU": "JUMP-START-NEG",
-    "Imágenes": "INVENTARIO/BACH11.jpg",
-    "Descripcion": "Dispositivo multifuncional con compresor portátil, linterna LED, medidor de presión y función de carga."
+    "id": 5,
+    "nombre": "Compresor de aire 4 en 1",
+    "precio": 34990,
+    "sku": "JUMP-START-NEG",
+    "imagen": "INVENTARIO/BACH11.jpg",
+    "descripcion": "Dispositivo multifuncional con compresor portátil, linterna LED, medidor de presión y función de carga."
   },
   {
-    "Producto": "Cortasetos y cortapasto inalámbrica",
-    "Precio": "CLP 26,990",
-    "SKU": "CR-SETO-PAS-VER",
-    "Imágenes": "INVENTARIO/BACH13.jpg",
-    "Descripcion": "Herramienta 2 en 1 para mantenimiento de jardines con cuchillas intercambiables y batería de litio."
+    "id": 6,
+    "nombre": "Cortasetos y cortapasto inalámbrica",
+    "precio": 26990,
+    "sku": "CR-SETO-PAS-VER",
+    "imagen": "INVENTARIO/BACH13.jpg",
+    "descripcion": "Herramienta 2 en 1 para mantenimiento de jardines con cuchillas intercambiables y batería de litio."
   },
   {
-    "Producto": "Desatornillador y taladro inalámbrico 100NM",
-    "Precio": "CLP 19,990",
-    "SKU": "JZT-DES-TAL-INM-100NM-GRS",
-    "Imágenes": "INVENTARIO/bach25.jpg",
-    "Descripcion": "Taladro atornillador de alto torque (100 Nm) con motor brushless y mandril metálico de alta resistencia."
+    "id": 7,
+    "nombre": "Desatornillador y taladro inalámbrico 100NM",
+    "precio": 19990,
+    "sku": "JZT-DES-TAL-INM-100NM-GRS",
+    "imagen": "INVENTARIO/bach25.jpg",
+    "descripcion": "Taladro atornillador de alto torque (100 Nm) con motor brushless y mandril metálico de alta resistencia."
   },
   {
-    "Producto": "Esmeril o galletero inalámbrico",
-    "Precio": "CLP 32,990",
-    "SKU": "TBL-GALL-INM-AMA",
-    "Imágenes": "INVENTARIO/BACH2.jpg",
-    "Descripcion": "Esmeril angular portátil para discos de 4.5\", motor de alta eficiencia y protección contra rearranque."
+    "id": 8,
+    "nombre": "Esmeril o galletero inalámbrico",
+    "precio": 32990,
+    "sku": "TBL-GALL-INM-AMA",
+    "imagen": "INVENTARIO/BACH2.jpg",
+    "descripcion": "Esmeril angular portátil para discos de 4.5\", motor de alta eficiencia y protección contra rearranque."
   },
   {
-    "Producto": "Farol solar interactivo",
-    "Precio": "CLP 5,000",
-    "SKU": "TBL-FAR-SOL-INT-NEG",
-    "Imágenes": "INVENTARIO/bach29.jpg",
-    "Descripcion": "Luminaria exterior con panel solar integrado, sensor de movimiento PIR y encendido automático."
+    "id": 9,
+    "nombre": "Farol solar interactivo",
+    "precio": 5000,
+    "sku": "TBL-FAR-SOL-INT-NEG",
+    "imagen": "INVENTARIO/bach29.jpg",
+    "descripcion": "Luminaria exterior con panel solar integrado, sensor de movimiento PIR y encendido automático."
   },
   {
-    "Producto": "Foco 1000 W metal + vidrio",
-    "Precio": "CLP 26,990",
-    "SKU": "TSB-1000W-MET-VID",
-    "Imágenes": "INVENTARIO/bach32.jpg",
-    "Descripcion": "Proyector LED de alta potencia con carcasa de aluminio fundido y vidrio templado resistente a la intemperie."
+    "id": 10,
+    "nombre": "Foco 1000 W metal + vidrio",
+    "precio": 26990,
+    "sku": "TSB-1000W-MET-VID",
+    "imagen": "INVENTARIO/bach32.jpg",
+    "descripcion": "Proyector LED de alta potencia con carcasa de aluminio fundido y vidrio templado resistente a la intemperie."
   },
   {
-    "Producto": "Foco 1000 W plástico",
-    "Precio": "CLP 18,000",
-    "SKU": "CN-FOC-1000W-PLAS",
-    "Imágenes": "INVENTARIO/bach27.jpg",
-    "Descripcion": "Foco LED de alta luminosidad con cuerpo de polímero ABS resistente, ideal para iluminación de áreas amplias."
+    "id": 11,
+    "nombre": "Foco 1000 W plástico",
+    "precio": 18000,
+    "sku": "CN-FOC-1000W-PLAS",
+    "imagen": "INVENTARIO/bach27.jpg",
+    "descripcion": "Foco LED de alta luminosidad con cuerpo de polímero ABS resistente, ideal para iluminación de áreas amplias."
   },
   {
-    "Producto": "Foco emergencia solar 2x3",
-    "Precio": "CLP 9,990",
-    "SKU": "FOC-SOL-2X3-NEG",
-    "Imágenes": "INVENTARIO/BACH15.jpg",
-    "Descripcion": "Lámpara de emergencia recargable mediante energía solar con múltiples modos de iluminación LED."
+    "id": 12,
+    "nombre": "Foco emergencia solar 2x3",
+    "precio": 9990,
+    "sku": "FOC-SOL-2X3-NEG",
+    "imagen": "INVENTARIO/BACH15.jpg",
+    "descripcion": "Lámpara de emergencia recargable mediante energía solar con múltiples modos de iluminación LED."
   },
   {
-    "Producto": "Foco solar 1200W",
-    "Precio": "CLP 28,500",
-    "SKU": "TBL-FOC-SOL-1200W-NEG",
-    "Imágenes": "INVENTARIO/bach37.jpg",
-    "Descripcion": "Sistema de iluminación LED solar de gran potencia con control remoto y certificación de impermeabilidad IP65."
+    "id": 13,
+    "nombre": "Foco solar 1200W",
+    "precio": 28500,
+    "sku": "TBL-FOC-SOL-1200W-NEG",
+    "imagen": "INVENTARIO/bach37.jpg",
+    "descripcion": "Sistema de iluminación LED solar de gran potencia con control remoto y certificación de impermeabilidad IP65."
   },
   {
-    "Producto": "Foco solar 60 LED",
-    "Precio": "CLP 7,000",
-    "SKU": "TBL-FOCOSOL-60-NEG",
-    "Imágenes": "INVENTARIO/bach12.jpg",
-    "Descripcion": "Foco exterior compacto con 60 diodos LED de alta eficiencia, panel policristalino y sensor crepuscular."
+    "id": 14,
+    "nombre": "Foco solar 60 LED",
+    "precio": 7000,
+    "sku": "TBL-FOCOSOL-60-NEG",
+    "imagen": "INVENTARIO/bach12.jpg",
+    "descripcion": "Foco exterior compacto con 60 diodos LED de alta eficiencia, panel policristalino y sensor crepuscular."
   },
   {
-    "Producto": "Foco solar emergencia 3x1",
-    "Precio": "CLP 8,990",
-    "SKU": "FOC-SOL-EME-AZU",
-    "Imágenes": "INVENTARIO/bach14.jpg",
-    "Descripcion": "Dispositivo de iluminación versátil con tres funciones integradas y carga dual (solar/red eléctrica)."
+    "id": 15,
+    "nombre": "Foco solar emergencia 3x1",
+    "precio": 8990,
+    "sku": "FOC-SOL-EME-AZU",
+    "imagen": "INVENTARIO/bach14.jpg",
+    "descripcion": "Dispositivo de iluminación versátil con tres funciones integradas y carga dual (solar/red eléctrica)."
   },
   {
-    "Producto": "Fuente de energía solar de emergencia",
-    "Precio": "CLP 7,500",
-    "SKU": "FUE-ENE-SOL-EME-AMA-NEG",
-    "Imágenes": "INVENTARIO/bach24.jpg",
-    "Descripcion": "Estación de energía portátil con entradas para paneles solares y múltiples salidas AC/DC para dispositivos."
+    "id": 16,
+    "nombre": "Fuente de energía solar de emergencia",
+    "precio": 7500,
+    "sku": "FUE-ENE-SOL-EME-AMA-NEG",
+    "imagen": "INVENTARIO/bach24.jpg",
+    "descripcion": "Estación de energía portátil con entradas para paneles solares y múltiples salidas AC/DC para dispositivos."
   },
   {
-    "Producto": "Generador portátil 200W",
-    "Precio": "CLP 115,000",
-    "SKU": "GER-200W-RJ",
-    "Imágenes": "INVENTARIO/bach6.jpg",
-    "Descripcion": "Estación de energía compacta de 200W nominales, ideal para dispositivos electrónicos y actividades al aire libre."
+    "id": 17,
+    "nombre": "Generador portátil 200W",
+    "precio": 115000,
+    "sku": "GER-200W-RJ",
+    "imagen": "INVENTARIO/bach6.jpg",
+    "descripcion": "Estación de energía compacta de 200W nominales, ideal para dispositivos electrónicos y actividades al aire libre."
   },
   {
-    "Producto": "Generador portátil 500W",
-    "Precio": "CLP 290,000",
-    "SKU": "GER-500W-GRIS",
-    "Imágenes": "INVENTARIO/bach7.jpg",
-    "Descripcion": "Estacion de energia portátil de 500W , ideal para actividades al aire libre o situaciones de emergencia donde no hay suministro de corriente."
+    "id": 18,
+    "nombre": "Generador portátil 500W",
+    "precio": 290000,
+    "sku": "GER-500W-GRIS",
+    "imagen": "INVENTARIO/bach7.jpg",
+    "descripcion": "Estación de energía portátil de 500W, ideal para actividades al aire libre o situaciones de emergencia donde no hay suministro de corriente."
   },
   {
-    "Producto": "Lámpara emergencia + parlante",
-    "Precio": "CLP 13,990",
-    "SKU": "LAMP-EME-PAR-AMA-NEG",
-    "Imágenes": "INVENTARIO/bach18.jpg",
-    "Descripcion": "Dispositivo multifunción que combina iluminación LED de emergencia con conectividad Bluetooth para audio."
+    "id": 19,
+    "nombre": "Lámpara emergencia + parlante",
+    "precio": 13990,
+    "sku": "LAMP-EME-PAR-AMA-NEG",
+    "imagen": "INVENTARIO/bach18.jpg",
+    "descripcion": "Dispositivo multifunción que combina iluminación LED de emergencia con conectividad Bluetooth para audio."
   },
   {
-    "Producto": "Linterna y set de emergencia con herramientas",
-    "Precio": "CLP 14,990",
-    "SKU": "TSB-LIN-HER-AMA-NEG",
-    "Imágenes": "INVENTARIO/bach20.jpg",
-    "Descripcion": "Kit de seguridad con linterna de alta intensidad y herramientas básicas integradas para reparaciones rápidas."
+    "id": 20,
+    "nombre": "Linterna y set de emergencia con herramientas",
+    "precio": 14990,
+    "sku": "TSB-LIN-HER-AMA-NEG",
+    "imagen": "INVENTARIO/bach20.jpg",
+    "descripcion": "Kit de seguridad con linterna de alta intensidad y herramientas básicas integradas para reparaciones rápidas."
   },
   {
-    "Producto": "Llave de impacto 1.000 NM 3.500RPM",
-    "Precio": "CLP 54,990",
-    "SKU": "TBL-LLAV-IMP-CEL",
-    "Imágenes": "INVENTARIO/bach3.jpg",
-    "Descripcion": "Herramienta de alto rendimiento con torque de 1000 Nm, motor sin carbones y control electrónico de velocidad."
+    "id": 21,
+    "nombre": "Llave de impacto 1.000 NM 3.500RPM",
+    "precio": 54990,
+    "sku": "TBL-LLAV-IMP-CEL",
+    "imagen": "INVENTARIO/bach3.jpg",
+    "descripcion": "Herramienta de alto rendimiento con torque de 1000 Nm, motor sin carbones y control electrónico de velocidad."
   },
   {
-    "Producto": "Llave de impacto 500NM torque",
-    "Precio": "CLP 42,000",
-    "SKU": "CN-LLAV-IMP-500NM-CEL",
-    "Imágenes": "INVENTARIO/bach22.jpg",
-    "Descripcion": "Llave de impacto inalámbrica con torque de 500 Nm, diseñada para mecánica automotriz y montaje."
+    "id": 22,
+    "nombre": "Llave de impacto 500NM torque",
+    "precio": 42000,
+    "sku": "CN-LLAV-IMP-500NM-CEL",
+    "imagen": "INVENTARIO/bach22.jpg",
+    "descripcion": "Llave de impacto inalámbrica con torque de 500 Nm, diseñada para mecánica automotriz y montaje."
   },
   {
-    "Producto": "Llave impacto 350NM torque",
-    "Precio": "CLP 44,990",
-    "SKU": "TBL-LLAIMP-350NM-AMA",
-    "Imágenes": "INVENTARIO/bach38.png",
-    "Descripcion": "Herramienta compacta de impacto con 350 Nm de torque para mantenimiento general y bricolaje."
+    "id": 23,
+    "nombre": "Llave impacto 350NM torque",
+    "precio": 44990,
+    "sku": "TBL-LLAIMP-350NM-AMA",
+    "imagen": "INVENTARIO/bach38.png",
+    "descripcion": "Herramienta compacta de impacto con 350 Nm de torque para mantenimiento general y bricolaje."
   },
   {
-    "Producto": "Maleta de 3 herramientas",
-    "Precio": "CLP 74,990",
-    "SKU": "BLISL-HERR-X3-CEL",
-    "Imágenes": "INVENTARIO/bach30.jpg",
-    "Descripcion": "Kit de tres herramientas eléctricas inalámbricas esenciales en maletín de transporte rígido."
+    "id": 24,
+    "nombre": "Maleta de 3 herramientas",
+    "precio": 74990,
+    "sku": "BLISL-HERR-X3-CEL",
+    "imagen": "INVENTARIO/bach30.jpg",
+    "descripcion": "Kit de tres herramientas eléctricas inalámbricas esenciales en maletín de transporte rígido."
   },
   {
-    "Producto": "Mini amolador 3 en 1",
-    "Precio": "CLP 37,000",
-    "SKU": "TBL-AMO3X1-CEL",
-    "Imágenes": "INVENTARIO/bach4.jpg",
-    "Descripcion": "Herramienta rotativa multifuncional para corte, lijado y pulido con accesorios intercambiables."
+    "id": 25,
+    "nombre": "Mini amolador 3 en 1",
+    "precio": 37000,
+    "sku": "TBL-AMO3X1-CEL",
+    "imagen": "INVENTARIO/bach4.jpg",
+    "descripcion": "Herramienta rotativa multifuncional para corte, lijado y pulido con accesorios intercambiables."
   },
   {
-    "Producto": "Mini desatornillador inalámbrico recargable",
-    "Precio": "CLP 8,990",
-    "SKU": "MINI-DES-INM-NEG",
-    "Imágenes": "INVENTARIO/bach19.jpg",
-    "Descripcion": "Atornillador compacto con batería de litio integrada, carga USB y luz LED frontal para precisión."
+    "id": 26,
+    "nombre": "Mini desatornillador inalámbrico recargable",
+    "precio": 8990,
+    "sku": "MINI-DES-INM-NEG",
+    "imagen": "INVENTARIO/bach19.jpg",
+    "descripcion": "Atornillador compacto con batería de litio integrada, carga USB y luz LED frontal para precisión."
   },
   {
-    "Producto": "Motosierra eléctrica DAOBAN",
-    "Precio": "CLP 39,990",
-    "SKU": "DBAN-MOT-ELE-NEG-NAR",
-    "Imágenes": "INVENTARIO/bach33.jpg",
-    "Descripcion": "Motosierra eléctrica de alto rendimiento con cadena de corte rápido y sistema de lubricación automática."
+    "id": 27,
+    "nombre": "Motosierra eléctrica DAOBAN",
+    "precio": 39990,
+    "sku": "DBAN-MOT-ELE-NEG-NAR",
+    "imagen": "INVENTARIO/bach33.jpg",
+    "descripcion": "Motosierra eléctrica de alto rendimiento con cadena de corte rápido y sistema de lubricación automática."
   },
   {
-    "Producto": "Orilladora y desbrozadora gasolina",
-    "Precio": "CLP 80,000",
-    "SKU": "TSB-ORL-DES-GAS-NAR",
-    "Imágenes": "INVENTARIO/bach36.jpg",
-    "Descripcion": "Herramienta de jardinería con motor a combustión de dos tiempos para corte de maleza densa."
+    "id": 28,
+    "nombre": "Orilladora y desbrozadora gasolina",
+    "precio": 80000,
+    "sku": "TSB-ORL-DES-GAS-NAR",
+    "imagen": "INVENTARIO/bach36.jpg",
+    "descripcion": "Herramienta de jardinería con motor a combustión de dos tiempos para corte de maleza densa."
   },
   {
-    "Producto": "Orilladora y desbrozadora inalámbrica",
-    "Precio": "CLP 29,990",
-    "SKU": "TSB-ORL-DES-INM-CEL",
-    "Imágenes": "INVENTARIO/bach35.jpg",
-    "Descripcion": "Cortadora de césped a batería, ligera y silenciosa con cabezal ajustable y mango telescópico."
+    "id": 29,
+    "nombre": "Orilladora y desbrozadora inalámbrica",
+    "precio": 29990,
+    "sku": "TSB-ORL-DES-INM-CEL",
+    "imagen": "INVENTARIO/bach35.jpg",
+    "descripcion": "Cortadora de césped a batería, ligera y silenciosa con cabezal ajustable y mango telescópico."
   },
   {
-    "Producto": "Set de dados extensor y chicharra",
-    "Precio": "CLP 13,990",
-    "SKU": "DEKECRV-DD-CHC-NEG-NAR",
-    "Imágenes": "INVENTARIO/bach31.jpg",
-    "Descripcion": "Juego de llaves de vaso con extensión y llave de trinquete fabricados en acero cromo-vanadio."
+    "id": 30,
+    "nombre": "Set de dados extensor y chicharra",
+    "precio": 13990,
+    "sku": "DEKECRV-DD-CHC-NEG-NAR",
+    "imagen": "INVENTARIO/bach31.jpg",
+    "descripcion": "Juego de llaves de vaso con extensión y llave de trinquete fabricados en acero cromo-vanadio."
   },
   {
-    "Producto": "Set herramientas 108 piezas",
-    "Precio": "CLP 29,990",
-    "SKU": "CN-SET-HERR-108-CEL",
-    "Imágenes": "INVENTARIO/bach21.jpg",
-    "Descripcion": "Kit completo de herramientas manuales en maletín, incluyendo dados, llaves y accesorios mecánicos."
+    "id": 31,
+    "nombre": "Set herramientas 108 piezas",
+    "precio": 29990,
+    "sku": "CN-SET-HERR-108-CEL",
+    "imagen": "INVENTARIO/bach21.jpg",
+    "descripcion": "Kit completo de herramientas manuales en maletín, incluyendo dados, llaves y accesorios mecánicos."
   },
   {
-    "Producto": "Set herramientas 216 piezas",
-    "Precio": "CLP 69,990",
-    "SKU": "CN-SET-HERR-216-VER",
-    "Imágenes": "INVENTARIO/bach34.jpg",
-    "Descripcion": "Conjunto profesional extenso de herramientas para taller con amplia variedad de medidas y tipos de llaves."
+    "id": 32,
+    "nombre": "Set herramientas 216 piezas",
+    "precio": 69990,
+    "sku": "CN-SET-HERR-216-VER",
+    "imagen": "INVENTARIO/bach34.jpg",
+    "descripcion": "Conjunto profesional extenso de herramientas para taller con amplia variedad de medidas y tipos de llaves."
   },
   {
-    "Producto": "Set herramientas 94 piezas",
-    "Precio": "CLP 28,990",
-    "SKU": "CN-SET-HERR-94-NEG",
-    "Imágenes": "INVENTARIO/bach23.jpg",
-    "Descripcion": "Maletín de herramientas mecánicas de 94 piezas para mantenimiento automotriz y reparaciones del hogar."
+    "id": 33,
+    "nombre": "Set herramientas 94 piezas",
+    "precio": 28990,
+    "sku": "CN-SET-HERR-94-NEG",
+    "imagen": "INVENTARIO/bach23.jpg",
+    "descripcion": "Maletín de herramientas mecánicas de 94 piezas para mantenimiento automotriz y reparaciones del hogar."
   },
   {
-    "Producto": "Set jardín Tijeras + Sierra",
-    "Precio": "CLP 37,000",
-    "SKU": "TBL-TIJSIE-NEG",
-    "Imágenes": "INVENTARIO/bach5.jpg",
-    "Descripcion": "Kit de herramientas electricas inalambricas para poda que incluye tijeras de corte preciso y sierra."
+    "id": 34,
+    "nombre": "Set jardín Tijeras + Sierra",
+    "precio": 37000,
+    "sku": "TBL-TIJSIE-NEG",
+    "imagen": "INVENTARIO/bach5.jpg",
+    "descripcion": "Kit de herramientas eléctricas inalámbricas para poda que incluye tijeras de corte preciso y sierra."
   },
   {
-    "Producto": "Sierra circular inalámbrica",
-    "Precio": "CLP 59,990",
-    "SKU": "TBL-SIECU-CEL",
-    "Imágenes": "INVENTARIO/bach8.jpg",
-    "Descripcion": "Sierra circular portátil con ajuste de profundidad y ángulo de bisel para cortes precisos en madera."
+    "id": 35,
+    "nombre": "Sierra circular inalámbrica",
+    "precio": 59990,
+    "sku": "TBL-SIECU-CEL",
+    "imagen": "INVENTARIO/bach8.jpg",
+    "descripcion": "Sierra circular portátil con ajuste de profundidad y ángulo de bisel para cortes precisos en madera."
   },
   {
-    "Producto": "Soldadora Tasbel 3 en 1",
-    "Precio": "CLP 44,000",
-    "SKU": "TBL-SOLD-CEL",
-    "Imágenes": "INVENTARIO/FB_IMG_1778883594832.jpg",
-    "Descripcion": "Máquina de soldar MMA, MIG y TIG , compacta y de bajo consumo."
+    "id": 36,
+    "nombre": "Soldadora Tasbel 3 en 1",
+    "precio": 44000,
+    "sku": "TBL-SOLD-CEL",
+    "imagen": "INVENTARIO/FB_IMG_1778883594832.jpg",
+    "descripcion": "Máquina de soldar MMA, MIG y TIG, compacta y de bajo consumo."
   },
   {
-    "Producto": "Soplador y aspiradora",
-    "Precio": "CLP 18,990",
-    "SKU": "SOPL-ASP-NEG",
-    "Imágenes": "INVENTARIO/bach16.jpg",
-    "Descripcion": "Herramienta dual para limpieza de exteriores con funciones de soplado y aspirado con bolsa recolectora."
+    "id": 37,
+    "nombre": "Soplador y aspiradora",
+    "precio": 18990,
+    "sku": "SOPL-ASP-NEG",
+    "imagen": "INVENTARIO/bach16.jpg",
+    "descripcion": "Herramienta dual para limpieza de exteriores con funciones de soplado y aspirado con bolsa recolectora."
   },
   {
-    "Producto": "Taladro desatornillador inalámbrico",
-    "Precio": "CLP 25,990",
-    "SKU": "TBL-TALDE-AMA",
-    "Imágenes": "INVENTARIO/bach10.jpg",
-    "Descripcion": "Taladro versátil con función de atornillado, embrague de múltiples posiciones y batería de larga duración."
+    "id": 38,
+    "nombre": "Taladro desatornillador inalámbrico",
+    "precio": 25990,
+    "sku": "TBL-TALDE-AMA",
+    "imagen": "INVENTARIO/bach10.jpg",
+    "descripcion": "Taladro versátil con función de atornillado, embrague de múltiples posiciones y batería de larga duración."
   }
 ]
