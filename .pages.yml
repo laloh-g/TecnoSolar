@@ -1,25 +1,36 @@
-media:
-  output: public/media
-content:
-  - id: ajustes
+backend:
+  name: github
+  repo: laloh-g/tecnosolar 
+  branch: main
+
+media_folder: "public/media"
+public_folder: "/media"
+
+collections:
+  - name: "ajustes"
     label: "Diseño y Temporadas"
-    type: file
-    path: public/ajustes.json
-    fields:
-      - {id: nombre_tienda, label: "Nombre de la Vitrina", type: string}
-      - {id: banner_inicial, label: "Imagen de Portada (URL)", type: string}
-      - {id: mensaje_bienvenida, label: "Texto de Bienvenida", type: string}
-      - {id: color_principal, label: "Color de Barra (Hex)", type: string}
-      - {id: color_fondo, label: "Color de Fondo (Hex)", type: string}
-      - {id: aviso_alerta, label: "Barra de Anuncios", type: string}
-  - id: productos
+    files:
+      - file: "public/ajustes.json"
+        label: "Ajustes de la Tienda"
+        name: "ajustes_tienda"
+        fields:
+          - {label: "Nombre de la Vitrina", name: "nombre_tienda", widget: "string"}
+          - {label: "Imagen de Portada (URL)", name: "banner_inicial", widget: "string"}
+          - {label: "Texto de Bienvenida", name: "mensaje_bienvenida", widget: "string"}
+          - {label: "Color de Barra (Hex)", name: "color_principal", widget: "string"}
+          - {label: "Color de Fondo (Hex)", name: "color_fondo", widget: "string"}
+          - {label: "Barra de Anuncios", name: "aviso_alerta", widget: "string"}
+
+  - name: "productos"
     label: "Catálogo de Productos"
-    type: collection
-    path: public/productos.json
+    folder: "public"
+    filter: {field: "id", value: ""}
+    extension: "json"
+    format: "json"
     fields:
-      - {id: id, label: "ID Único (Número)", type: number}
-      - {id: nombre, label: "Nombre del Producto", type: string}
-      - {id: precio, label: "Precio (Solo Números)", type: number}
-      - {id: sku, label: "Código SKU", type: string}
-      - {id: descripcion, label: "Descripción", type: string}
-      - {id: imagen, label: "Ruta de la Imagen", type: string}
+      - {label: "ID Único (Número)", name: "id", widget: "number", value_type: "int"}
+      - {label: "Nombre del Producto", name: "nombre", widget: "string"}
+      - {label: "Precio (Solo Números)", name: "precio", widget: "number", value_type: "int"}
+      - {label: "Código SKU", name: "sku", widget: "string"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Ruta de la Imagen", name: "imagen", widget: "string"}
