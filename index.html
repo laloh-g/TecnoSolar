@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TecnoSolar Santa Cruz - Herramientas e Iluminación Premium</title>
+  <title>TecnoSolar Santa Cruz - Herramientas e Iluminación</title>
   
   <!-- Fonts Integration -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,8 +83,8 @@
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-orange opacity-75"></span>
       <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-orange"></span>
     </span>
-    <span>Soporte Técnico Especializado e Importación Directa</span>
-    <span class="hidden md:inline">| Despacho Especial en la VI Región</span>
+    <span>Un mundo en herramientas y Soluciones solares</span>
+    <span class="hidden md:inline">| Despacho Especial en Santa Cruz</span>
   </div>
 
   <!-- NAVIGATION HEADER -->
@@ -186,7 +186,7 @@
               </h2>
               
               <p class="text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Importamos y distribuimos herramientas inalámbricas de fuerza industrial y sistemas de iluminación solar de alta autonomía. Rendimiento certificado para el trabajo agrícola y vitivinícola de Colchagua.
+                Importamos y distribuimos herramientas inalámbricas y sistemas de iluminación solar de alta autonomía. Rendimiento certificado para el trabajo de Colchagua.
               </p>
 
               <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
@@ -201,12 +201,12 @@
               <!-- Badges parameters micro -->
               <div class="grid grid-cols-3 gap-4 pt-4 border-t border-metal-border max-w-md mx-auto lg:mx-0">
                 <div>
-                  <p class="text-2xl font-mono font-bold text-white leading-none">100%</p>
-                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Garantía Real</p>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">30 Dias</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Garantía</p>
                 </div>
                 <div>
-                  <p class="text-2xl font-mono font-bold text-white leading-none">IP67</p>
-                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Resistencia Solar</p>
+                  <p class="text-2xl font-mono font-bold text-white leading-none">Calidad</p>
+                  <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase mt-1">Al mejor precio</p>
                 </div>
                 <div>
                   <p class="text-2xl font-mono font-bold text-white leading-none">V-MAX</p>
@@ -565,11 +565,10 @@
         </button>
       </div>
 
-      <!-- Modal Body -->
       <div id="modal-product-body" class="p-6 space-y-6">
         <div class="flex gap-4">
           <div class="w-24 h-24 bg-[#fff] rounded-sm p-2 flex items-center justify-center shrink-0 border border-metal-border">
-            <img id="modal-product-image" src="" alt="preview" class="max-h-full object-contain">
+            <img id="modal-product-image" src="" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500'" alt="preview" class="max-h-full object-contain">
           </div>
           <div class="space-y-1">
             <span id="modal-product-category" class="font-mono text-[9px] uppercase tracking-wider text-burgundy-light font-bold">Categoría</span>
@@ -679,6 +678,16 @@
 
   <!-- SCRIPT WORKFLOW LOGIC -->
   <script>
+    // Safety image fallback logic
+    const FALLBACK_IMAGE_URL = "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500";
+    
+    function getSafeImageUrl(src) {
+      if (!src || (typeof src === 'string' && src.includes('INVENTARIO/'))) {
+        return FALLBACK_IMAGE_URL;
+      }
+      return src;
+    }
+
     // System Global State Vars
     let ProductsDatabase = [];
     let CurrentCategoryFilter = 'all';
@@ -702,7 +711,7 @@
       navigateTo('home');
     });
 
-    // 1. DYNAMIC FETCH FOR PRODUCTS
+    // 1. DYNAMIC FETCH FOR PRODUCTS (Includes Robust Schema Normalization)
     async function fetchProductsDatabase() {
       const loader = document.getElementById('catalog-loader');
       const gridContainer = document.getElementById('catalog-container');
@@ -713,8 +722,33 @@
           throw new Error('La respuesta HTTP no fue exitosa: ' + response.status);
         }
         
-        ProductsDatabase = await response.json();
-        console.log('Productos cargados dinámicamente:', ProductsDatabase);
+        const rawProducts = await response.json();
+        
+        const getProp = (obj, key, fallback = '') => {
+          if (!obj) return fallback;
+          const keyLower = key.toLowerCase();
+          for (const k in obj) {
+            if (k.toLowerCase() === keyLower) return obj[k];
+          }
+          return fallback;
+        };
+
+        ProductsDatabase = rawProducts.map(p => {
+          const id = Number(getProp(p, 'id', 0));
+          return {
+            id: id,
+            name: getProp(p, 'name', 'Producto'),
+            sku: getProp(p, 'sku') || `TS-${id}`,
+            category: getProp(p, 'category', 'Equipos'),
+            price: Math.max(0, Number(getProp(p, 'price', 0))),
+            tag: getProp(p, 'tag', ''),
+            description: getProp(p, 'description', ''),
+            image: getProp(p, 'image', ''),
+            specs: getProp(p, 'specs', [])
+          };
+        });
+        
+        console.log('Productos cargados y normalizados dinámicamente:', ProductsDatabase);
         
         // Hide loader, show grid
         if (loader) loader.classList.add('hidden');
@@ -767,7 +801,7 @@
             "specs": [
               { "label": "Potencia", "value": "400W LED" },
               { "label": "Autonomía", "value": "12-14 horas" },
-              { "label": "Certificación", value: "IP67 (Intemperie)" }
+              { "label": "Certificación", "value": "IP67 (Intemperie)" }
             ]
           },
           {
@@ -866,13 +900,28 @@
       const catalogGrid = document.getElementById('catalog-container');
       if (!catalogGrid) return;
 
+      const getProp = (obj, key, fallback = '') => {
+        if (!obj) return fallback;
+        const keyLower = key.toLowerCase();
+        for (const k in obj) {
+          if (k.toLowerCase() === keyLower) return obj[k];
+        }
+        return fallback;
+      };
+
       let filtered = [];
       if (CurrentCategoryFilter === 'all') {
         filtered = ProductsDatabase;
       } else if (CurrentCategoryFilter === 'electric') {
-        filtered = ProductsDatabase.filter(p => p.category.toLowerCase().includes('eléctrica') || p.category.toLowerCase().includes('electric'));
+        filtered = ProductsDatabase.filter(p => {
+          const cat = getProp(p, 'category').toLowerCase();
+          return cat.includes('eléctrica') || cat.includes('electric');
+        });
       } else if (CurrentCategoryFilter === 'solar') {
-        filtered = ProductsDatabase.filter(p => p.category.toLowerCase().includes('solar') || p.category.toLowerCase().includes('iluminación'));
+        filtered = ProductsDatabase.filter(p => {
+          const cat = getProp(p, 'category').toLowerCase();
+          return cat.includes('solar') || cat.includes('iluminación');
+        });
       }
 
       catalogGrid.innerHTML = '';
@@ -887,41 +936,49 @@
       }
 
       filtered.forEach(p => {
-        const tagHTML = p.tag ? `
+        const id = getProp(p, 'id', 0);
+        const name = getProp(p, 'name', 'Producto');
+        const price = Math.max(0, Number(getProp(p, 'price', 0)));
+        const tag = getProp(p, 'tag', '');
+        const category = getProp(p, 'category', 'Equipos');
+        const sku = getProp(p, 'sku', `TS-${id}`);
+        const image = getProp(p, 'image', '');
+
+        const tagHTML = tag ? `
           <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
-            ${p.tag}
+            ${tag}
           </span>
         ` : '';
 
         const card = document.createElement('article');
         card.className = "bg-metal-card border border-metal-border hover:border-burgundy-light transition-all rounded-sm flex flex-col h-full relative group";
         card.innerHTML = `
-          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal(${p.id})">
+          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal(${id})">
             ${tagHTML}
             <div class="w-full h-full bg-white rounded-sm p-4 flex items-center justify-center">
-              <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <img src="${getSafeImageUrl(image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
           <div class="p-5 flex flex-col flex-grow space-y-4">
-            <div class="space-y-1 cursor-pointer" onclick="openSpecModal(${p.id})">
-              <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${p.category}</span>
+            <div class="space-y-1 cursor-pointer" onclick="openSpecModal(${id})">
+              <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${category}</span>
               <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
-                ${p.name}
+                ${name}
               </h4>
-              <p class="text-[10px] text-gray-500 font-mono">SKU: ${p.sku}</p>
+              <p class="text-[10px] text-gray-500 font-mono">SKU: ${sku}</p>
             </div>
             
             <div class="mt-auto space-y-4.5 pt-2">
               <div class="flex items-baseline justify-between">
                 <span class="text-[9px] font-mono text-gray-500 uppercase">ClP Neto:</span>
-                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${p.price.toLocaleString("es-CL")}</span>
+                <span class="text-lg font-mono font-bold text-neon-orange leading-none">$${price.toLocaleString("es-CL")}</span>
               </div>
               
               <div class="grid grid-cols-2 gap-2">
-                <button onclick="openSpecModal(${p.id})" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
+                <button onclick="openSpecModal(${id})" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
                   Ver Ficha
                 </button>
-                <button onclick="addProductToCart(${p.id})" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
+                <button onclick="addProductToCart(${id})" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
                   <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Añadir
                 </button>
               </div>
@@ -945,7 +1002,7 @@
       document.getElementById('modal-product-category').innerText = product.category;
       document.getElementById('modal-product-price').innerText = `$${product.price.toLocaleString("es-CL")} CLP`;
       document.getElementById('modal-product-descr').innerText = product.description;
-      document.getElementById('modal-product-image').setAttribute('src', product.image);
+      document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.image));
 
       // Render specification rows
       const specsBody = document.getElementById('modal-specs-table-body');
@@ -996,6 +1053,7 @@
       updateCartCounters();
     }
 
+    // Save cart correctly
     function saveCartToStorage() {
       localStorage.setItem('tecnosolar_cart', JSON.stringify(CartData));
       updateCartCounters();
@@ -1067,7 +1125,7 @@
       triggerToast("Carro Vaciado", "Se han removido todos los equipos para cotización.");
     }
 
-    // Render cart tables
+    // Render cart entries and sums
     function renderCartView() {
       const emptyView = document.getElementById('cart-empty-view');
       const filledView = document.getElementById('cart-filled-view');
@@ -1101,7 +1159,7 @@
         tr.innerHTML = `
           <td class="p-4 flex items-center gap-4">
             <div class="w-14 h-14 bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0 border border-metal-border">
-              <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.name}" class="max-h-full object-contain">
             </div>
             <div>
               <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${item.name}</p>
@@ -1139,7 +1197,7 @@
         cardMobile.innerHTML = `
           <div class="flex items-start gap-3">
             <div class="w-16 h-16 bg-white rounded-sm p-1.5 shrink-0 border border-metal-border flex items-center justify-center">
-              <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.image)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.name}" class="max-h-full object-contain">
             </div>
             <div class="space-y-1">
               <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.name}</h4>
