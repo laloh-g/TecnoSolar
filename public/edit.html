@@ -92,16 +92,13 @@
             // Para asegurar el tiro, volvemos editable cualquier encabezado, párrafo o elemento de texto clave
             const selectoresTextos = ['h1', 'h2', 'h3', 'h4', 'p', 'span', 'a'];
             
-           
-document.querySelectorAll('#contenedor-tienda-clonada *').forEach(elemento => {
-    // Si el texto está dentro del menú, del buscador o de los botones de categoría, NO lo hacemos editable para que funcionen los clics
-    const esMenuOBoton = elemento.closest('nav') || elemento.closest('header') || elemento.closest('button') || elemento.tagName === 'BUTTON' || elemento.tagName === 'INPUT';
-    
-    if (!esMenuOBoton && elemento.childNodes.length === 1 && elemento.childNodes[0].nodeType === Node.TEXT_NODE && elemento.innerText.trim().length > 0) {
-        elemento.setAttribute('contenteditable', 'true');
-        elemento.classList.add('elemento-editable');
-    }
-});
+            document.querySelectorAll('#contenedor-tienda-clonada *').forEach(elemento => {
+                // Si el elemento contiene texto directo y no tiene hijos complejos, lo hacemos editable
+                if (elemento.childNodes.length === 1 && elemento.childNodes[0].nodeType === Node.TEXT_NODE && elemento.innerText.trim().length > 0) {
+                    elemento.setAttribute('contenteditable', 'true');
+                    elemento.classList.add('elemento-editable');
+                }
+            });
 
             // Buscamos las tarjetas de tus 38 productos. Agregamos una caja de texto oculta para cambiar las URLs de las fotos.
             // Esto detectará tus imágenes dentro del catálogo clonado de forma dinámica
