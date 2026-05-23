@@ -4,260 +4,517 @@
     "nombre": "2 en 1 Llave impacto más esmeril",
     "precio": 49990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a11c4c54-42d0-4364-8883-71bfeb7902e4.jpg",
-    "descripcion": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos."
+    "descripcion": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Más Vendido",
+    "specs": [
+      { "label": "Uso", "value": "Industrial / Automotriz" },
+      { "label": "Batería", "value": "24V Litio recargable" },
+      { "label": "Motor", "value": "Brushless (Sin carbones)" }
+    ]
   },
   {
     "sku": "ELEC-CAM-002",
     "nombre": "Camara de seguridad solar",
     "precio": 59990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
-    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables."
+    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables.",
+    "categoria": "Iluminación Solar",
+    "tag": "Autónomo",
+    "specs": [
+      { "label": "Conexión", "value": "WiFi 2.4GHz" },
+      { "label": "Carga", "value": "Panel solar fotovoltaico" },
+      { "label": "Resolución", "value": "1085p Full HD" }
+    ]
   },
   {
     "sku": "HERR-DEST-003",
     "nombre": "Destornillador inalámbrico mandril metalico",
     "precio": 25990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/852f4567-48bc-4187-84e6-d24fa9bec454.jpg",
-    "descripcion": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje."
+    "descripcion": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Alta Resistencia",
+    "specs": [
+      { "label": "Mandril", "value": "Metálico reforzado" },
+      { "label": "Torque", "value": "Ajustable múltiples etapas" },
+      { "label": "Iluminación", "value": "LED de trabajo frontal" }
+    ]
   },
   {
     "sku": "ILUM-FOCO-2000",
     "nombre": "Foco solar 2.000w con panel separado",
     "precio": 34000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/7542a9fa-56a4-45a3-8a23-02010a2e35e7.png",
-    "descripcion": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra."
+    "descripcion": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra.",
+    "categoria": "Iluminación Solar",
+    "tag": "Gran Cobertura",
+    "specs": [
+      { "label": "Potencia", "value": "2000W LED equivalente" },
+      { "label": "Panel", "value": "Separado con cable extensor" },
+      { "label": "Control", "value": "Remoto multifuncional" }
+    ]
   },
   {
     "sku": "ACC-DADO-005",
     "nombre": "SET de 10 dados de impacto",
     "precio": 9990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a7629fb8-e1e1-4d19-8517-da218635bc57.jpg",
-    "descripcion": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse."
+    "descripcion": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Accesorio",
+    "specs": [
+      { "label": "Dados", "value": "10 piezas estandar" },
+      { "label": "Material", "value": "Acero Cromo Vanadio Industrial" },
+      { "label": "Compatibilidad", "value": "Encastre de 1/2 pulgada" }
+    ]
   },
   {
     "sku": "ILUM-FOCO-100",
     "nombre": "Foco solar de 100w de panel separado",
     "precio": 18000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/302a1902-6552-4837-b2ea-f463860d0f5f.png",
-    "descripcion": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz."
+    "descripcion": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz.",
+    "categoria": "Iluminación Solar",
+    "tag": "Eficiente",
+    "specs": [
+      { "label": "Potencia", "value": "100W" },
+      { "label": "Panel", "value": "Independiente de alta transferencia" },
+      { "label": "Protección", "value": "IP67 contra lluvia y polvo" }
+    ]
   },
   {
     "sku": "HERR-MULT-007",
     "nombre": "Multifuncional oscilante",
     "precio": 38000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78c09ad3-c761-4c89-bbcc-463506ac04e3.jpg",
-    "descripcion": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios."
+    "descripcion": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Versátil",
+    "specs": [
+      { "label": "Uso", "value": "Lijar, Cortar, Desbastar" },
+      { "label": "Accesorios", "value": "Set completo de cuchillas y lijas" },
+      { "label": "Alimentación", "value": "Batería inalámbrica recargable" }
+    ]
   },
   {
     "sku": "HERR-CLAV-008",
     "nombre": "Pistola de clavos inalambrica",
     "precio": 65000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/11345cd0-1b40-418e-acaf-f53d91eec861.jpg",
-    "descripcion": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera."
+    "descripcion": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Inalámbrico",
+    "specs": [
+      { "label": "Tipo", "value": "Fijación y Clavado rápido" },
+      { "label": "Batería", "value": "20V Litio de gran retencion" },
+      { "label": "Capacidad", "value": "Cargador reforzado integrado" }
+    ]
   },
   {
     "sku": "ILUM-GUIR-009",
     "nombre": "Guirnalda 10 luces x 10 mts",
     "precio": 14000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/cc02c41e-eeda-4fa5-a42f-b6c422c445f2.jpg",
-    "descripcion": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre."
+    "descripcion": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre.",
+    "categoria": "Iluminación Solar",
+    "tag": "Impermeable",
+    "specs": [
+      { "label": "Longitud", "value": "10 Metros" },
+      { "label": "Ampolletas", "value": "10 Ampolletas LED Filamento Vintage" },
+      { "label": "Resistencia", "value": "IP65 aptas para lluvia" }
+    ]
   },
   {
     "sku": "HERR-COMP-010",
     "nombre": "Compresor de dos cilindros",
     "precio": 29990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/97e469df-09c2-427a-a7b7-7cb83e3ee676.jpg",
-    "descripcion": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables."
+    "descripcion": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Portátil",
+    "specs": [
+      { "label": "Motor", "value": "Doble pistón de alta compresion" },
+      { "label": "Tensión", "value": "12V - Conexión pinzas batería / encendedor" },
+      { "label": "Manómetro", "value": "Análogo integrado de precisión" }
+    ]
   },
   {
     "sku": "HERR-SOLD-MIG",
     "nombre": "Soldadora MIG, MMA y TIG",
     "precio": 80000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a2cdafc5-697f-4f48-90bf-1eac7cba733c.jpg",
-    "descripcion": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar."
+    "descripcion": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Profesional",
+    "specs": [
+      { "label": "Tecnología", "value": "IGBT Inverter de alta eficiencia" },
+      { "label": "Procesos", "value": "MIG (Alambre flux) / MMA (Arco) / TIG" },
+      { "label": "Regulación", "value": "Digital dual amperaje" }
+    ]
   },
   {
     "sku": "HERR-SOLD-MMA",
     "nombre": "Soldadora MMA",
     "precio": 44000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2fc8f999-b062-4c00-a74d-a812e6a80e06.jpg",
-    "descripcion": "Soldadora inverter para electrodo revestido (MMA). Compacta y potente, ideal para reparaciones rápidas y trabajos de herrería en general."
+    "descripcion": "Soldadora inverter para electrodo revestido (MMA). Compacta y potente, ideal para reparaciones rápidas y trabajos de herrería en general.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Compacta",
+    "specs": [
+      { "label": "Tipo", "value": "Soldadora de electrodo MMA" },
+      { "label": "Ventilación", "value": "Turbo ventilada asistida" },
+      { "label": "Peso", "value": "Ligero para faenas" }
+    ]
   },
   {
     "sku": "ELEC-ZAPA-013",
     "nombre": "Zapatilla electrica alargador de 5 metros",
     "precio": 6000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/6dcf7429-7a94-492d-8ffb-9608fe03abe8.png",
-    "descripcion": "Extensión eléctrica reforzada de 5 metros con 4 tomas. Incluye interruptor de encendido con protección térmica para seguridad."
+    "descripcion": "Extensión eléctrica para alargador de 5 metros con 4 tomas. Con interruptor de seguridad de alta durabilidad.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Protección",
+    "specs": [
+      { "label": "Longitud", "value": "5 Metros extendida" },
+      { "label": "Tomas", "value": "4 tomas universales chilenas" },
+      { "label": "Seguridad", "value": "Switch On/Off con fusible térmico" }
+    ]
   },
   {
     "sku": "HERR-ROTO-014",
     "nombre": "Rotomartillo",
     "precio": 47990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/68082b6b-51eb-49a1-aeb5-50b8def9db6b.jpg",
-    "descripcion": "Herramienta de perforación pesada con sistema SDS-Plus. Tres modos de uso: rotación, percusión y cincelado para concreto y piedra."
+    "descripcion": "Herramienta de perforación pesada con sistema SDS-Plus. Tres modos de uso: rotación, percusión y cincelado para concreto y piedra.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Alto Poder",
+    "specs": [
+      { "label": "Encastre", "value": "SDS-Plus rápido" },
+      { "label": "Modos", "value": "Perforación, Percusión y Martillo cincelador" },
+      { "label": "Fuerza de Impacto", "value": "Alta tasa de Julios" }
+    ]
   },
   {
     "sku": "ELEC-CARG-015",
     "nombre": "Cargador de baterías",
     "precio": 14000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a4599987-45c2-479b-8b36-307e53b558e9.jpg",
-    "descripcion": "Cargador inteligente compatible con 12V y 24V. Protege contra cortocircuitos, ideal para vehículos y maquinaria agrícola."
+    "descripcion": "Cargador inteligente compatible con 12V y 24V. Protege contra cortocircuitos, ideal para vehículos y maquinaria agrícola.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Inteligente",
+    "specs": [
+      { "label": "Voltaje salida", "value": "12V y 24V inteligente" },
+      { "label": "Seguridad", "value": "Protector térmico y anti cortocircuito" },
+      { "label": "Pantalla", "value": "Indicadora LED de carga" }
+    ]
   },
   {
     "sku": "HERR-SIER-016",
     "nombre": "Sierra circular inalambrica",
     "precio": 59990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d564a331-7141-452a-9cc8-194b8c520fd8.jpg",
-    "descripcion": "Sierra de disco portátil para cortes rectos en madera. Ajuste de profundidad y ángulo para trabajos de carpintería en terreno."
+    "descripcion": "Sierra de disco portátil para cortes rectos en madera. Ajuste de profundidad y ángulo para trabajos de carpintería en terreno.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Precisión",
+    "specs": [
+      { "label": "Tipo", "value": "Carpintería inalámbrica" },
+      { "label": "Ajuste corte", "value": "Profundidad y biseal hasta 45°" },
+      { "label": "Disco", "value": "Diámetro industrial estándar" }
+    ]
   },
   {
     "sku": "HERR-MINI-017",
     "nombre": "Mini amoladora 3 en 1",
     "precio": 37000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f63c572a-4260-40f4-b5e6-cdcfb17f85ff.jpg",
-    "descripcion": "Herramienta compacta multifunción para corte, pulido y detalles en metal o madera. Incluye accesorios básicos."
+    "descripcion": "Herramienta compacta multifunción para corte, pulido y detalles en metal o madera. Incluye accesorios básicos.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Compacto",
+    "specs": [
+      { "label": "Funciones", "value": "Corte de gran precisión / Desbaste / Pulido" },
+      { "label": "Alimentación", "value": "Batería inalámbrica recargable" },
+      { "label": "Diseño", "value": "Ultra compacto agarre una mano" }
+    ]
   },
   {
     "sku": "HERR-ESME-018",
     "nombre": "Esmeril inalámbrico con 2 baterías",
     "precio": 32990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78e20ec6-dc30-4a5c-8a20-d833c91b3b43.jpg",
-    "descripcion": "Esmeril angular para discos de 4.5 pulgadas. Libertad total de movimiento para cortes rápidos y desbaste de soldaduras."
+    "descripcion": "Esmeril angular para discos de 4.5 pulgadas. Libertad total de movimiento para cortes rápidos y desbaste de soldaduras.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Kit Doble Batería",
+    "specs": [
+      { "label": "Diámetro disco", "value": "4.1/2 pulgadas (115mm)" },
+      { "label": "Baterías", "value": "2 Baterías Litio incluidas de alto amperaje" },
+      { "label": "Arranque", "value": "Suave progresivo de seguridad" }
+    ]
   },
   {
     "sku": "HERR-CHIC-019",
     "nombre": "Chicharra inalambrica",
     "precio": 44000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c1968d40-a4e1-47f4-aaf3-53ab0110dfad.jpg",
-    "descripcion": "Llave de trinquete (chicharra) eléctrica para mecánica. Permite apretar y soltar pernos en espacios reducidos sin esfuerzo manual."
+    "descripcion": "Llave de trinquete (chicharra) eléctrica para mecánica. Permite apretar y soltar pernos en espacios reducidos sin esfuerzo manual.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Automotriz",
+    "specs": [
+      { "label": "Uso específico", "value": "Mapeo automotriz y espacios angostos" },
+      { "label": "Tipo herramienta", "value": "Trinquete Chicharra eléctrica" },
+      { "label": "Batería", "value": "Litio formato vertical" }
+    ]
   },
   {
     "sku": "ILUM-EMER-020",
     "nombre": "Foco emergencia 2 X 3",
     "precio": 9990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/62b7fe9d-0627-4124-a715-6d05c1961107.jpg",
-    "descripcion": "Lámpara de doble foco LED recargable. Se activa automáticamente ante cortes de luz, ideal para pasillos y bodegas."
+    "descripcion": "Lámpara de doble foco LED recargable. Se activa automáticamente ante cortes de luz, ideal para pasillos y bodegas.",
+    "categoria": "Iluminación Solar",
+    "tag": "Seguridad",
+    "specs": [
+      { "label": "Focos", "value": "2 Focos con movimiento ajustable" },
+      { "label": "Activación", "value": "Automatizada ante falla de red eléctrica" },
+      { "label": "Durabilidad", "value": "Batería recargable integrada plomo-ácido" }
+    ]
   },
   {
     "sku": "ILUM-FOCO-021",
     "nombre": "Farol Solar Interactivo",
     "precio": 5000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/b656fb67-4fee-45a1-a9a1-3240bf61ff5f.jpg",
-    "descripcion": "Farol decorativo solar para jardín. Resistente al agua, se enciende al anochecer creando un ambiente acogedor en terrazas."
+    "descripcion": "Farol decorativo solar para jardín. Resistente al agua, se enciende al anochecer creando un ambiente acogedor en terrazas.",
+    "categoria": "Iluminación Solar",
+    "tag": "Jardín",
+    "specs": [
+      { "label": "Uso", "value": "Exterior / Jardín" },
+      { "label": "Carga", "value": "Fotovoltaica diurna integrada superior" },
+      { "label": "Encendido", "value": "Sensor inteligente crepuscular" }
+    ]
   },
   {
     "sku": "ELEC-CAM-022",
     "nombre": "Camara videollamada wifi",
     "precio": 15990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5a803ec0-95bc-4c47-a998-609bba036cc6.jpg",
-    "descripcion": "Cámara interior con pantalla. Permite realizar videollamadas directas, ideal para monitoreo de niños o adultos mayores."
+    "descripcion": "Cámara interior con pantalla. Permite realizar videollamadas directas, ideal para monitoreo de niños o adultos mayores.",
+    "categoria": "Iluminación Solar",
+    "tag": "Interactiva",
+    "specs": [
+      { "label": "Pantalla", "value": "Integrada de alta definicion interactiva" },
+      { "label": "Comunicación", "value": "Videollamada doble vía WiFi" },
+      { "label": "Montaje", "value": "Soporte mesa o muro" }
+    ]
   },
   {
     "sku": "ILUM-EMER-023",
     "nombre": "Foco emergencia simple",
     "precio": 7500,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/198b786c-adb2-4bc1-90c4-d185658fe9f4.jpg",
-    "descripcion": "Luminaria LED solar básica para exteriores. Resistente a la lluvia y con encendido automático por sensor."
+    "descripcion": "Luminaria LED solar básica para exteriores. Resistente a la lluvia y con encendido automático por sensor.",
+    "categoria": "Iluminación Solar",
+    "tag": "Básico",
+    "specs": [
+      { "label": "Tipo", "value": "Foco de seguridad solar simple" },
+      { "label": "Protección", "value": "Impermeable apto para intemperie" },
+      { "label": "Instalación", "value": "Sin cableados compleja" }
+    ]
   },
   {
     "sku": "ILUM-EMER-024",
     "nombre": "Foco emergencia con herramientas",
     "precio": 15000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f500b8a4-ebb5-4895-acd3-01e39dd40274.jpg",
-    "descripcion": "Kit de emergencia que combina un foco LED potente con un set de herramientas básicas para el vehículo."
+    "descripcion": "Kit de emergencia que combina un foco LED potente con un set de herramientas básicas para el vehículo.",
+    "categoria": "Iluminación Solar",
+    "tag": "Kit Auto",
+    "specs": [
+      { "label": "Kit", "value": "Mochila herramientas + Foco portátil potente" },
+      { "label": "Uso ideal", "value": "Asistencia en carretera nocturna" },
+      { "label": "Carga", "value": "Cable recargable USB multifunción" }
+    ]
   },
   {
     "sku": "JARD-KIT-025",
     "nombre": "Kit de herramientas de jardin",
     "precio": 37000,
-    "nombre_pack_2x": "PROMO 2x Kit Jardín",
-    "precio_pack_2x": 60000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5311cbc3-2620-44df-a1c4-682f9b2724bb.jpg",
-    "descripcion": "Set completo para el cuidado del patio. Incluye herramientas eléctricas para poda y mantención de áreas verdes."
+    "descripcion": "Set completo para el cuidado del patio. Incluye herramientas eléctricas para poda y mantención de áreas verdes.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Jardinería",
+    "specs": [
+      { "label": "Componentes", "value": "Set completo de poda, regado y corte" },
+      { "label": "Alimentación", "value": "Máquinas inalámbricas de alta durabilidad" },
+      { "label": "Maletín", "value": "Metálico incluido de transporte" }
+    ]
   },
   {
     "sku": "JARD-CORT-026",
     "nombre": "Cortacetos",
     "precio": 26990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/bf39c9de-ebf0-476b-b3cc-7cf325b23e62.jpg",
-    "descripcion": "Cortasetos eléctrico ligero. Cuchillas de doble acción para un corte limpio en arbustos y cercos vivos."
+    "descripcion": "Cortasetos eléctrico ligero. Cuchillas de doble acción para un corte limpio en arbustos y cercos vivos.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Ligero",
+    "specs": [
+      { "label": "Cuchillas", "value": "Doble acción de acero endurecido" },
+      { "label": "Peso", "value": "Ultra liviano facil manipulacion" },
+      { "label": "Seguridad", "value": "Switch doble de accionamiento" }
+    ]
   },
   {
     "sku": "ELEC-TIMB-027",
     "nombre": "Camara timbre",
     "precio": 19990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/832d3b09-cd5c-4d5b-a58b-17c3c7311f78.jpg",
-    "descripcion": "Timbre inteligente con video HD. Ve y habla con quien toque la puerta desde tu celular en cualquier lugar."
+    "descripcion": "Timbre inteligente con video HD. Ve y habla con quien toque la puerta desde tu celular en cualquier lugar.",
+    "categoria": "Iluminación Solar",
+    "tag": "Hogar Conectado",
+    "specs": [
+      { "label": "Video", "value": "Resolución HD Gran angular" },
+      { "label": "Audio", "value": "Bidireccional con cancelacion de ruido" },
+      { "label": "Conectividad", "value": "WiFi de larga distancia" }
+    ]
   },
   {
     "sku": "HERR-DEST-028",
     "nombre": "Atornillador inalámbrico",
     "precio": 19990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/20bcb94a-912c-4369-b34e-ed8df90c67c0.jpg",
-    "descripcion": "Atornillador compacto de 12V. Ideal para armado de muebles y trabajos domésticos rápidos."
+    "descripcion": "Atornillador compacto de 12V. Ideal para armado de muebles y trabajos domésticos rápidos.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Para Armados",
+    "specs": [
+      { "label": "Voltaje", "value": "12V Litio-Ion" },
+      { "label": "Velocidades", "value": "Dual con reversa rápida" },
+      { "label": "Uso", "value": "Hogar y mantenimiento suave" }
+    ]
   },
   {
     "sku": "HERR-SOPL-029",
     "nombre": "Sopladora y aspirador inalambrica",
     "precio": 18000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9b4e91a3-550c-4fa6-b492-71d3c8ce993d.jpg",
-    "descripcion": "Herramienta dual para limpieza. Sopla hojas del patio o aspira el interior del vehículo sin cables."
+    "descripcion": "Herramienta dual para limpieza. Sopla hojas del patio o aspira el interior del vehículo sin cables.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Doble Función",
+    "specs": [
+      { "label": "Función", "value": "Soplador potente / Aspiradora de polvo" },
+      { "label": "Diseño", "value": "Equilibrado peso liviano" },
+      { "label": "Boquilla", "value": "Goma flexible para esquinas" }
+    ]
   },
   {
     "sku": "HERR-CALA-030",
     "nombre": "Sierra caladora",
     "precio": 39990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2f8cb920-22f5-4ebf-82c3-91339d915e0d.jpg",
-    "descripcion": "Sierra eléctrica para cortes curvos. Velocidad variable para madera, metal o plástico."
+    "descripcion": "Sierra eléctrica para cortes curvos. Velocidad variable para madera, metal o plástico.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Cortes Curvos",
+    "specs": [
+      { "label": "Velocidad", "value": "Múltiple por potenciómetro" },
+      { "label": "Aditamentos", "value": "Sistema de soplado de aserrín" },
+      { "label": "Materiales", "value": "Madera, Aluminios ligeros y Plástico" }
+    ]
   },
   {
     "sku": "ILUM-FOCO-1000",
     "nombre": "Foco solar de 1000w metálico",
     "precio": 27000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d23b871c-b307-4b10-a040-7d430b0bc58f.jpg",
-    "descripcion": "Foco solar potente con chasis de aluminio. Gran durabilidad para parcelas y patios grandes."
+    "descripcion": "Foco solar potente con chasis de aluminio. Gran durabilidad para parcelas y patios grandes.",
+    "categoria": "Iluminación Solar",
+    "tag": "Aluminio",
+    "specs": [
+      { "label": "Potencia", "value": "1000W LED equivalente" },
+      { "label": "Cuerpo", "value": "Metálico aluminio moldeado alta durabilidad" },
+      { "label": "Instalación", "value": "Brazo soporte incluido para poste/muro" }
+    ]
   },
   {
     "sku": "ILUM-FOCO-1200",
     "nombre": "Foco de 1200w",
     "precio": 28500,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1229b27f-f736-4dbc-99ea-1b6adddf2da6.png",
-    "descripcion": "Proyector LED solar de gran cobertura. Incluye control remoto y sensor para ahorro de energía."
+    "descripcion": "Proyector LED solar de gran cobertura. Incluye control remoto y sensor para ahorro de energía.",
+    "categoria": "Iluminación Solar",
+    "tag": "Gran Cobertura",
+    "specs": [
+      { "label": "Potencia", "value": "1200W" },
+      { "label": "Accesorios", "value": "Control remoto inalámbrico de control" },
+      { "label": "Modo ahorro", "value": "Sensor inteligente de presencia" }
+    ]
   },
   {
     "sku": "ILUM-EMER-033",
     "nombre": "Foco solar emergencia con parlante",
     "precio": 13500,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c37c3646-7c86-4527-9b0d-eed0670fb558.jpg",
-    "descripcion": "Foco multifunción. Luz potente y parlante Bluetooth integrado para camping o terrazas."
+    "descripcion": "Foco multifunción. Luz potente y parlante Bluetooth integrado para camping o terrazas.",
+    "categoria": "Iluminación Solar",
+    "tag": "Multifuncional",
+    "specs": [
+      { "label": "Luz", "value": "LED potencia focal de gran espectro" },
+      { "label": "Audio", "value": "Conexión Bluetooth parlante de alta potencia" },
+      { "label": "Batería", "value": "Recargable mediante celdas solares integradas" }
+    ]
   },
   {
     "sku": "ILUM-EMER-034",
     "nombre": "Foco solar emergencia 1 x 3",
     "precio": 8990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ab26c375-4fac-451e-bc0c-a981f0082f99.png",
-    "descripcion": "Foco compacto de seguridad solar. Proporciona luz inmediata en pasillos exteriores sin cables."
+    "descripcion": "Foco compacto de seguridad solar. Proporciona luz inmediata en pasillos exteriores sin cables.",
+    "categoria": "Iluminación Solar",
+    "tag": "Compacto",
+    "specs": [
+      { "label": "Montaje", "value": "Rápido de pared exterior" },
+      { "label": "Lentes", "value": "Distribución angular alta difusión" },
+      { "label": "Celda", "value": "De silicio monocristalino eficiente" }
+    ]
   },
   {
     "sku": "HERR-DEST-035",
     "nombre": "Atornillador eléctrico mini con accesorios",
     "precio": 8990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/83d67297-53d8-45b8-9dde-b4680bdcd128.jpg",
-    "descripcion": "Mini atornillador recargable. Incluye set de puntas para reparaciones domésticas y armado de juguetes."
+    "descripcion": "Mini atornillador recargable. Incluye set de puntas para reparaciones domésticas y armado de juguetes.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Mini Recargable",
+    "specs": [
+      { "label": "Batería", "value": "Recargable integrada puerto USB universal" },
+      { "label": "Accesorios", "value": "Set variado de puntas de atornillado" },
+      { "label": "Uso recomendado", "value": "Electrónica, armado menor, computación" }
+    ]
   },
   {
     "sku": "GEN-ELE-200",
     "nombre": "Generador eléctrico portátil 200w",
     "precio": 115000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1d6017e9-540c-49bf-bdf0-9ea3d830faa3.jpg",
-    "descripcion": "Estación de energía silenciosa. Carga celulares y laptops en camping o situaciones de emergencia."
+    "descripcion": "Estación de energía silenciosa. Carga celulares y laptops en camping o situaciones de emergencia.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Camping",
+    "specs": [
+      { "label": "Potencia", "value": "200W nominales de soporte" },
+      { "label": "Tomas de fuerza", "value": "220V CA estándar / USB múltiple de alta velocidad" },
+      { "label": "Funcionamiento", "value": "Completamente insonoro sin motores fósiles" }
+    ]
   },
   {
     "sku": "GEN-ELE-500",
     "nombre": "Generador eléctrico portátil 500w",
     "precio": 290000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ae79788f-cb0e-4faa-86b4-6cb664324931.jpg",
-    "descripcion": "Generador de gran capacidad. Alimenta herramientas pequeñas y electrodomésticos durante cortes de luz prolongados."
+    "descripcion": "Generador de gran capacidad. Alimenta herramientas pequeñas y electrodomésticos durante cortes de luz prolongados.",
+    "categoria": "Herramientas Eléctricas",
+    "tag": "Estación de Poder",
+    "specs": [
+      { "label": "Potencia Máxima", "value": "500W de Onda pura" },
+      { "label": "Baterías", "value": "Gran celdaje de litio para respaldo persistente" },
+      { "label": "Extras", "value": "Luminaria LED auxiliar de alta intensidad incluida" }
+    ]
   }
 ]
