@@ -1,174 +1,929 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración - TecnoSolar</title>
-    <!-- Tailwind CSS para el diseño -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-zinc-950 text-zinc-100 font-sans min-h-screen">
-
-    <!-- BARRA SUPERIOR -->
-    <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <i class="fa-solid fa-sliders text-orange-500 text-xl"></i>
-            <h1 class="text-lg font-bold tracking-wider text-zinc-100">TECNOSOLAR <span class="text-orange-500 font-medium text-sm">// PANEL CONTROL</span></h1>
-        </div>
-        <div class="text-xs bg-zinc-800 px-3 py-1.5 rounded text-zinc-400 border border-zinc-700">
-            Conectado a GitHub: <span class="text-green-400 font-mono">Modo Local/Visual</span>
-        </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 py-8">
-        <!-- PESTAÑAS DE NAVEGACIÓN -->
-        <div class="flex gap-4 border-b border-zinc-800 mb-8">
-            <button onclick="switchTab('diseno')" id="btn-diseno" class="px-4 py-2 font-medium text-sm border-b-2 border-orange-500 text-orange-500 transition-all">
-                <i class="fa-solid fa-palette mr-2"></i>Diseño y Temporadas
-            </button>
-            <button onclick="switchTab('productos')" id="btn-productos" class="px-4 py-2 font-medium text-sm border-b-2 border-transparent text-zinc-400 hover:text-zinc-200 transition-all">
-                <i class="fa-solid fa-boxes-stacked mr-2"></i>Inventario (38 Productos)
-            </button>
-        </div>
-
-        <!-- SECCIÓN 1: DISEÑO Y TEMPORADAS -->
-        <section id="tab-diseno" class="space-y-6">
-            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-                <h2 class="text-xl font-bold mb-6 text-zinc-200 flex items-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles text-orange-500"></i> Identidad y Colores de la Vitrina
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Nombre de la Tienda</label>
-                        <input type="text" id="cfg-nombre" value="TecnoSolar Santa Cruz" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-zinc-200 focus:outline-none focus:border-orange-500 font-medium">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Barra de Anuncios Superior</label>
-                        <input type="text" id="cfg-alerta" value="¡Envíos rápidos a Santa Cruz, Rincón de Panamá y todo Chile!" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-zinc-200 focus:outline-none focus:border-orange-500 font-medium">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Texto de Bienvenida (Eslogan principal)</label>
-                        <input type="text" id="cfg-bienvenida" value="Herramientas Inalámbricas y Soluciones Solares de Alta Resistencia" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-zinc-200 focus:outline-none focus:border-orange-500 font-medium">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Imagen de Portada Principal (Banner URL)</label>
-                        <input type="text" id="cfg-banner" value="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-zinc-200 focus:outline-none focus:border-orange-500 font-mono text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Color de la Barra del Menú</label>
-                        <div class="flex gap-3">
-                            <input type="color" id="cfg-color-principal" value="#800020" class="w-12 h-10 bg-zinc-950 border border-zinc-800 rounded cursor-pointer p-1">
-                            <input type="text" id="cfg-txt-principal" value="#800020" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-zinc-300 font-mono text-sm uppercase">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Color de Fondo de la Web</label>
-                        <div class="flex gap-3">
-                            <input type="color" id="cfg-color-fondo" value="#111111" class="w-12 h-10 bg-zinc-950 border border-zinc-800 rounded cursor-pointer p-1">
-                            <input type="text" id="cfg-txt-fondo" value="#111111" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-zinc-300 font-mono text-sm uppercase">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-zinc-800 flex justify-end">
-                    <button onclick="saveConfig()" class="bg-orange-500 hover:bg-orange-600 text-zinc-950 font-bold px-6 py-2.5 rounded-lg text-sm tracking-wider uppercase transition-colors flex items-center gap-2">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Guardar Cambios de Diseño
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 2: INVENTARIO DE PRODUCTOS -->
-        <section id="tab-productos" class="hidden space-y-6">
-            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                    <h2 class="text-xl font-bold text-zinc-200 flex items-center gap-2">
-                        <i class="fa-solid fa-boxes-stacked text-orange-500"></i> Listado de Artículos Cargados
-                    </h2>
-                    <button onclick="alert('Función para agregar nuevo artículo lista para conectarse al backend')" class="bg-zinc-800 hover:bg-zinc-700 text-orange-500 font-semibold px-4 py-2 border border-zinc-700 rounded-lg text-xs tracking-wider uppercase transition-colors">
-                        <i class="fa-solid fa-plus mr-1"></i> Añadir Nuevo Producto
-                    </button>
-                </div>
-
-                <!-- CONTENEDOR MOCKUP DE LISTA -->
-                <div class="border border-zinc-800 rounded-lg divide-y divide-zinc-800 bg-zinc-950/50">
-                    <!-- PRODUCTO 1 EJEMPLO -->
-                    <div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-md border border-zinc-700 flex items-center justify-center text-zinc-500">
-                                <i class="fa-solid fa-plug text-lg text-orange-500/60"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-zinc-200">Alargador 5 mt</h4>
-                                <p class="text-xs text-zinc-500 font-mono">SKU: MLTP-5MT-BL | ID: 1</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
-                            <span class="font-mono font-bold text-sm text-green-400">$6.000</span>
-                            <button onclick="alert('Formulario de edición para Alargador')" class="text-zinc-400 hover:text-orange-500 text-xs font-semibold px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded transition-colors">
-                                <i class="fa-solid fa-pen-to-square mr-1"></i>Editar
-                            </button>
-                        </div>
-                    </div>
-                    <!-- PRODUCTO 2 EJEMPLO -->
-                    <div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-md border border-zinc-700 flex items-center justify-center text-zinc-500">
-                                <i class="fa-solid fa-screwdriver-wrench text-lg text-orange-500/60"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-zinc-200">Caladora inalámbrica</h4>
-                                <p class="text-xs text-zinc-500 font-mono">SKU: TSB-CAL-INM-CEL | ID: 2</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
-                            <span class="font-mono font-bold text-sm text-green-400">$39.990</span>
-                            <button class="text-zinc-400 hover:text-orange-500 text-xs font-semibold px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded transition-colors">
-                                <i class="fa-solid fa-pen-to-square mr-1"></i>Editar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-center text-xs text-zinc-600 mt-6 font-mono">Los 36 productos restantes se despliegan visualmente de igual manera en el sistema definitivo.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- LOGIC INTERFACES INTERNAS -->
-    <script>
-        function switchTab(tab) {
-            const tabDiseno = document.getElementById('tab-diseno');
-            const tabProductos = document.getElementById('tab-productos');
-            const btnDiseno = document.getElementById('btn-diseno');
-            const btnProductos = document.getElementById('btn-productos');
-
-            if (tab === 'diseno') {
-                tabDiseno.classList.remove('hidden');
-                tabProductos.classList.add('hidden');
-                btnDiseno.className = "px-4 py-2 font-medium text-sm border-b-2 border-orange-500 text-orange-500 transition-all";
-                btnProductos.className = "px-4 py-2 font-medium text-sm border-b-2 border-transparent text-zinc-400 hover:text-zinc-200 transition-all";
-            } else {
-                tabDiseno.classList.add('hidden');
-                tabProductos.classList.remove('hidden');
-                btnProductos.className = "px-4 py-2 font-medium text-sm border-b-2 border-orange-500 text-orange-500 transition-all";
-                btnDiseno.className = "px-4 py-2 font-medium text-sm border-b-2 border-transparent text-zinc-400 hover:text-zinc-200 transition-all";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Administración - TecnoSolar Santa Cruz</title>
+  
+  <!-- CSS Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7d1829',
+              light: '#9e2539',
+              dark: '#580e1a'
+            },
+            neon: {
+              orange: '#ff5a1f',
+              orangeHover: '#e04913'
+            },
+            metal: {
+              darker: '#0a0a0a',
+              dark: '#121212',
+              card: '#181818',
+              border: '#262626',
+              light: '#2a2a2a'
             }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Extra styling logic mimicking the store -->
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7d1829;
+    }
+    
+    .glow-orange {
+      text-shadow: 0 0 10px rgba(255, 90, 31, 0.4);
+    }
+    .glow-border {
+      box-shadow: 0 0 15px rgba(255, 90, 31, 0.1);
+    }
+    
+    input, textarea, select {
+      background-color: #121212 !important;
+      color: #ffffff !important;
+      border-color: #262626 !important;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      border-color: #ff5a1f !important;
+      outline: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- TOP HEADER PORTAL HEADER -->
+  <header class="bg-[#0a0a0a]/95 border-b border-metal-border py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="bg-burgundy text-white p-1.5 rounded-sm border border-neon-orange/20">
+            <i data-lucide="zap" class="w-5 h-5 text-neon-orange"></i>
+          </div>
+          <div>
+            <span class="font-display font-bold tracking-tight text-white block">TECNOSOLAR</span>
+            <span class="text-[9px] font-mono tracking-widest text-gray-500 uppercase">Panel de Control</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Authentication indicator & actions -->
+      <div id="auth-state-container" class="hidden flex items-center gap-4">
+        <div class="hidden sm:flex flex-col text-right font-mono">
+          <span class="text-[10px] text-gray-400">ADMINISTRADOR</span>
+          <span id="user-email-display" class="text-xs text-neon-orange font-bold">LalohGuerrero@gmail.com</span>
+        </div>
+        <button onclick="logoutAdmin()" class="bg-metal-light hover:bg-burgundy text-gray-300 hover:text-white font-mono text-[10px] uppercase tracking-wider px-3.5 py-1.5 border border-metal-border rounded-sm transition-all flex items-center gap-1.5">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Salir
+        </button>
+      </div>
+      
+      <div id="no-auth-link" class="flex">
+        <a href="/" class="text-xs text-gray-400 hover:text-neon-orange font-mono flex items-center gap-1.5">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la Tienda
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+
+    <!-- 1. PANTALLA DE ACCESO AUTORIZADO (LOGIN BOX) -->
+    <div id="login-screen" class="max-w-md mx-auto py-12">
+      <div class="bg-metal-card border-2 border-metal-border p-8 rounded-sm glow-border relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-2 h-full bg-burgundy"></div>
+        
+        <div class="text-center mb-6">
+          <div class="inline-flex p-3 bg-burgundy/20 rounded-full border border-neon-orange/20 text-neon-orange mb-3">
+            <i data-lucide="shield-alert" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white uppercase tracking-tight">Acceso Autorizado</h3>
+          <p class="text-[11px] text-gray-400 font-mono mt-1">
+            Gestión de seguridad provista por Firebase Authentication.
+          </p>
+        </div>
+        
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-wider text-gray-400 mb-1.5">Correo Electrónico</label>
+            <div class="relative">
+              <input type="email" id="login-email" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3.5 py-2.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-[#ff5a1f]" placeholder="correo@ejemplo.com">
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 pointer-events-none">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-wider text-gray-400 mb-1.5">Contraseña</label>
+            <div class="relative">
+              <input type="password" id="login-password" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3.5 py-2.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-[#ff5a1f]" placeholder="••••••••">
+              <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-white">
+                <i id="password-toggle-icon" data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+          
+          <button type="submit" class="w-full bg-burgundy hover:bg-burgundy-light text-white font-mono text-xs uppercase tracking-widest py-3 font-semibold border border-neon-orange/20 rounded-sm transition-all shadow-lg flex items-center justify-center gap-2">
+            <i data-lucide="key-round" class="w-4 h-4 text-neon-orange animate-pulse"></i> Iniciar Sesión con Firebase
+          </button>
+        </form>
+
+        <div id="login-error-alert" class="hidden mt-4 p-3 bg-burgundy-dark/30 border border-[#7d1829] text-gray-300 text-[11px] font-mono rounded-sm">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-metal-border text-center">
+          <p class="text-[9px] text-gray-500 font-mono">
+            Acceso exclusivo para administradores de TecnoSolar Santa Cruz S.A.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 2. PANEL ADMINISTRATIVO COMPLETO (DASHBOARD) (Oculto si no está autenticado) -->
+    <div id="admin-dashboard-screen" class="hidden space-y-8 animate-fade-in">
+      
+      <!-- Fila de Encabezado Administrativo / Estadísticas de Catálogo -->
+      <div class="border-b border-metal-border pb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight text-white uppercase flex items-center gap-2.5">
+              <i data-lucide="sliders" class="w-8 h-8 text-neon-orange"></i> ADMINISTRACIÓN DEL CATÁLOGO
+            </h2>
+            <p class="text-xs text-gray-400 font-mono mt-1">
+              Actualiza productos, precios, fotos y comparte las modificaciones al instante.
+            </p>
+          </div>
+          
+          <!-- Botones de Acción Globales -->
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- DOWNLOAD CURRENT JSON BUTTON -->
+            <button onclick="downloadCatalogJSON()" class="bg-metal-light hover:bg-[#1a1a1a] hover:border-white text-white font-mono text-xs uppercase tracking-wider px-4 py-2.5 border border-zinc-700 rounded-sm transition-all flex items-center gap-2 font-semibold">
+              <i data-lucide="download" class="w-4 h-4 text-neon-orange animate-bounce"></i> Descargar productos.json
+            </button>
+            
+            <!-- SAVE SERVER SYNC BUTTON -->
+            <button onclick="saveCatalogToServer()" class="bg-burgundy hover:bg-burgundy-light text-white font-mono text-xs uppercase tracking-wider px-4 py-2.5 border border-neon-orange/20 rounded-sm transition-all flex items-center gap-2 font-semibold">
+              <i data-lucide="database" class="w-4 h-4 text-neon-orange"></i> Guardar en Servidor
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout Grid split: Left Column (Forms) & Right Column (Tables) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- COLUMNA IZQUIERDA: CREAR Y EDITAR PRODUCTO (4 COLS) -->
+        <div class="lg:col-span-4 space-y-6">
+          
+          <div id="product-form-box" class="bg-metal-card border border-metal-border p-6 rounded-sm relative">
+            <div id="form-sidebar-badge" class="absolute top-0 left-0 w-full h-1 bg-neon-orange"></div>
+            
+            <div class="flex items-center justify-between mb-4">
+              <h3 id="form-header-title" class="font-display text-sm font-bold text-white uppercase flex items-center gap-2">
+                <i data-lucide="plus-square" class="w-4.5 h-4.5 text-neon-orange"></i> Agregar Producto
+              </h3>
+              <button id="cancel-edit-btn" onclick="exitFormEditMode()" class="hidden text-[10px] font-mono text-burgundy-light hover:underline uppercase tracking-wider">
+                Cancelar Edición
+              </button>
+            </div>
+
+            <form id="admin-product-form" onsubmit="handleProductFormSubmit(event)" class="space-y-4">
+              <input type="hidden" id="form-action-mode" value="add"> <!-- 'add' o 'edit' -->
+              <input type="hidden" id="form-original-sku" value="">
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">SKU (ID Código)</label>
+                  <input type="text" id="prod-sku" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="HERR-LLAV-999">
+                </div>
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Categoría</label>
+                  <select id="prod-category" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white">
+                    <option value="Herramientas Eléctricas">Herramientas Eléctricas</option>
+                    <option value="Iluminación Solar">Iluminación Solar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Nombre Comercial</label>
+                <input type="text" id="prod-nome" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Atornillador Impacto Pro">
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Precio Unitario (CLP)</label>
+                  <input type="number" id="prod-price" required min="0" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="38990">
+                </div>
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Tag Notificación</label>
+                  <input type="text" id="prod-tag" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Oferta, Nuevo">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Imágenes del Producto (URL)</label>
+                <input type="text" id="prod-image-url" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="https://i.supaimg.com/...">
+                
+                <!-- DRAG AND DROP INTEGRATION -->
+                <div class="mt-2 text-center">
+                  <div id="image-drag-zone" class="border border-dashed border-metal-border hover:border-neon-orange bg-metal-dark py-3.5 px-3 rounded-sm cursor-pointer transition-all flex flex-col items-center justify-center">
+                    <i data-lucide="upload-cloud" class="w-5 h-5 text-gray-400 mb-1"></i>
+                    <span class="text-[9px] font-mono text-gray-400">Arrastra una imagen o haz clic para subir</span>
+                    <input type="file" id="prod-image-file" accept="image/*" class="hidden" onchange="processLocalFilePicker(event)">
+                  </div>
+                  <div id="image-upload-indicator" class="hidden text-[9px] font-mono text-neon-orange mt-1 animate-pulse">Cargando archivo de imagen...</div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Descripción de Producto</label>
+                <textarea id="prod-description" required rows="3" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white resize-none" placeholder="Ingresa una especificación o descripción comercial..."></textarea>
+              </div>
+
+              <!-- Specs fields block -->
+              <div class="space-y-2 border-t border-metal-border pt-3">
+                <span class="block font-mono text-[9px] uppercase tracking-wider text-neon-orange font-bold">Especificaciones del Producto</span>
+                
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" id="spec-key-1" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Propiedad 1 (Ej: Batería)">
+                  <input type="text" id="spec-val-1" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Medida 1 (Ej: 24V Litio)">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" id="spec-key-2" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Propiedad 2 (Ej: Uso)">
+                  <input type="text" id="spec-val-2" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Medida 2 (Ej: Industrial)">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" id="spec-key-3" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Propiedad 3 (Ej: Motor)">
+                  <input type="text" id="spec-val-3" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Medida 3 (Ej: Brushless)">
+                </div>
+              </div>
+
+              <button type="submit" id="submit-form-button" class="w-full bg-burgundy hover:bg-burgundy-light text-white font-mono text-xs uppercase tracking-wider py-2.5 border border-neon-orange/20 rounded-sm transition-all font-bold flex items-center justify-center gap-1.5">
+                <i data-lucide="save" class="w-4 h-4 text-neon-orange"></i> Guardar Producto
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: TABLA DE PRODUCTOS EN EL CATÁLOGO (8 COLS) -->
+        <div class="lg:col-span-8 space-y-4">
+          
+          <div class="bg-metal-card border border-metal-border p-6 rounded-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <h3 class="font-display text-sm font-bold text-white uppercase flex items-center gap-2">
+                  <i data-lucide="library" class="w-4 h-4 text-[#7d1829]"></i> Productos en Inventario (<span id="catalog-count">0</span>)
+                </h3>
+                <p class="text-[10px] text-gray-400 font-mono mt-0.5">Filtra el listado por texto o busca un SKU específico.</p>
+              </div>
+              
+              <!-- Buscador -->
+              <div class="relative w-full sm:w-64">
+                <input type="text" id="search-input" oninput="renderProductsTable()" class="w-full bg-metal-dark border border-metal-border rounded-sm pl-8 pr-3 py-1.5 text-xs text-white" placeholder="Buscar por nombre o SKU...">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-gray-500">
+                  <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Tabla principal -->
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-left">
+                <thead>
+                  <tr class="border-b border-metal-border font-mono text-[9px] uppercase tracking-wider text-gray-400">
+                    <th class="py-3 px-2 font-bold select-none">Detalles del Producto</th>
+                    <th class="py-3 px-2 font-bold select-none">SKU / Categoría</th>
+                    <th class="py-3 px-2 font-bold select-none text-right">Precio</th>
+                    <th class="py-3 px-2 font-semibold select-none text-center w-28">Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="catalog-table-body" class="divide-y divide-metal-border">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- REUSABLE FLOATING NOTIFICATION TOAST -->
+  <div id="floating-toast" class="fixed bottom-6 right-6 z-50 hidden max-w-sm bg-metal-light border-2 border-neon-orange/40 text-white p-4 shadow-xl flex items-center gap-3 animate-fade-in rounded-sm">
+    <div class="bg-burgundy/40 p-1.5 rounded-full text-neon-orange border border-neon-orange/20">
+      <i data-lucide="info" class="w-4 h-4"></i>
+    </div>
+    <div class="flex-grow">
+      <p id="toast-title" class="font-sans text-[11px] font-bold uppercase tracking-wider text-neon-orange">Mensaje</p>
+      <p id="toast-body" class="font-sans text-[10px] text-gray-300 mt-0.5">La operación se realizó con éxito.</p>
+    </div>
+  </div>
+
+  <!-- INDUSTRIAL FOOTER -->
+  <footer class="bg-[#050505] border-t border-metal-border py-6 text-center text-xs font-mono text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 TecnoSolar Santa Cruz S.A. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-4 text-[10px]">
+        <a href="/" class="text-neon-orange hover:text-white font-bold inline-flex items-center gap-1">
+          <i data-lucide="arrow-right-left" class="w-3.5 h-3.5"></i> Volver a la Tienda
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT BLOCK: FIREBASE INTEGRATION & CLIENT CRUD LOGIC -->
+  <script type="module">
+    // Modular Web Firebase v10+ JS SDKs from CDN
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    // User specifications config config
+    const firebaseConfig = {
+      apiKey: 'AIzaSyDkLACJAa97h9i0J-SsXiDezucu7E_wyd8',
+      authDomain: 'tecnosolar-admin.firebaseapp.com',
+      projectId: 'tecnosolar-admin',
+      storageBucket: 'tecnosolar-admin.firebasestorage.app',
+      messagingSenderId: '883706489801',
+      appId: '1:883706489801:web:b04641a45d20fcf0fe5618',
+      measurementId: 'G-B55JG5G4QN'
+    };
+
+    // Initialize Firebase Services
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Global in-memory local state arrays
+    let ProductsDatabase = [];
+    const FALLBACK_IMAGE_URL = "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500";
+
+    // Standard DOM node definitions
+    const loginScreen = document.getElementById('login-screen');
+    const dashboardScreen = document.getElementById('admin-dashboard-screen');
+    const authStateContainer = document.getElementById('auth-state-container');
+    const noAuthLink = document.getElementById('no-auth-link');
+    const loginForm = document.getElementById('login-form');
+    const loginErrorAlert = document.getElementById('login-error-alert');
+    const userEmailDisplay = document.getElementById('user-email-display');
+
+    // Booting / Listening for Authentication state changes
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Logged in successfully
+        loginScreen.classList.add('hidden');
+        dashboardScreen.classList.remove('hidden');
+        authStateContainer.classList.remove('hidden');
+        noAuthLink.classList.add('hidden');
+        
+        if (userEmailDisplay) {
+          userEmailDisplay.innerText = user.email;
         }
 
-        // Sincronizar selectores de color con su código de texto
-        document.getElementById('cfg-color-principal').addEventListener('input', (e) => {
-            document.getElementById('cfg-txt-principal').value = e.target.value;
+        // Fetch current catalog items into local memory
+        loadProductsFromAPI();
+      } else {
+        // Logged out
+        loginScreen.classList.remove('hidden');
+        dashboardScreen.classList.add('hidden');
+        authStateContainer.classList.add('hidden');
+        noAuthLink.classList.remove('hidden');
+      }
+      
+      if (window.lucide) lucide.createIcons();
+    });
+
+    // Handle Login Submit using Modular Firebase Auth
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      loginErrorAlert.classList.add('hidden');
+      loginErrorAlert.innerText = '';
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        triggerToast("Éxito", "Sesión autorizada con éxito.");
+      } catch (error) {
+        console.error("Auth error:", error);
+        loginErrorAlert.classList.remove('hidden');
+        
+        // Translate Firebase common message codes
+        if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+          loginErrorAlert.innerText = "Error: Correo o contraseña de administrador inválidos.";
+        } else if (error.code === 'auth/invalid-email') {
+          loginErrorAlert.innerText = "Error: El formato de correo ingresado es inválido.";
+        } else {
+          loginErrorAlert.innerText = `Error: ${error.message}`;
+        }
+      }
+    });
+
+    // Logout Function
+    window.logoutAdmin = async function() {
+      try {
+        await signOut(auth);
+        triggerToast("Sesión Cerrada", "Has salido del portal de forma segura.");
+      } catch (err) {
+        console.error("Logout error:", err);
+      }
+    };
+
+    // Toggle password character masking
+    window.togglePasswordVisibility = function() {
+      const pwdInput = document.getElementById('login-password');
+      const icon = document.getElementById('password-toggle-icon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        icon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        pwdInput.type = 'password';
+        icon.setAttribute('data-lucide', 'eye');
+      }
+      if (window.lucide) lucide.createIcons();
+    };
+
+    // Load actual products catalog from JSON or server
+    async function loadProductsFromAPI() {
+      try {
+        const res = await fetch('/api/productos');
+        if (res.ok) {
+          ProductsDatabase = await res.json();
+        } else {
+          // Fallback fetch static file
+          const staticRes = await fetch('/productos.json');
+          ProductsDatabase = await staticRes.json();
+        }
+      } catch (err) {
+        console.warn("API/Fetch productos failed, utilizing empty defaults:", err);
+        ProductsDatabase = [];
+      }
+      renderProductsTable();
+    }
+
+    // Render interactive Administrative Catalog Grid Table
+    window.renderProductsTable = function() {
+      const tableBody = document.getElementById('catalog-table-body');
+      const counterNode = document.getElementById('catalog-count');
+      const searchInput = document.getElementById('search-input');
+      
+      if (!tableBody) return;
+
+      const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      let filtered = ProductsDatabase;
+
+      if (searchTerm) {
+        filtered = ProductsDatabase.filter(p => {
+          const nom = (p.nombre || '').toLowerCase();
+          const sku = (p.sku || '').toLowerCase();
+          const desc = (p.descripcion || '').toLowerCase();
+          const cat = (p.categoria || '').toLowerCase();
+          return nom.includes(searchTerm) || sku.includes(searchTerm) || desc.includes(searchTerm) || cat.includes(searchTerm);
         });
-        document.getElementById('cfg-color-fondo').addEventListener('input', (e) => {
-            document.getElementById('cfg-txt-fondo').value = e.target.value;
+      }
+
+      if (counterNode) {
+        counterNode.innerText = filtered.length;
+      }
+
+      tableBody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="4" class="py-10 text-center font-mono text-[10px] uppercase tracking-wider text-gray-400">
+              No se encontraron productos.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const isSolar = (p.categoria || '').toLowerCase().includes('solar');
+        const badgeColor = isSolar ? 'text-[#ff5a1f] border-[#ff5a1f]/30 bg-[#ff5a1f]/5' : 'text-[#7d1829] border-[#7d1829]/30 bg-[#7d1829]/5';
+        
+        const tr = document.createElement('tr');
+        tr.className = "border-b border-metal-border hover:bg-neutral-900/40 transition-colors";
+        tr.innerHTML = `
+          <td class="py-4 px-2">
+            <div class="flex items-center gap-3">
+              <img src="${p.imagen || FALLBACK_IMAGE_URL}" alt="${p.nombre}" class="w-10 h-10 object-cover border border-metal-border rounded-sm bg-metal-dark shrink-0" onerror="this.src='${FALLBACK_IMAGE_URL}'">
+              <div class="max-w-xs md:max-w-md truncate">
+                <p class="font-sans text-xs font-semibold text-white truncate">${p.nombre}</p>
+                <p class="font-sans text-[10px] text-gray-400 truncate mt-0.5">${p.descripcion || 'Sin descripción'}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-2 font-mono text-[10px]">
+            <span class="text-white font-bold p-1 bg-metal-light rounded-sm border border-metal-border">${p.sku}</span>
+            <span class="ml-1.5 border px-1.5 py-0.5 rounded-full text-[9px] uppercase tracking-wide font-sans ${badgeColor}">${p.categoria}</span>
+          </td>
+          <td class="py-4 px-2 font-mono text-xs font-bold text-right text-white">
+            $${(p.precio || 0).toLocaleString('es-CL')}
+          </td>
+          <td class="py-4 px-2 text-center">
+            <div class="flex items-center justify-center gap-1.5">
+              <button onclick="editProductInForm('${p.sku}')" class="p-1.5 bg-metal-light border border-metal-border hover:border-white text-gray-300 hover:text-white rounded-sm transition-all" title="Editar">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+              </button>
+              <button onclick="deleteProduct('${p.sku}')" class="p-1.5 bg-[#7d1829]/15 border border-[#7d1829]/30 hover:bg-burgundy text-red-300 hover:text-white rounded-sm transition-all" title="Eliminar">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      if (window.lucide) lucide.createIcons();
+    };
+
+    // Load product keys into Left sidebar form for EDIT mode
+    window.editProductInForm = function(sku) {
+      const p = ProductsDatabase.find(x => x.sku === sku);
+      if (!p) return;
+
+      document.getElementById('form-action-mode').value = 'edit';
+      document.getElementById('form-original-sku').value = sku;
+      
+      document.getElementById('prod-sku').value = p.sku || '';
+      document.getElementById('prod-category').value = p.categoria || 'Herramientas Eléctricas';
+      document.getElementById('prod-nome').value = p.nombre || '';
+      document.getElementById('prod-price').value = p.precio !== undefined ? p.precio : '';
+      document.getElementById('prod-tag').value = p.tag || '';
+      document.getElementById('prod-image-url').value = p.imagen || '';
+      document.getElementById('prod-description').value = p.descripcion || '';
+
+      // Reset specs
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`spec-key-${i}`).value = '';
+        document.getElementById(`spec-val-${i}`).value = '';
+      }
+
+      // Fill specs
+      if (p.specs && Array.isArray(p.specs)) {
+        p.specs.slice(0, 3).forEach((spec, idx) => {
+          const index = idx + 1;
+          document.getElementById(`spec-key-${index}`).value = spec.label || '';
+          document.getElementById(`spec-val-${index}`).value = spec.value || '';
+        });
+      }
+
+      const formHeader = document.getElementById('form-header-title');
+      if (formHeader) {
+        formHeader.innerHTML = `<i data-lucide="edit-2" class="w-4.5 h-4.5 text-neon-orange"></i> Editar Producto: ${sku}`;
+      }
+      
+      document.getElementById('cancel-edit-btn').classList.remove('hidden');
+      document.getElementById('submit-form-button').innerText = 'Actualizar Producto';
+      document.getElementById('form-sidebar-badge').className = 'absolute top-0 left-0 w-full h-1 bg-burgundy';
+
+      if (window.lucide) lucide.createIcons();
+
+      // Scroll form panel smoothly into viewport
+      document.getElementById('product-form-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    // Clear form and restore defaults
+    window.exitFormEditMode = function() {
+      document.getElementById('admin-product-form').reset();
+      
+      document.getElementById('form-action-mode').value = 'add';
+      document.getElementById('form-original-sku').value = '';
+      
+      const formHeader = document.getElementById('form-header-title');
+      if (formHeader) {
+        formHeader.innerHTML = `<i data-lucide="plus-square" class="w-4.5 h-4.5 text-neon-orange"></i> Agregar Producto`;
+      }
+
+      document.getElementById('cancel-edit-btn').classList.add('hidden');
+      document.getElementById('submit-form-button').innerText = 'Guardar Producto';
+      document.getElementById('form-sidebar-badge').className = 'absolute top-0 left-0 w-full h-1 bg-neon-orange';
+
+      if (window.lucide) lucide.createIcons();
+    };
+
+    // Form submission block: saves locally in browser state ProductsDatabase
+    window.handleProductFormSubmit = function(event) {
+      if (event) event.preventDefault();
+
+      const mode = document.getElementById('form-action-mode').value;
+      const originalSku = document.getElementById('form-original-sku').value;
+
+      const sku = document.getElementById('prod-sku').value.trim().toUpperCase();
+      const category = document.getElementById('prod-category').value;
+      const name = document.getElementById('prod-nome').value.trim();
+      const price = parseInt(document.getElementById('prod-price').value);
+      const tag = document.getElementById('prod-tag').value.trim();
+      const imageUrl = document.getElementById('prod-image-url').value.trim();
+      const description = document.getElementById('prod-description').value.trim();
+
+      // Setup Specs dictionary
+      const specs = [];
+      for (let i = 1; i <= 3; i++) {
+        const key = document.getElementById(`spec-key-${i}`).value.trim();
+        const value = document.getElementById(`spec-val-${i}`).value.trim();
+        if (key && value) {
+          specs.push({ label: key, value: value });
+        }
+      }
+
+      if (!sku || !name || isNaN(price) || !imageUrl) {
+        triggerToast("Formulario Incompleto", "Verifique que todos los campos requeridos estén completos.");
+        return;
+      }
+
+      let clonedCatalog = [...ProductsDatabase];
+
+      if (mode === 'add') {
+        const alreadyExists = ProductsDatabase.some(p => p.sku === sku);
+        if (alreadyExists) {
+          triggerToast("Código SKU Existente", "Este código SKU ya pertenece a otro artículo.");
+          return;
+        }
+
+        const newProduct = {
+          sku,
+          nombre: name,
+          precio: price,
+          imagen: imageUrl,
+          descripcion: description,
+          categoria: category,
+          tag,
+          specs
+        };
+        clonedCatalog.push(newProduct);
+      } else {
+        const index = clonedCatalog.findIndex(p => p.sku === originalSku);
+        if (index === -1) {
+          triggerToast("Error de Edición", "No se encontró el artículo original.");
+          return;
+        }
+
+        // If SKU changed, verify no duplicate collision with another item
+        if (sku !== originalSku) {
+          const isSkuInUse = clonedCatalog.some((p, idx) => idx !== index && p.sku === sku);
+          if (isSkuInUse) {
+            triggerToast("Código SKU en uso", "El nuevo SKU ya está asignado a otro artículo.");
+            return;
+          }
+        }
+
+        clonedCatalog[index] = {
+          sku,
+          nombre: name,
+          precio: price,
+          imagen: imageUrl,
+          descripcion: description,
+          categoria: category,
+          tag,
+          specs
+        };
+      }
+
+      // Update core dataset memory array immediately
+      ProductsDatabase = clonedCatalog;
+      renderProductsTable();
+      exitFormEditMode();
+
+      triggerToast("Catálogo Actualizado", "Los cambios han sido aplicados localmente. Haz clic en 'Guardar en Servidor' para guardarlos globalmente o descárgalos en JSON.");
+    };
+
+    // Client-side item deletion logic
+    window.deleteProduct = function(sku) {
+      const p = ProductsDatabase.find(x => x.sku === sku);
+      if (!p) return;
+
+      const consent = confirm(`¿Está seguro de eliminar el producto "${p.nombre}" del catálogo comercial de la tienda?`);
+      if (!consent) return;
+
+      ProductsDatabase = ProductsDatabase.filter(x => x.sku !== sku);
+      renderProductsTable();
+      
+      triggerToast("Producto Eliminado", "Se removió el artículo de la lista de forma inmediata. Asegúrese de guardar los cambios.");
+    };
+
+    // 1. GESTIÓN DE JSON - ENVIAR AL SERVIDOR EXPRESS (BACKEND PORTAL)
+    window.saveCatalogToServer = async function() {
+      // Obtain Admin Bearer password token dynamically if needed, or fallback
+      // Since we are authenticated via Firebase client-side, the user's secret dynamic ADMIN-PASSWORD is 'TecnoSolarSCZ2026'
+      const ADMIN_SECRET_KEY = 'TecnoSolarSCZ2026';
+
+      try {
+        const response = await fetch('/api/admin/save-catalog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + ADMIN_SECRET_KEY
+          },
+          body: JSON.stringify({ catalog: ProductsDatabase })
         });
 
-        function saveConfig() {
-            alert('¡Guardado visual simulado! Para guardar de forma permanente y automática en tu GitHub, necesitaremos conectar el script con las credenciales secretas en el siguiente paso.');
+        if (response.ok) {
+          triggerToast("Servidor Sincronizado", "El archivo produtos.json ha sido modificado y guardado y sincronizado de forma exitosa.");
+        } else {
+          const err = await response.json();
+          triggerToast("Error de Servidor", err.error || "No se pudo actualizar productos.json");
         }
-    </script>
+      } catch (err) {
+        console.error("Express save error:", err);
+        triggerToast("Falla de Conexión", "No se detectó un backend activo. ¡Recuerde descargar el archivo productos.json!");
+      }
+    };
+
+    // 2. GESTIÓN DE JSON - DESCARGAR DIRECTO DEL NAVEGADOR (DOWNLOAD JSON FILE)
+    window.downloadCatalogJSON = function() {
+      try {
+        const jsonStr = JSON.stringify(ProductsDatabase, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'productos.json';
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        triggerToast("Descarga Lista", "Se descargó productos.json actualizado con éxito.");
+      } catch (e) {
+        console.error("JSON build issue:", e);
+        triggerToast("Error", "No se pudo generar el archivo de catálogo.");
+      }
+    };
+
+    // USABILITY ENHANCEMENTS: Drag & Drop + Direct File base64 conversion & upload
+    const dragZone = document.getElementById('image-drag-zone');
+    const fileInput = document.getElementById('prod-image-file');
+
+    if (dragZone && fileInput) {
+      dragZone.addEventListener('click', () => {
+        fileInput.click();
+      });
+
+      // Drag enter & hover highlights
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dragZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dragZone.classList.add('border-neon-orange', 'bg-metal-light');
+        }, false);
+      });
+
+      // Dragleave drop cleans highlight
+      ['dragleave', 'drop'].forEach(eventName => {
+        dragZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dragZone.classList.remove('border-neon-orange', 'bg-metal-light');
+        }, false);
+      });
+
+      // Handle drop upload
+      dragZone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files.length > 0) {
+          uploadAndProcessImage(files[0]);
+        }
+      }, false);
+    }
+
+    // Direct selected picker handle
+    window.processLocalFilePicker = function(event) {
+      if (event.target.files && event.target.files.length > 0) {
+        uploadAndProcessImage(event.target.files[0]);
+      }
+    };
+
+    // Image processor converter Base64 and Server upload proxifier
+    async function uploadAndProcessImage(file) {
+      const upIndicator = document.getElementById('image-upload-indicator');
+      if (!file) return;
+
+      if (!file.type.startsWith('image/')) {
+        triggerToast("Formato Inválido", "Por favor suba solamente archivos de tipo imagen (.jpg, .png)");
+        return;
+      }
+
+      if (upIndicator) {
+        upIndicator.classList.remove('hidden');
+        upIndicator.innerText = "Sufriendo conversión e intermediando imagen...";
+      }
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = async () => {
+        const base64Data = reader.result;
+
+        // Try utilizing our API file uploader if server is alive, otherwise use client-side local base64 URL directly
+        try {
+          const ADMIN_SECRET_KEY = 'TecnoSolarSCZ2026';
+          const response = await fetch('/api/admin/upload-image', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + ADMIN_SECRET_KEY
+            },
+            body: JSON.stringify({
+              fileName: file.name,
+              fileData: base64Data
+            })
+          });
+
+          const resJson = await response.ok ? await response.json() : null;
+
+          if (resJson && resJson.url) {
+            document.getElementById('prod-image-url').value = resJson.url;
+            triggerToast("Carga Exitosa", "La imagen se ha alojado en el servidor correctamente.");
+          } else {
+            // Fallback: Use Base64 string directly in index URL (works beautifully client side too!)
+            document.getElementById('prod-image-url').value = base64Data;
+            triggerToast("Imagen Lista", "Se cargó la imagen de forma local de forma exitosa.");
+          }
+        } catch (err) {
+          // Fallback static
+          document.getElementById('prod-image-url').value = base64Data;
+          triggerToast("Imagen Codificada", "Se generó cadena de la imagen para usos offline.");
+        } finally {
+          if (upIndicator) {
+            upIndicator.classList.add('hidden');
+          }
+        }
+      };
+    }
+
+    // Reusable Custom UX Toast Trigger
+    window.triggerToast = function(title, body) {
+      const toast = document.getElementById('floating-toast');
+      const tTitle = document.getElementById('toast-title');
+      const tBody = document.getElementById('toast-body');
+
+      if (!toast || !tTitle || !tBody) return;
+
+      tTitle.innerText = title;
+      tBody.innerText = body;
+
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    };
+
+    // Load initial icons
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
 </body>
 </html>
