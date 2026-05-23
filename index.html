@@ -521,7 +521,7 @@
 
               <div class="p-3 bg-burgundy/10 border border-burgundy/30 rounded-sm flex gap-3 items-start text-[10px] text-gray-400 leading-relaxed font-mono">
                 <i data-lucide="info" class="w-4 h-4 text-neon-orange shrink-0 mt-0.5"></i>
-                <span>Estimación no incluye costo de flete. El despacho se coordina vía telefónica o WhatsApp según localidad específica.</span>
+                <span>Estimación no incluye flete. El despacho se coordina vía telefónica o WhatsApp según la comuna específica.</span>
               </div>
             </div>
 
@@ -783,7 +783,16 @@
     let ProductsDatabase = [];
     let CurrentCategoryFilter = 'all';
     let CartData = [];
-
+    
+    // Helper to sanitize prices from dots, currency signs, etc. and return as safe normalized numbers
+    function cleanPrice(priceVal) {
+      if (priceVal === undefined || priceVal === null) return 0;
+      if (typeof priceVal === 'string') {
+        const cleaned = priceVal.replace(/[^0-9.-]/g, '');
+        return Number(cleaned) || 0;
+      }
+      return Number(priceVal) || 0;
+    }
     // Initialize theme state from localStorage
     function initTheme() {
       const storedTheme = localStorage.getItem('tecnosolar_theme');
@@ -851,25 +860,25 @@
         const rawProducts = await response.json();
         
         ProductsDatabase = rawProducts.map(p => {
-          // Robust ID helper
-          const id = Number(p.id !== undefined ? p.id : (p.ID !== undefined ? p.ID : 0));
+             // Normalize names, SKUs, prices, categories robustly according to parameters requested
+          const sku = p.sku || p.SKU || (p.id ? `TS-${p.id}` : 'SIN-SKU');
           
           // Map to lowercase Spanish properties explicitly
-          const nombre = p.nombre || p.name || 'Producto';
-          const precio = Math.max(0, Number(p.precio !== undefined ? p.precio : (p.price !== undefined ? p.price : 0)));
+          const nombre = p.nombre || p['Producto / Descripción'] || p.name || 'Producto';
+          const precio = cleanPrice(p.precio !== undefined ? p.precio : (p.price !== undefined ? p.price : 0));
           const descripcion = p.descripcion || p.description || '';
           const sku = p.sku || `TS-${id}`;
-          const imagen = p.imagen || p.image || '';
+          const imagen = p.imagen || p.image || p.Imagen || '';
           const categoria = p.categoria || p.category || 'Equipos';
           const tag = p.tag || '';
           const specs = p.specs || [];
 
           return {
-            id,
+            sku,
             nombre,
             precio,
             descripcion,
-            sku,
+        
             imagen,
             categoria,
             tag,
@@ -888,68 +897,269 @@
         
         // Custom robust absolute fallback array designed strictly with lower case Spanish properties
         ProductsDatabase = [
-          {
-            "id": 1,
-            "nombre": "Taladro Percutor Inalámbrico 20V MAX",
-            "sku": "TS-DRL-20V-MX",
-            "categoria": "Herramientas Eléctricas",
-            "precio": 185990,
-            "tag": "Nuevo",
-            "descripcion": "Ingeniería de alto torque diseñada para trabajos pesados en agricultura e industria. Motor Brushless que maximiza la vida útil y la potencia.",
-            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCHNwMz88KJRCrKa0Uuky0lO2qMRm3WzBJrmH0OzZlI6nhnM-nIILBEj1smj_G58j5F1WFSqDwOoXWYqp6Yhn2nHdItleBlZAvN6Zr2ctbVC7Cat0mXfYpZyDBZRoecSg_4Q6fVofXjr67SU2iiNW5GNjTZ4skLEHhVdyeDrQy3hSEACDG_3qyywRNtLFj0mQqscYVtVUSQ4Hu8JKWIiKFQsizanZTxNVRD8XFkTC3lFigRlQvaIPFl3WB3l5KwfbmebUSM2tyFsL8",
-            "specs": [
-              { "label": "Voltaje", "value": "20V MAX" },
-              { "label": "Torque Máximo", "value": "65 Nm" },
-              { "label": "Velocidad sin carga", "value": "0-500 / 0-1750 RPM" },
-              { "label": "Impactos por minuto", "value": "0-29750 IPM" }
-            ]
-          },
-          {
-            "id": 2,
-            "nombre": "Esmeril Angular Inalámbrico Industrial",
-            "sku": "TS-GRN-20V-PRO",
-            "categoria": "Herramientas Eléctricas",
-            "precio": 145000,
-            "tag": "Profesional",
-            "descripcion": "Corte y desbaste de precisión sin cables. Equipado con freno electrónico y guardas de seguridad de ajuste rápido.",
-            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuD7BtFmtuj48E46_bD3YBBqEUbII3AOzOS7Cll26Z5bJ4xi2xyp3qzkD_EichXoGYLLywjoUz2FBodJ-6c3JPphQAAnpLxsrTm3e_KwIeaLzKhBwk6887llbFzuc3jegLYcSKOwmZ1158RByqWuaLtmqaNQk_KIryFv90NgJjxOGfSdqqWCOIN8gsDOjhkGeKFr8DPIxl0fUyJQNKE1nJ159jsVneve2Cuu7yOOA74ezYtLnSHpuvcAzu3tX4PgqzcCaCwyycLlBxA",
-            "specs": [
-              { "label": "Diámetro Disco", "value": "125 mm" },
-              { "label": "Motor", "value": "Sin carbones (Brushless)" },
-              { "label": "Peso", "value": "1.7 kg" }
-            ]
-          },
-          {
-            "id": 3,
-            "nombre": "Foco Solar Exterior 400W LED",
-            "sku": "TS-SOL-400W-HD",
-            "categoria": "Iluminación Solar",
-            "precio": 85000,
-            "tag": "Eficiencia",
-            "descripcion": "Máxima potencia lumínica con energía limpia. Chasis de aluminio inyectado y panel fotovoltaico de alta eficiencia.",
-            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuAefhTDYepVhgPnALPfAI9Ynt3Ct2RweFHsWLw46wX9y5kBDb1JRvFe9gYX9RlF-e60iSEGdxhWPJsJyzju43lD4awlUcBFAZ6GVglA_01eV5omIpm4H0LLKKO8mY01-LntyzLf-AmGNjeEc5aZ2YZWvOBqSE3nDa7lTVrE5I-2bFZhkGH1lSKRKbYSvk3xzAsV5oEeC0fvfciwYT97AxAorqUoozAg9FpKA70g09DhGCQ3EvqLE4ezhywq2CPurTzIAnb39985fjk",
-            "specs": [
-              { "label": "Potencia", "value": "400W LED" },
-              { "label": "Autonomía", "value": "12-14 horas" },
-              { "label": "Certificación", "value": "IP67 (Intemperie)" }
-            ]
-          },
-          {
-            "id": 4,
-            "nombre": "Lámpara de Emergencia Solar Pro",
-            "sku": "TS-EM-LIT-05",
-            "categoria": "Iluminación Solar",
-            "precio": 45000,
-            "tag": "Seguridad",
-            "descripcion": "Solución confiable para cortes de energía o zonas críticas sin red eléctrica. Activación automática.",
-            "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1uWyysqvjchZ4E61MQdU246xtYux2Oy7jtXBBB88K--LmiRnQGn_0YATqegVkA3xYkfdNOEOmnBnQ-9fl7SFAcBxP0jZSYyUzYekFyJiSm2OLXBrhWb4ljRn7QKIY8xc-1iAYc3e4ThZx0pbLzjCBkr-1drMYlttLweT8Aw70dyqTMnF4Zk0QZguZGbeCShqudmengUfbjXxRWldWHvFyltwF6SyigoquZe4pPbbtVsPgjohSA5St0_lUlugV8ciyYneh7nN_7VM",
-            "specs": [
-              { "label": "Lúmenes", "value": "2500" },
-              { "label": "Batería", "value": "Litio LFP" },
-              { "label": "Modos", "value": "Sensor Movimiento / Fijo" }
-            ]
-          }
-        ];
+  {
+    "sku": "HERR-LLAV-001",
+    "nombre": "2 en 1 Llave impacto más esmeril",
+    "precio": 49990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a11c4c54-42d0-4364-8883-71bfeb7902e4.jpg",
+    "descripcion": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos."
+  },
+  {
+    "sku": "ELEC-CAM-002",
+    "nombre": "Camara de seguridad solar",
+    "precio": 59990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
+    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables."
+  },
+  {
+    "sku": "HERR-DEST-003",
+    "nombre": "Destornillador inalámbrico mandril metalico",
+    "precio": 25990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/852f4567-48bc-4187-84e6-d24fa9bec454.jpg",
+    "descripcion": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje."
+  },
+  {
+    "sku": "ILUM-FOCO-2000",
+    "nombre": "Foco solar 2.000w con panel separado",
+    "precio": 34000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/7542a9fa-56a4-45a3-8a23-02010a2e35e7.png",
+    "descripcion": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra."
+  },
+  {
+    "sku": "ACC-DADO-005",
+    "nombre": "SET de 10 dados de impacto",
+    "precio": 9990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a7629fb8-e1e1-4d19-8517-da218635bc57.jpg",
+    "descripcion": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse."
+  },
+  {
+    "sku": "ILUM-FOCO-100",
+    "nombre": "Foco solar de 100w de panel separado",
+    "precio": 18000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/302a1902-6552-4837-b2ea-f463860d0f5f.png",
+    "descripcion": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz."
+  },
+  {
+    "sku": "HERR-MULT-007",
+    "nombre": "Multifuncional oscilante",
+    "precio": 38000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78c09ad3-c761-4c89-bbcc-463506ac04e3.jpg",
+    "descripcion": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios."
+  },
+  {
+    "sku": "HERR-CLAV-008",
+    "nombre": "Pistola de clavos inalambrica",
+    "precio": 65000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/11345cd0-1b40-418e-acaf-f53d91eec861.jpg",
+    "descripcion": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera."
+  },
+  {
+    "sku": "ILUM-GUIR-009",
+    "nombre": "Guirnalda 10 luces x 10 mts",
+    "precio": 14000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/cc02c41e-eeda-4fa5-a42f-b6c422c445f2.jpg",
+    "descripcion": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre."
+  },
+  {
+    "sku": "HERR-COMP-010",
+    "nombre": "Compresor de dos cilindros",
+    "precio": 29990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/97e469df-09c2-427a-a7b7-7cb83e3ee676.jpg",
+    "descripcion": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables."
+  },
+  {
+    "sku": "HERR-SOLD-MIG",
+    "nombre": "Soldadora MIG, MMA y TIG",
+    "precio": 80000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a2cdafc5-697f-4f48-90bf-1eac7cba733c.jpg",
+    "descripcion": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar."
+  },
+  {
+    "sku": "HERR-SOLD-MMA",
+    "nombre": "Soldadora MMA",
+    "precio": 44000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2fc8f999-b062-4c00-a74d-a812e6a80e06.jpg",
+    "descripcion": "Soldadora inverter para electrodo revestido (MMA). Compacta y potente, ideal para reparaciones rápidas y trabajos de herrería en general."
+  },
+  {
+    "sku": "ELEC-ZAPA-013",
+    "nombre": "Zapatilla electrica alargador de 5 metros",
+    "precio": 6000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/6dcf7429-7a94-492d-8ffb-9608fe03abe8.png",
+    "descripcion": "Extensión eléctrica reforzada de 5 metros con 4 tomas. Incluye interruptor de encendido con protección térmica para seguridad."
+  },
+  {
+    "sku": "HERR-ROTO-014",
+    "nombre": "Rotomartillo",
+    "precio": 47990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/68082b6b-51eb-49a1-aeb5-50b8def9db6b.jpg",
+    "descripcion": "Herramienta de perforación pesada con sistema SDS-Plus. Tres modos de uso: rotación, percusión y cincelado para concreto y piedra."
+  },
+  {
+    "sku": "ELEC-CARG-015",
+    "nombre": "Cargador de baterías",
+    "precio": 14000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a4599987-45c2-479b-8b36-307e53b558e9.jpg",
+    "descripcion": "Cargador inteligente compatible con 12V y 24V. Protege contra cortocircuitos, ideal para vehículos y maquinaria agrícola."
+  },
+  {
+    "sku": "HERR-SIER-016",
+    "nombre": "Sierra circular inalambrica",
+    "precio": 59990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d564a331-7141-452a-9cc8-194b8c520fd8.jpg",
+    "descripcion": "Sierra de disco portátil para cortes rectos en madera. Ajuste de profundidad y ángulo para trabajos de carpintería en terreno."
+  },
+  {
+    "sku": "HERR-MINI-017",
+    "nombre": "Mini amoladora 3 en 1",
+    "precio": 37000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f63c572a-4260-40f4-b5e6-cdcfb17f85ff.jpg",
+    "descripcion": "Herramienta compacta multifunción para corte, pulido y detalles en metal o madera. Incluye accesorios básicos."
+  },
+  {
+    "sku": "HERR-ESME-018",
+    "nombre": "Esmeril inalámbrico con 2 baterías",
+    "precio": 32990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78e20ec6-dc30-4a5c-8a20-d833c91b3b43.jpg",
+    "descripcion": "Esmeril angular para discos de 4.5 pulgadas. Libertad total de movimiento para cortes rápidos y desbaste de soldaduras."
+  },
+  {
+    "sku": "HERR-CHIC-019",
+    "nombre": "Chicharra inalambrica",
+    "precio": 44000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c1968d40-a4e1-47f4-aaf3-53ab0110dfad.jpg",
+    "descripcion": "Llave de trinquete (chicharra) eléctrica para mecánica. Permite apretar y soltar pernos en espacios reducidos sin esfuerzo manual."
+  },
+  {
+    "sku": "ILUM-EMER-020",
+    "nombre": "Foco emergencia 2 X 3",
+    "precio": 9990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/62b7fe9d-0627-4124-a715-6d05c1961107.jpg",
+    "descripcion": "Lámpara de doble foco LED recargable. Se activa automáticamente ante cortes de luz, ideal para pasillos y bodegas."
+  },
+  {
+    "sku": "ILUM-FOCO-021",
+    "nombre": "Farol Solar Interactivo",
+    "precio": 5000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/b656fb67-4fee-45a1-a9a1-3240bf61ff5f.jpg",
+    "descripcion": "Farol decorativo solar para jardín. Resistente al agua, se enciende al anochecer creando un ambiente acogedor en terrazas."
+  },
+  {
+    "sku": "ELEC-CAM-022",
+    "nombre": "Camara videollamada wifi",
+    "precio": 15990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5a803ec0-95bc-4c47-a998-609bba036cc6.jpg",
+    "descripcion": "Cámara interior con pantalla. Permite realizar videollamadas directas, ideal para monitoreo de niños o adultos mayores."
+  },
+  {
+    "sku": "ILUM-EMER-023",
+    "nombre": "Foco emergencia simple",
+    "precio": 7500,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/198b786c-adb2-4bc1-90c4-d185658fe9f4.jpg",
+    "descripcion": "Luminaria LED solar básica para exteriores. Resistente a la lluvia y con encendido automático por sensor."
+  },
+  {
+    "sku": "ILUM-EMER-024",
+    "nombre": "Foco emergencia con herramientas",
+    "precio": 15000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f500b8a4-ebb5-4895-acd3-01e39dd40274.jpg",
+    "descripcion": "Kit de emergencia que combina un foco LED potente con un set de herramientas básicas para el vehículo."
+  },
+  {
+    "sku": "JARD-KIT-025",
+    "nombre": "Kit de herramientas de jardin",
+    "precio": 37000,
+    "nombre_pack_2x": "PROMO 2x Kit Jardín",
+    "precio_pack_2x": 60000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5311cbc3-2620-44df-a1c4-682f9b2724bb.jpg",
+    "descripcion": "Set completo para el cuidado del patio. Incluye herramientas eléctricas para poda y mantención de áreas verdes."
+  },
+  {
+    "sku": "JARD-CORT-026",
+    "nombre": "Cortacetos",
+    "precio": 26990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/bf39c9de-ebf0-476b-b3cc-7cf325b23e62.jpg",
+    "descripcion": "Cortasetos eléctrico ligero. Cuchillas de doble acción para un corte limpio en arbustos y cercos vivos."
+  },
+  {
+    "sku": "ELEC-TIMB-027",
+    "nombre": "Camara timbre",
+    "precio": 19990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/832d3b09-cd5c-4d5b-a58b-17c3c7311f78.jpg",
+    "descripcion": "Timbre inteligente con video HD. Ve y habla con quien toque la puerta desde tu celular en cualquier lugar."
+  },
+  {
+    "sku": "HERR-DEST-028",
+    "nombre": "Atornillador inalámbrico",
+    "precio": 19990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/20bcb94a-912c-4369-b34e-ed8df90c67c0.jpg",
+    "descripcion": "Atornillador compacto de 12V. Ideal para armado de muebles y trabajos domésticos rápidos."
+  },
+  {
+    "sku": "HERR-SOPL-029",
+    "nombre": "Sopladora y aspirador inalambrica",
+    "precio": 18000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9b4e91a3-550c-4fa6-b492-71d3c8ce993d.jpg",
+    "descripcion": "Herramienta dual para limpieza. Sopla hojas del patio o aspira el interior del vehículo sin cables."
+  },
+  {
+    "sku": "HERR-CALA-030",
+    "nombre": "Sierra caladora",
+    "precio": 39990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2f8cb920-22f5-4ebf-82c3-91339d915e0d.jpg",
+    "descripcion": "Sierra eléctrica para cortes curvos. Velocidad variable para madera, metal o plástico."
+  },
+  {
+    "sku": "ILUM-FOCO-1000",
+    "nombre": "Foco solar de 1000w metálico",
+    "precio": 27000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d23b871c-b307-4b10-a040-7d430b0bc58f.jpg",
+    "descripcion": "Foco solar potente con chasis de aluminio. Gran durabilidad para parcelas y patios grandes."
+  },
+  {
+    "sku": "ILUM-FOCO-1200",
+    "nombre": "Foco de 1200w",
+    "precio": 28500,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1229b27f-f736-4dbc-99ea-1b6adddf2da6.png",
+    "descripcion": "Proyector LED solar de gran cobertura. Incluye control remoto y sensor para ahorro de energía."
+  },
+  {
+    "sku": "ILUM-EMER-033",
+    "nombre": "Foco solar emergencia con parlante",
+    "precio": 13500,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c37c3646-7c86-4527-9b0d-eed0670fb558.jpg",
+    "descripcion": "Foco multifunción. Luz potente y parlante Bluetooth integrado para camping o terrazas."
+  },
+  {
+    "sku": "ILUM-EMER-034",
+    "nombre": "Foco solar emergencia 1 x 3",
+    "precio": 8990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ab26c375-4fac-451e-bc0c-a981f0082f99.png",
+    "descripcion": "Foco compacto de seguridad solar. Proporciona luz inmediata en pasillos exteriores sin cables."
+  },
+  {
+    "sku": "HERR-DEST-035",
+    "nombre": "Atornillador eléctrico mini con accesorios",
+    "precio": 8990,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/83d67297-53d8-45b8-9dde-b4680bdcd128.jpg",
+    "descripcion": "Mini atornillador recargable. Incluye set de puntas para reparaciones domésticas y armado de juguetes."
+  },
+  {
+    "sku": "GEN-ELE-200",
+    "nombre": "Generador eléctrico portátil 200w",
+    "precio": 115000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1d6017e9-540c-49bf-bdf0-9ea3d830faa3.jpg",
+    "descripcion": "Estación de energía silenciosa. Carga celulares y laptops en camping o situaciones de emergencia."
+  },
+  {
+    "sku": "GEN-ELE-500",
+    "nombre": "Generador eléctrico portátil 500w",
+    "precio": 290000,
+    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ae79788f-cb0e-4faa-86b4-6cb664324931.jpg",
+    "descripcion": "Generador de gran capacidad. Alimenta herramientas pequeñas y electrodomésticos durante cortes de luz prolongados."
+  }
+];
+        
         
         if (loader) loader.classList.add('hidden');
         if (gridContainer) gridContainer.classList.remove('hidden');
@@ -1055,12 +1265,12 @@ function filterCatalog(categoryKey) {
       }
 
       filtered.forEach(product => {
-        const nombre = product.nombre || 'Producto';
-        const precio = Math.max(0, Number(product.precio || 0));
+        const nombre = product.nombre || product["Producto / Descripción"] || 'Producto';
+        const precio = Math.max(0, cleanPrice(product.precio || 0));
         const tag = product.tag || '';
         const categoria = product.categoria || 'Equipos';
         const sku = product.sku || product.SKU || 'SIN-SKU';
-        const imagen = product.imagen || '';
+        const imagen = product.imagen || product.Imagen || '';
 
         const tagHTML = tag ? `
           <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
@@ -1112,17 +1322,18 @@ function filterCatalog(categoryKey) {
       }
     }
     // 4. SPECIFICATIONS MODAL WINDOW
-    function openSpecModal(productId) {
-      const product = ProductsDatabase.find(p => p.id === Number(productId));
+     function openSpecModal(productSKU) {
+      const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
       if (!product) return;
 
-      document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku}`;
-      document.getElementById('modal-product-title').innerText = product.nombre;
-      document.getElementById('modal-product-category').innerText = product.categoria;
-      document.getElementById('modal-product-price').innerText = `$${(product.precio || 0).toLocaleString("es-CL")} CLP`;
-      document.getElementById('modal-product-descr').innerText = product.descripcion;
-      document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.imagen));
+      const nombre = product.nombre || product["Producto / Descripción"] || 'Producto';
 
+      document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku || product.SKU}`;
+      document.getElementById('modal-product-title').innerText = nombre;
+      document.getElementById('modal-product-category').innerText = product.categoria;
+      document.getElementById('modal-product-price').innerText = `$${Math.round(cleanPrice(product.precio)).toLocaleString("es-CL")} CLP`;
+      document.getElementById('modal-product-descr').innerText = product.descripcion;
+      document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.imagen || product.Imagen));
       // Render specification rows
       const specsBody = document.getElementById('modal-specs-table-body');
       specsBody.innerHTML = '';
@@ -1144,13 +1355,12 @@ function filterCatalog(categoryKey) {
         `;
       }
 
-      // Configure direct add action
+     // Configure direct add action to pass SKU as string correctly
       const addBtn = document.getElementById('modal-btn-add-to-cart');
       addBtn.onclick = () => {
-        addProductToCart(product.id);
+        addProductToCart(product.sku || product.SKU);
         closeSpecModal();
       };
-
       // Show modal backdrop
       document.getElementById('spec-modal').classList.remove('hidden');
       document.getElementById('spec-modal').classList.add('flex');
@@ -1169,6 +1379,13 @@ function filterCatalog(categoryKey) {
         const stored = localStorage.getItem('tecnosolar_cart');
         const rawCart = stored ? JSON.parse(stored) : [];
         CartData = rawCart.map(item => {
+          const sku = item.sku || item.SKU || '';
+          const nombre = item.nombre || item["Producto / Descripción"] || item.name || 'Producto';
+          const precio = cleanPrice(item.precio !== undefined ? item.precio : (item.price !== undefined ? item.price : 0));
+          const descripcion = item.descripcion || item.description || '';
+          const imagen = item.imagen || item.image || item.Imagen || '';
+          const categoria = item.categoria || item.category || 'Equipos';
+          const quantity = Number(item.quantity || 1);
           return {
             sku: item.sku || item.SKU,
             nombre: item.nombre || item["Producto / Descripción"] || 'Producto',
@@ -1206,37 +1423,31 @@ function filterCatalog(categoryKey) {
       });
     }
 
-    function addProductToCart(productSKU) {
-      // Ahora buscamos por el SKU único de tu lista de herramientas
+       function addProductToCart(productSKU) {
       const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
-      
-      if (!product) {
-        console.error("No se encontró el producto:", productSKU);
-        return;
-      }
+      if (!product) return;
 
       const existingIndex = CartData.findIndex(item => (item.sku || item.SKU) === productSKU);
-      
       if (existingIndex > -1) {
         CartData[existingIndex].quantity += 1;
       } else {
-        let precioLimpio = typeof product.precio === 'string' 
-            ? Number(product.precio.replace(/[^0-9.-]+/g,"")) 
-            : Number(product.precio);
+        const nombre = product.nombre || product["Producto / Descripción"] || 'Producto';
+        const precio = cleanPrice(product.precio);
+        const imagen = product.imagen || product.Imagen || '';
 
-        CartData.push({ 
+        CartData.push({
           sku: product.sku || product.SKU,
-          nombre: product.nombre,
-          precio: precioLimpio,
-          imagen: product.imagen,
-          quantity: 1 
+          nombre: nombre,
+          precio: precio,
+          descripcion: product.descripcion || '',
+          imagen: imagen,
+          categoria: product.categoria || '',
+          quantity: 1
         });
       }
 
-      saveCartToStorage();
-      if(typeof triggerToast === 'function') {
-        triggerToast("Equipo Añadido", `${product.nombre} se agregó al carro.`);
-      }
+     saveCartToStorage();
+      triggerToast("Equipo Añadido", `${product.nombre || product["Producto / Descripción"] || 'Producto'} fue agregado correctamente al carro de compras.`);
     }
 
     function updateCartItemQuantity(productSKU, delta) {
@@ -1248,14 +1459,14 @@ function filterCatalog(categoryKey) {
         } else {
           CartData[itemIndex].quantity = newQty;
           saveCartToStorage();
-          if(typeof renderCartView === 'function') renderCartView();
+          renderCartView();
         }
       }
     }
 
-    function removeCartItem(productSKU) {
+      function removeCartItem(productSKU) {
       const item = CartData.find(item => (item.sku || item.SKU) === productSKU);
-      const label = item ? item.nombre : "Producto";
+      const label = item ? (item.nombre || item["Producto / Descripción"]) : "Producto";
       CartData = CartData.filter(item => (item.sku || item.SKU) !== productSKU);
       
       saveCartToStorage();
@@ -1294,8 +1505,11 @@ function filterCatalog(categoryKey) {
       let subtotalSum = 0;
 
       CartData.forEach(item => {
-        const itemSubtotal = item.precio * item.quantity;
+        const normalizedItemPrice = cleanPrice(item.precio);
+        const itemSubtotal = normalizedItemPrice * item.quantity;
         subtotalSum += itemSubtotal;
+        const sku = item.sku || item.SKU || '';
+        const nombre = item.nombre || item["Producto / Descripción"] || 'Producto';
 
         // Desktop Row markup
         const tr = document.createElement('tr');
