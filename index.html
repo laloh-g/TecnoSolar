@@ -1265,16 +1265,16 @@ function filterCatalog(categoryKey) {
       }
 
       filtered.forEach(product => {
-        const nombre = product.nombre || product["Producto / Descripción"] || 'Producto';
-        const precio = Math.max(0, cleanPrice(product.precio || 0));
-        const tag = product.tag || '';
-        const categoria = product.categoria || 'Equipos';
-        const sku = product.sku || product.SKU || 'SIN-SKU';
-        const imagen = product.imagen || product.Imagen || '';
+        const currentName = product.nombre || product["Producto / Descripción"] || 'Producto';
+        const currentPrice = Math.max(0, cleanPrice(product.precio || 0));
+        const currentTag = product.tag || '';
+        const currentCat = product.categoria || 'Equipos';
+        const currentSKU = product.sku || product.SKU || 'SIN-SKU';
+        const currentImg = product.imagen || product.Imagen || '';
 
-        const tagHTML = tag ? `
+        const tagHTML = currentTag ? `
           <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
-            ${tag}
+            ${currentTag}
           </span>
         ` : '';
 
