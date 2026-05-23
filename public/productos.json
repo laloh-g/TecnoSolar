@@ -1,306 +1,261 @@
 [
   {
-    "id": 1,
-    "nombre": "Alargador 5 mt",
-    "precio": 6000,
-    "sku": "MLTP-5MT-BL",
-    "imagen": "INVENTARIO/bach39.png",
-    "descripcion": "Extensión eléctrica de 5 metros con múltiples tomas para uso doméstico o taller."
+    "SKU": "HERR-LLAV-001",
+    "Producto / Descripción": "2 en 1 Llave impacto más esmeril",
+    "Precio": "$49.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a11c4c54-42d0-4364-8883-71bfeb7902e4.jpg",
+    "Descripción": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos."
   },
   {
-    "id": 2,
-    "nombre": "Caladora inalámbrica",
-    "precio": 39990,
-    "sku": "TSB-CAL-INM-CEL",
-    "imagen": "INVENTARIO/bach40.jpeg",
-    "descripcion": "Sierra caladora con motor sin escobillas, velocidad variable y sistema de cambio rápido de hoja a batería."
+    "SKU": "ELEC-CAM-002",
+    "Producto / Descripción": "Camara de seguridad solar",
+    "Precio": "$59.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
+    "Descripción": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables."
   },
   {
-    "id": 3,
-    "nombre": "Cargador baterías",
-    "precio": 14000,
-    "sku": "BACH-12V6A-RJ",
-    "imagen": "INVENTARIO/BACH1.jpg",
-    "descripcion": "Cargador inteligente para baterías de plomo-ácido de 12V/24V con microprocesador para carga automática."
+    "SKU": "HERR-DEST-003",
+    "Producto / Descripción": "Destornillador inalámbrico mandril metalico",
+    "Precio": "$25.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/852f4567-48bc-4187-84e6-d24fa9bec454.jpg",
+    "Descripción": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje."
   },
   {
-    "id": 4,
-    "nombre": "Chicharra inalámbrica",
-    "precio": 44000,
-    "sku": "TBL-CHI-INM-AMA",
-    "imagen": "INVENTARIO/BAch9.jpg",
-    "descripcion": "Llave de trinquete eléctrica con batería recargable y alto torque para trabajos en espacios reducidos."
+    "SKU": "ILUM-FOCO-2000",
+    "Producto / Descripción": "Foco solar 2.000w con panel separado",
+    "Precio": "$34.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/7542a9fa-56a4-45a3-8a23-02010a2e35e7.png",
+    "Descripción": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra."
   },
   {
-    "id": 5,
-    "nombre": "Compresor de aire 4 en 1",
-    "precio": 34990,
-    "sku": "JUMP-START-NEG",
-    "imagen": "INVENTARIO/BACH11.jpg",
-    "descripcion": "Dispositivo multifuncional con compresor portátil, linterna LED, medidor de presión y función de carga."
+    "SKU": "ACC-DADO-005",
+    "Producto / Descripción": "SET de 10 dados de impacto",
+    "Precio": "$9.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a7629fb8-e1e1-4d19-8517-da218635bc57.jpg",
+    "Descripción": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse."
   },
   {
-    "id": 6,
-    "nombre": "Cortasetos y cortapasto inalámbrica",
-    "precio": 26990,
-    "sku": "CR-SETO-PAS-VER",
-    "imagen": "INVENTARIO/BACH13.jpg",
-    "descripcion": "Herramienta 2 en 1 para mantenimiento de jardines con cuchillas intercambiables y batería de litio."
+    "SKU": "ILUM-FOCO-100",
+    "Producto / Descripción": "Foco solar de 100w de panel separado",
+    "Precio": "$18.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/302a1902-6552-4837-b2ea-f463860d0f5f.png",
+    "Descripción": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz."
   },
   {
-    "id": 7,
-    "nombre": "Desatornillador y taladro inalámbrico 100NM",
-    "precio": 19990,
-    "sku": "JZT-DES-TAL-INM-100NM-GRS",
-    "imagen": "INVENTARIO/bach25.jpg",
-    "descripcion": "Taladro atornillador de alto torque (100 Nm) con motor brushless y mandril metálico de alta resistencia."
+    "SKU": "HERR-MULT-007",
+    "Producto / Descripción": "Multifuncional oscilante",
+    "Precio": "$38.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78c09ad3-c761-4c89-bbcc-463506ac04e3.jpg",
+    "Descripción": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios."
   },
   {
-    "id": 8,
-    "nombre": "Esmeril o galletero inalámbrico",
-    "precio": 32990,
-    "sku": "TBL-GALL-INM-AMA",
-    "imagen": "INVENTARIO/BACH2.jpg",
-    "descripcion": "Esmeril angular portátil para discos de 4.5\", motor de alta eficiencia y protección contra rearranque."
+    "SKU": "HERR-CLAV-008",
+    "Producto / Descripción": "Pistola de clavos inalambrica",
+    "Precio": "$65.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/11345cd0-1b40-418e-acaf-f53d91eec861.jpg",
+    "Descripción": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera."
   },
   {
-    "id": 9,
-    "nombre": "Farol solar interactivo",
-    "precio": 5000,
-    "sku": "TBL-FAR-SOL-INT-NEG",
-    "imagen": "INVENTARIO/bach29.jpg",
-    "descripcion": "Luminaria exterior con panel solar integrado, sensor de movimiento PIR y encendido automático."
+    "SKU": "ILUM-GUIR-009",
+    "Producto / Descripción": "Guirnalda 10 luces x 10 mts",
+    "Precio": "$14.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/cc02c41e-eeda-4fa5-a42f-b6c422c445f2.jpg",
+    "Descripción": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre."
   },
   {
-    "id": 10,
-    "nombre": "Foco 1000 W metal + vidrio",
-    "precio": 26990,
-    "sku": "TSB-1000W-MET-VID",
-    "imagen": "INVENTARIO/bach32.jpg",
-    "descripcion": "Proyector LED de alta potencia con carcasa de aluminio fundido y vidrio templado resistente a la intemperie."
+    "SKU": "HERR-COMP-010",
+    "Producto / Descripción": "Compresor de dos cilindros",
+    "Precio": "$29.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/97e469df-09c2-427a-a7b7-7cb83e3ee676.jpg",
+    "Descripción": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables."
   },
   {
-    "id": 11,
-    "nombre": "Foco 1000 W plástico",
-    "precio": 18000,
-    "sku": "CN-FOC-1000W-PLAS",
-    "imagen": "INVENTARIO/bach27.jpg",
-    "descripcion": "Foco LED de alta luminosidad con cuerpo de polímero ABS resistente, ideal para iluminación de áreas amplias."
+    "SKU": "HERR-SOLD-MIG",
+    "Producto / Descripción": "Soldadora MIG, MMA y TIG",
+    "Precio": "$80.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a2cdafc5-697f-4f48-90bf-1eac7cba733c.jpg",
+    "Descripción": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar."
   },
   {
-    "id": 12,
-    "nombre": "Foco emergencia solar 2x3",
-    "precio": 9990,
-    "sku": "FOC-SOL-2X3-NEG",
-    "imagen": "INVENTARIO/BACH15.jpg",
-    "descripcion": "Lámpara de emergencia recargable mediante energía solar con múltiples modos de iluminación LED."
+    "SKU": "HERR-SOLD-MMA",
+    "Producto / Descripción": "Soldadora MMA",
+    "Precio": "$44.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2fc8f999-b062-4c00-a74d-a812e6a80e06.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 13,
-    "nombre": "Foco solar 1200W",
-    "precio": 28500,
-    "sku": "TBL-FOC-SOL-1200W-NEG",
-    "imagen": "INVENTARIO/bach37.jpg",
-    "descripcion": "Sistema de iluminación LED solar de gran potencia con control remoto y certificación de impermeabilidad IP65."
+    "SKU": "ELEC-ZAPA-013",
+    "Producto / Descripción": "Zapatilla electrica alargador de 5 metros y 4 toma de corriente",
+    "Precio": "$6.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/6dcf7429-7a94-492d-8ffb-9608fe03abe8.png",
+    "Descripción": "Extensión eléctrica reforzada de 5 metros con múltiples tomas. Incluye interruptor de encendido con protección térmica para seguridad del hogar."
   },
   {
-    "id": 14,
-    "nombre": "Foco solar 60 LED",
-    "precio": 7000,
-    "sku": "TBL-FOCOSOL-60-NEG",
-    "imagen": "INVENTARIO/bach12.jpg",
-    "descripcion": "Foco exterior compacto con 60 diodos LED de alta eficiencia, panel policristalino y sensor crepuscular."
+    "SKU": "HERR-ROTO-014",
+    "Producto / Descripción": "Rotomartillo",
+    "Precio": "$47.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/68082b6b-51eb-49a1-aeb5-50b8def9db6b.jpg",
+    "Descripción": "Herramienta de demolición y perforación pesada. Cuenta con sistema SDS-Plus, tres modos de uso y gran capacidad de impacto en concreto y piedra."
   },
   {
-    "id": 15,
-    "nombre": "Foco solar emergencia 3x1",
-    "precio": 8990,
-    "sku": "FOC-SOL-EME-AZU",
-    "imagen": "INVENTARIO/bach14.jpg",
-    "descripcion": "Dispositivo de iluminación versátil con tres funciones integradas y carga dual (solar/red eléctrica)."
+    "SKU": "ELEC-CARG-015",
+    "Producto / Descripción": "Cargador de baterías",
+    "Precio": "$14.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a4599987-45c2-479b-8b36-307e53b558e9.jpg",
+    "Descripción": "Cargador inteligente compatible con baterías de 12V y 24V. Protege contra cortocircuitos y sobrecargas, ideal para vehículos y maquinaria."
   },
   {
-    "id": 16,
-    "nombre": "Fuente de energía solar de emergencia",
-    "precio": 7500,
-    "sku": "FUE-ENE-SOL-EME-AMA-NEG",
-    "imagen": "INVENTARIO/bach24.jpg",
-    "descripcion": "Estación de energía portátil con entradas para paneles solares y múltiples salidas AC/DC para dispositivos."
+    "SKU": "HERR-SIER-016",
+    "Producto / Descripción": "Sierra circular inalambrica",
+    "Precio": "$59.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d564a331-7141-452a-9cc8-194b8c520fd8.jpg",
+    "Descripción": "Sierra de disco portátil para cortes rectos y precisos en madera. Ajuste de profundidad y ángulo de inclinación para trabajos de carpintería en terreno."
   },
   {
-    "id": 17,
-    "nombre": "Generador portátil 200W",
-    "precio": 115000,
-    "sku": "GER-200W-RJ",
-    "imagen": "INVENTARIO/bach6.jpg",
-    "descripcion": "Estación de energía compacta de 200W nominales, ideal para dispositivos electrónicos y actividades al aire libre."
+    "SKU": "HERR-MINI-017",
+    "Producto / Descripción": "Mini amoladora 3 en 1",
+    "Precio": "$37.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f63c572a-4260-40f4-b5e6-cdcfb17f85ff.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 18,
-    "nombre": "Generador portátil 500W",
-    "precio": 290000,
-    "sku": "GER-500W-GRIS",
-    "imagen": "INVENTARIO/bach7.jpg",
-    "descripcion": "Estación de energía portátil de 500W, ideal para actividades al aire libre o situaciones de emergencia donde no hay suministro de corriente."
+    "SKU": "HERR-ESME-018",
+    "Producto / Descripción": "Esmeril/Galletero inalámbrico con 2 baterías",
+    "Precio": "$32.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78e20ec6-dc30-4a5c-8a20-d833c91b3b43.jpg",
+    "Descripción": "Esmeril angular compacto para discos de 4.5\". Proporciona libertad de movimiento para cortes rápidos en metal, tuberías y desbaste de soldaduras."
   },
   {
-    "id": 19,
-    "nombre": "Lámpara emergencia + parlante",
-    "precio": 13990,
-    "sku": "LAMP-EME-PAR-AMA-NEG",
-    "imagen": "INVENTARIO/bach18.jpg",
-    "descripcion": "Dispositivo multifunción que combina iluminación LED de emergencia con conectividad Bluetooth para audio."
+    "SKU": "HERR-CHIC-019",
+    "Producto / Descripción": "Chicharra inalambrica",
+    "Precio": "$44.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c1968d40-a4e1-47f4-aaf3-53ab0110dfad.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 20,
-    "nombre": "Linterna y set de emergencia con herramientas",
-    "precio": 14990,
-    "sku": "TSB-LIN-HER-AMA-NEG",
-    "imagen": "INVENTARIO/bach20.jpg",
-    "descripcion": "Kit de seguridad con linterna de alta intensidad y herramientas básicas integradas para reparaciones rápidas."
+    "SKU": "ILUM-EMER-020",
+    "Producto / Descripción": "Foco emergencia 2 X 3",
+    "Precio": "$9.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/62b7fe9d-0627-4124-a715-6d05c1961107.jpg",
+    "Descripción": "Lámpara de doble foco LED recargable con panel solar. Se activa automáticamente ante cortes de energía, asegurando visibilidad en pasillos y salidas."
   },
   {
-    "id": 21,
-    "nombre": "Llave de impacto 1.000 NM 3.500RPM",
-    "precio": 54990,
-    "sku": "TBL-LLAV-IMP-CEL",
-    "imagen": "INVENTARIO/bach3.jpg",
-    "descripcion": "Herramienta de alto rendimiento con torque de 1000 Nm, motor sin carbones y control electrónico de velocidad."
+    "SKU": "ILUM-FOCO-021",
+    "Producto / Descripción": "Farol Solar Interactivo",
+    "Precio": "$5.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/b656fb67-4fee-45a1-a9a1-3240bf61ff5f.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 22,
-    "nombre": "Llave de impacto 500NM torque",
-    "precio": 42000,
-    "sku": "CN-LLAV-IMP-500NM-CEL",
-    "imagen": "INVENTARIO/bach22.jpg",
-    "descripcion": "Llave de impacto inalámbrica con torque de 500 Nm, diseñada para mecánica automotriz y montaje."
+    "SKU": "ELEC-CAM-022",
+    "Producto / Descripción": "Camara videollamada wifi",
+    "Precio": "$15.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5a803ec0-95bc-4c47-a998-609bba036cc6.jpg",
+    "Descripción": "Cámara interior con pantalla integrada que permite realizar videollamadas directas. Ideal para monitoreo de niños o adultos mayores con audio bidireccional."
   },
   {
-    "id": 23,
-    "nombre": "Llave impacto 350NM torque",
-    "precio": 44990,
-    "sku": "TBL-LLAIMP-350NM-AMA",
-    "imagen": "INVENTARIO/bach38.png",
-    "descripcion": "Herramienta compacta de impacto con 350 Nm de torque para mantenimiento general y bricolaje."
+    "SKU": "ILUM-EMER-023",
+    "Producto / Descripción": "Foco emergencia",
+    "Precio": "$7.500",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/198b786c-adb2-4bc1-90c4-d185658fe9f4.jpg",
+    "Descripción": "Luminaria LED solar de alta eficiencia para exteriores, resistente al agua y con encendido automático."
   },
   {
-    "id": 24,
-    "nombre": "Maleta de 3 herramientas",
-    "precio": 74990,
-    "sku": "BLISL-HERR-X3-CEL",
-    "imagen": "INVENTARIO/bach30.jpg",
-    "descripcion": "Kit de tres herramientas eléctricas inalámbricas esenciales en maletín de transporte rígido."
+    "SKU": "ILUM-EMER-024",
+    "Producto / Descripción": "Foco emergencia con herramientas",
+    "Precio": "$15.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f500b8a4-ebb5-4895-acd3-01e39dd40274.jpg",
+    "Descripción": "Luminaria LED solar de alta eficiencia para exteriores, resistente al agua y con encendido automático."
   },
   {
-    "id": 25,
-    "nombre": "Mini amolador 3 en 1",
-    "precio": 37000,
-    "sku": "TBL-AMO3X1-CEL",
-    "imagen": "INVENTARIO/bach4.jpg",
-    "descripcion": "Herramienta rotativa multifuncional para corte, lijado y pulido con accesorios intercambiables."
+    "SKU": "JARD-KIT-025",
+    "Producto / Descripción": "Kit de herramientas de jardin",
+    "Precio": "$37.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5311cbc3-2620-44df-a1c4-682f9b2724bb.jpg",
+    "Descripción": "Herramienta eléctrica de alto rendimiento diseñada para durabilidad y precisión en trabajos profesionales."
   },
   {
-    "id": 26,
-    "nombre": "Mini desatornillador inalámbrico recargable",
-    "precio": 8990,
-    "sku": "MINI-DES-INM-NEG",
-    "imagen": "INVENTARIO/bach19.jpg",
-    "descripcion": "Atornillador compacto con batería de litio integrada, carga USB y luz LED frontal para precisión."
+    "SKU": "JARD-CORT-026",
+    "Producto / Descripción": "Cortacetos",
+    "Precio": "$26.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/bf39c9de-ebf0-476b-b3cc-7cf325b23e62.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 27,
-    "nombre": "Motosierra eléctrica DAOBAN",
-    "precio": 39990,
-    "sku": "DBAN-MOT-ELE-NEG-NAR",
-    "imagen": "INVENTARIO/bach33.jpg",
-    "descripcion": "Motosierra eléctrica de alto rendimiento con cadena de corte rápido y sistema de lubricación automática."
+    "SKU": "ELEC-TIMB-027",
+    "Producto / Descripción": "Camara timbre",
+    "Precio": "$19.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/832d3b09-cd5c-4d5b-a58b-17c3c7311f78.jpg",
+    "Descripción": "Timbre inteligente con cámara de video HD. Permite ver y hablar con quien toque a la puerta desde el smartphone, aumentando la seguridad del hogar."
   },
   {
-    "id": 28,
-    "nombre": "Orilladora y desbrozadora gasolina",
-    "precio": 80000,
-    "sku": "TSB-ORL-DES-GAS-NAR",
-    "imagen": "INVENTARIO/bach36.jpg",
-    "descripcion": "Herramienta de jardinería con motor a combustión de dos tiempos para corte de maleza densa."
+    "SKU": "HERR-DEST-028",
+    "Producto / Descripción": "Destornillador inalámbrico",
+    "Precio": "$19.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/20bcb94a-912c-4369-b34e-ed8df90c67c0.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 29,
-    "nombre": "Orilladora y desbrozadora inalámbrica",
-    "precio": 29990,
-    "sku": "TSB-ORL-DES-INM-CEL",
-    "imagen": "INVENTARIO/bach35.jpg",
-    "descripcion": "Cortadora de césped a batería, ligera y silenciosa con cabezal ajustable y mango telescópico."
+    "SKU": "HERR-SOPL-029",
+    "Producto / Descripción": "Sopladora y aspirador inalambrica",
+    "Precio": "$18.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9b4e91a3-550c-4fa6-b492-71d3c8ce993d.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 30,
-    "nombre": "Set de dados extensor y chicharra",
-    "precio": 13990,
-    "sku": "DEKECRV-DD-CHC-NEG-NAR",
-    "imagen": "INVENTARIO/bach31.jpg",
-    "descripcion": "Juego de llaves de vaso con extensión y llave de trinquete fabricados en acero cromo-vanadio."
+    "SKU": "HERR-CALA-030",
+    "Producto / Descripción": "Sierra caladora",
+    "Precio": "$39.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2f8cb920-22f5-4ebf-82c3-91339d915e0d.jpg",
+    "Descripción": "Sierra eléctrica para cortes curvos y figuras en madera o metal. Cuenta con velocidad variable y cambio rápido de hoja para mayor eficiencia."
   },
   {
-    "id": 31,
-    "nombre": "Set herramientas 108 piezas",
-    "precio": 29990,
-    "sku": "CN-SET-HERR-108-CEL",
-    "imagen": "INVENTARIO/bach21.jpg",
-    "descripcion": "Kit completo de herramientas manuales en maletín, incluyendo dados, llaves y accesorios mecánicos."
+    "SKU": "ILUM-FOCO-1000",
+    "Producto / Descripción": "Foco solar de 1000w metálico",
+    "Precio": "$27.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d23b871c-b307-4b10-a040-7d430b0bc58f.jpg",
+    "Descripción": "Foco solar de 1000W con chasis metálico ultra resistente. Ofrece una iluminación potente y duradera para exteriores, patios y parcelas."
   },
   {
-    "id": 32,
-    "nombre": "Set herramientas 216 piezas",
-    "precio": 69990,
-    "sku": "CN-SET-HERR-216-VER",
-    "imagen": "INVENTARIO/bach34.jpg",
-    "descripcion": "Conjunto profesional extenso de herramientas para taller con amplia variedad de medidas y tipos de llaves."
+    "SKU": "ILUM-FOCO-1200",
+    "Producto / Descripción": "Foco de 1200w",
+    "Precio": "$28.500",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1229b27f-f736-4dbc-99ea-1b6adddf2da6.png",
+    "Descripción": "Proyector LED solar de 1200W de gran cobertura. Incluye control remoto y sensor de movimiento para una gestión inteligente de la energía."
   },
   {
-    "id": 33,
-    "nombre": "Set herramientas 94 piezas",
-    "precio": 28990,
-    "sku": "CN-SET-HERR-94-NEG",
-    "imagen": "INVENTARIO/bach23.jpg",
-    "descripcion": "Maletín de herramientas mecánicas de 94 piezas para mantenimiento automotriz y reparaciones del hogar."
+    "SKU": "ILUM-EMER-033",
+    "Producto / Descripción": "Foco solar de emergencia con parlante",
+    "Precio": "$13.500",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c37c3646-7c86-4527-9b0d-eed0670fb558.jpg",
+    "Descripción": "Foco de emergencia solar multifunción. Integra un parlante Bluetooth para audio y luz potente, ideal para campamentos o terrazas."
   },
   {
-    "id": 34,
-    "nombre": "Set jardín Tijeras + Sierra",
-    "precio": 37000,
-    "sku": "TBL-TIJSIE-NEG",
-    "imagen": "INVENTARIO/bach5.jpg",
-    "descripcion": "Kit de herramientas eléctricas inalámbricas para poda que incluye tijeras de corte preciso y sierra."
+    "SKU": "ILUM-EMER-034",
+    "Producto / Descripción": "Foco solar de emergencia 1 x 3",
+    "Precio": "$8.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ab26c375-4fac-451e-bc0c-a981f0082f99.png",
+    "Descripción": "Foco solar compacto de emergencia 1x3. Proporciona iluminación inmediata en áreas oscuras sin necesidad de conexión eléctrica."
   },
   {
-    "id": 35,
-    "nombre": "Sierra circular inalámbrica",
-    "precio": 59990,
-    "sku": "TBL-SIECU-CEL",
-    "imagen": "INVENTARIO/bach8.jpg",
-    "descripcion": "Sierra circular portátil con ajuste de profundidad y ángulo de bisel para cortes precisos en madera."
+    "SKU": "HERR-DEST-035",
+    "Producto / Descripción": "Destornillador inalámbrico eléctrico pequeño con accesorios",
+    "Precio": "$8.990",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/83d67297-53d8-45b8-9dde-b4680bdcd128.jpg",
+    "Descripción": "Producto de alta calidad para soluciones solares y herramientas, diseñado para ofrecer durabilidad y eficiencia."
   },
   {
-    "id": 36,
-    "nombre": "Soldadora Tasbel 3 en 1",
-    "precio": 44000,
-    "sku": "TBL-SOLD-CEL",
-    "imagen": "INVENTARIO/FB_IMG_1778883594832.jpg",
-    "descripcion": "Máquina de soldar MMA, MIG y TIG, compacta y de bajo consumo."
+    "SKU": "GEN-ELE-200",
+    "Producto / Descripción": "Generador eléctrico portátil 200w",
+    "Precio": "$115.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1d6017e9-540c-49bf-bdf0-9ea3d830faa3.jpg; https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/80a6566f-49f6-461d-acf7-e807d133ea99.jpg; https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2ef56f63-06b0-4dda-b772-b5e955c69ed5.jpg",
+    "Descripción": "Estación de energía solar compacta. Provee energía silenciosa para cargar celulares, laptops y luces en campings o situaciones de emergencia."
   },
   {
-    "id": 37,
-    "nombre": "Soplador y aspiradora",
-    "precio": 18990,
-    "sku": "SOPL-ASP-NEG",
-    "imagen": "INVENTARIO/bach16.jpg",
-    "descripcion": "Herramienta dual para limpieza de exteriores con funciones de soplado y aspirado con bolsa recolectora."
-  },
-  {
-    "id": 38,
-    "nombre": "Taladro desatornillador inalámbrico",
-    "precio": 25990,
-    "sku": "TBL-TALDE-AMA",
-    "imagen": "INVENTARIO/bach10.jpg",
-    "descripcion": "Taladro versátil con función de atornillado, embrague de múltiples posiciones y batería de larga duración."
+    "SKU": "GEN-ELE-500",
+    "Producto / Descripción": "Generador eléctrico portátil 500w",
+    "Precio": "$290.000",
+    "Imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ae79788f-cb0e-4faa-86b4-6cb664324931.jpg;https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9140b82f-f28f-42e1-94f5-2e8257c3e228.jpg;https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/de4c87ff-f9d6-485b-8ebf-b76f9c51cfa3.jpg",
+    "Descripción": "Generador de gran capacidad con múltiples salidas (AC/USB/DC). Capaz de alimentar herramientas pequeñas y electrodomésticos durante cortes de luz."
   }
 ]
