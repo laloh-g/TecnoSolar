@@ -163,7 +163,7 @@
 </head>
 <body class="flex flex-col min-h-screen font-sans antialiased text-gray-200">
 
-  <!-- TOP BAR BANNER (Important Commercial Details) -->
+  <!-- TOP BAR BANNER (Important Commercial Details) -->      
   <div class="bg-burgundy text-white px-4 py-2 text-center text-xs font-mono tracking-widest uppercase flex items-center justify-center gap-3">
     <span class="flex h-2 w-2 relative">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-orange opacity-75"></span>
@@ -1164,27 +1164,18 @@
       document.getElementById('spec-modal').classList.remove('flex');
     }
 
-    // 5. CARTS CORE MANAGEMENT
+    // 5. CARTS CORE MANAGEMENT// --- FUNCIONES CORREGIDAS PARA TECNOSOLAR ---
+
     function loadCartFromStorage() {
       try {
         const stored = localStorage.getItem('tecnosolar_cart');
         const rawCart = stored ? JSON.parse(stored) : [];
         CartData = rawCart.map(item => {
-          const id = Number(item.id !== undefined ? item.id : (item.ID !== undefined ? item.ID : 0));
-          const nombre = item.nombre || item.name || 'Producto';
-          const precio = Math.max(0, Number(item.precio !== undefined ? item.precio : (item.price !== undefined ? item.price : 0)));
-          const descripcion = item.descripcion || item.description || '';
-          const sku = item.sku || `TS-${id}`;
-          const imagen = item.imagen || item.image || '';
-          const categoria = item.categoria || item.category || 'Equipos';
           return {
-            id,
-            nombre,
-            precio,
-            descripcion,
-            sku,
-            imagen,
-            categoria,
+            sku: item.sku || item.SKU,
+            nombre: item.nombre || item["Producto / Descripción"] || 'Producto',
+            precio: Number(item.precio) || 0,
+            imagen: item.imagen || item.Imagen || '',
             quantity: Number(item.quantity || 1)
           };
         });
@@ -1201,8 +1192,6 @@
 
     function updateCartCounters() {
       const count = CartData.reduce((acc, item) => acc + item.quantity, 0);
-      
-      // Elements updater
       const badgDesk = document.getElementById('cart-counter-desktop');
       const badgMob = document.getElementById('cart-counter-mobile');
       const badgFloat = document.getElementById('cart-badge-floating');
@@ -1219,52 +1208,69 @@
       });
     }
 
-    function addProductToCart(productId) {
-      const product = ProductsDatabase.find(p => p.id === Number(productId));
-      if (!product) return;
+    function addProductToCart(productSKU) {
+      // Ahora buscamos por el SKU único de tu lista de herramientas
+      const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
+      
+      if (!product) {
+        console.error("No se encontró el producto:", productSKU);
+        return;
+      }
 
-      const existingIndex = CartData.findIndex(item => item.id === product.id);
+      const existingIndex = CartData.findIndex(item => (item.sku || item.SKU) === productSKU);
+      
       if (existingIndex > -1) {
         CartData[existingIndex].quantity += 1;
       } else {
-        CartData.push({ ...product, quantity: 1 });
+        let precioLimpio = typeof product.precio === 'string' 
+            ? Number(product.precio.replace(/[^0-9.-]+/g,"")) 
+            : Number(product.precio);
+
+        CartData.push({ 
+          sku: product.sku || product.SKU,
+          nombre: product.nombre,
+          precio: precioLimpio,
+          imagen: product.imagen,
+          quantity: 1 
+        });
       }
 
       saveCartToStorage();
-      triggerToast("Equipo Añadido", `${product.nombre} fue agregado correctamente al carro de compras.`);
+      if(typeof triggerToast === 'function') {
+        triggerToast("Equipo Añadido", `${product.nombre} se agregó al carro.`);
+      }
     }
 
-    function updateCartItemQuantity(productId, delta) {
-      const itemIndex = CartData.findIndex(item => item.id === Number(productId));
+    function updateCartItemQuantity(productSKU, delta) {
+      const itemIndex = CartData.findIndex(item => (item.sku || item.SKU) === productSKU);
       if (itemIndex > -1) {
         const newQty = CartData[itemIndex].quantity + delta;
         if (newQty <= 0) {
-          removeCartItem(productId);
+          removeCartItem(productSKU);
         } else {
           CartData[itemIndex].quantity = newQty;
           saveCartToStorage();
-          renderCartView();
+          if(typeof renderCartView === 'function') renderCartView();
         }
       }
     }
 
-    function removeCartItem(productId) {
-      const item = CartData.find(item => item.id === Number(productId));
+    function removeCartItem(productSKU) {
+      const item = CartData.find(item => (item.sku || item.SKU) === productSKU);
       const label = item ? item.nombre : "Producto";
-      CartData = CartData.filter(item => item.id !== Number(productId));
+      CartData = CartData.filter(item => (item.sku || item.SKU) !== productSKU);
       
       saveCartToStorage();
-      renderCartView();
-      triggerToast("Equipo Removido", `${label} fue sacado del carro de compras.`);
+      if(typeof renderCartView === 'function') renderCartView();
+      if(typeof triggerToast === 'function') triggerToast("Equipo Removido", `${label} fue sacado.`);
     }
 
     function clearShoppingBag() {
       CartData = [];
       saveCartToStorage();
-      renderCartView();
-      triggerToast("Carro Vaciado", "Se han removido todos los equipos para cotización.");
+      if(typeof renderCartView === 'function') renderCartView();
+      if(typeof triggerToast === 'function') triggerToast("Carro Vaciado", "Se limpió la lista.");
     }
-
     // Render cart tables
     function renderCartView() {
       const emptyView = document.getElementById('cart-empty-view');
