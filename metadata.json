@@ -1,6 +1,6 @@
 {
   "name": "TecnoSolar Santa Cruz",
-  "description": "Premium industrial solar and power tool solutions for professional and agricultural use.",
+  "description": "Distribuidora de herramientas inalámbricas profesionales de alta resistencia y soluciones de iluminación solar perimetral autónoma en Colchagua.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

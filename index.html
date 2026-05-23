@@ -217,7 +217,7 @@
           <!-- Quick Cart Shortcut button -->
           <button onclick="navigateTo('cart')" class="relative p-2.5 rounded-sm bg-metal-light border border-metal-border hover:border-burgundy-light transition-all group" title="Ver Carrito">
             <i data-lucide="shopping-cart" class="w-5 h-5 text-gray-300 group-hover:text-neon-orange transition-colors"></i>
-            <span id="cart-badge-floating" class="absolute -top-1.5 -right-1.5 bg-burgundy text-white text-[9px] font-bold h-5 w-5 flex items-center justify-center rounded-full border border-neon-orange/50 hidden animate-bounce">0</span>
+            <span id="cart-badge-floating" class="absolute -top-1.5 -right-1.5 bg-burgundy text-white text-[9px] font-bold h-5 w-5 flex items-center justify-center rounded-full border border-neon-orange/50 hidden">0</span>
           </button>
 
           <!-- Cotizar WhatsApp direct desktop button -->
@@ -597,30 +597,30 @@
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2 animate-fade">
+              <div class="space-y-2 animate-fade font-sans">
                 <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Nombre Completo: <span class="text-neon-orange">*</span></label>
-                <input type="text" name="name" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Francisco Guerrero">
+                <input type="text" name="name" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Francisco Guerrero">
               </div>
-              <div class="space-y-2">
+              <div class="space-y-2 font-sans">
                 <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Email de Contacto: <span class="text-neon-orange">*</span></label>
-                <input type="email" name="email" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="francisco@contacto.cl">
+                <input type="email" name="email" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="francisco@contacto.cl">
               </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2">
+              <div class="space-y-2 font-sans">
                 <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Teléfono Celular: <span class="text-neon-orange">*</span></label>
-                <input type="tel" name="phone" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="+56 9 3193 0339">
+                <input type="tel" name="phone" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="+56 9 3193 0339">
               </div>
-              <div class="space-y-2">
+              <div class="space-y-2 font-sans">
                 <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Comuna de Despacho:</label>
-                <input type="text" name="comuna" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Santa Cruz, Peralillo, Nancagua">
+                <input type="text" name="comuna" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Ej: Santa Cruz, Peralillo, Nancagua">
               </div>
             </div>
 
-            <div class="space-y-2">
+            <div class="space-y-2 font-sans">
               <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Tipo de Solicitud:</label>
-              <select name="subject_type" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors">
+              <select name="subject_type" class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors">
                 <option value="cotizacion_maquinaria">Cotización de Maquinaria Profesional</option>
                 <option value="iluminacion_solar">Diseño de Iluminación Exterior Solar</option>
                 <option value="servicio_tecnico">Servicio Técnico y Reparaciones</option>
@@ -628,9 +628,9 @@
               </select>
             </div>
 
-            <div class="space-y-2">
+            <div class="space-y-2 font-sans">
               <label class="font-mono text-[10px] uppercase text-gray-400 tracking-wider font-bold">Mensaje / Especificaciones Técnicas: <span class="text-neon-orange">*</span></label>
-              <textarea name="message" rows="5" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 font-sans text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Describa el proyecto, número de unidades o dudas particulares..."></textarea>
+              <textarea name="message" rows="5" required class="w-full bg-metal-dark border-2 border-metal-border rounded-sm p-3 text-white focus:outline-none focus:border-neon-orange transition-colors" placeholder="Describa el proyecto, número de unidades o dudas particulares..."></textarea>
             </div>
 
             <!-- Submit form -->
@@ -693,6 +693,237 @@
       </div>
     </div>
   </div>
+
+  <!-- SECCIÓN DE ADMINISTRACIÓN -->
+  <section id="page-admin" class="tab-view hidden py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="border-b border-metal-border pb-6 mb-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight text-white uppercase flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-8 h-8 text-neon-orange"></i> Portal de Administración
+            </h2>
+            <p class="text-xs text-gray-400 font-mono mt-2">
+              Gestión segura del catálogo de productos e información general de TecnoSolar Santa Cruz.
+            </p>
+          </div>
+          <div id="admin-session-indicator" class="hidden">
+            <button onclick="logoutAdmin()" class="bg-metal-light hover:bg-[#7d1829] hover:text-white text-gray-300 font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 border border-metal-border rounded-sm transition-all flex items-center gap-1.5">
+              <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Cerrar Sesión
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 1: INGRESO CON CONTRASEÑA -->
+      <div id="admin-login-box" class="max-w-md mx-auto py-12">
+        <div class="bg-metal-card border-2 border-metal-border p-8 rounded-sm glow-border relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-2 h-full bg-[#7d1829]"></div>
+          
+          <div class="text-center mb-6">
+            <div class="inline-flex p-3 bg-burgundy/20 rounded-full border border-neon-orange/20 text-neon-orange mb-3">
+              <i data-lucide="lock" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-lg font-bold text-white uppercase">Acceso Autorizado</h3>
+            <p class="text-[11px] text-gray-400 font-mono mt-1">Este panel permite realizar cambios persistentes en el servidor.</p>
+          </div>
+          
+          <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+            <div>
+              <label class="block font-mono text-[10px] uppercase tracking-wider text-gray-400 mb-1.5 font-bold">Contraseña de Administrador</label>
+              <div class="relative">
+                <input type="password" id="admin-password-input" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3.5 py-2.5 text-xs text-white placeholder-gray-500 pr-10 focus:outline-none focus:border-[#7d1829]" placeholder="••••••••">
+                <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-white">
+                  <i id="password-toggle-icon" data-lucide="eye" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+            
+            <button type="submit" class="w-full bg-burgundy hover:bg-burgundy-light text-white font-mono text-xs uppercase tracking-widest py-3 font-bold border border-neon-orange/20 rounded-sm transition-all shadow-lg flex items-center justify-center gap-2">
+              <i data-lucide="key-round" class="w-4 h-4 text-neon-orange"></i> Validar Credenciales
+            </button>
+          </form>
+
+          <div class="mt-4 pt-4 border-t border-metal-border text-center">
+            <span class="text-[9px] text-[#7d1829] font-mono select-none uppercase tracking-wider">Clave predeterminada: TecnoSolarSCZ2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 2: PANEL COMPLETO DE ADMINISTRACIÓN (OCULTO POR DEFECTO) -->
+      <div id="admin-dashboard" class="hidden space-y-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- COLUMNA IZQUIERDA: CONFIGURACIONES DE PÁGINA Y AGREGAR PRODUCTO (4 COLS) -->
+          <div class="lg:col-span-4 space-y-8">
+            
+            <!-- AJUSTES GENERALES -->
+            <div class="bg-metal-card border border-metal-border p-6 rounded-sm relative">
+              <div class="absolute top-0 left-0 w-full h-1 bg-burgundy"></div>
+              <h3 class="font-display text-sm font-bold text-white uppercase mb-4 flex items-center gap-2">
+                <i data-lucide="settings-2" class="w-4 h-4 text-[#7d1829]"></i> Ajustes de la Página
+              </h3>
+              
+              <form id="admin-settings-form" onsubmit="handleSaveSettings(event)" class="space-y-4">
+                <div>
+                  <label class="block font-mono text-[10px] uppercase tracking-wider text-gray-400 mb-1">Nombre Comercial</label>
+                  <input type="text" id="setting-site-name" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white">
+                </div>
+                <div>
+                  <label class="block font-mono text-[10px] uppercase tracking-wider text-gray-400 mb-1">Descripción de la Empresa</label>
+                  <textarea id="setting-site-desc" required rows="3" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-burgundy hover:bg-burgundy-light text-white font-mono text-[10px] uppercase tracking-wider py-2 border border-neon-orange/10 rounded-sm transition-all font-bold flex items-center justify-center gap-1.5">
+                  <i data-lucide="save" class="w-3.5 h-3.5 text-neon-orange"></i> Guardar Ajustes
+                </button>
+              </form>
+            </div>
+
+            <!-- FORMULARIO DE AGREGAR / EDITAR PRODUCTO -->
+            <div id="product-form-container" class="bg-metal-card border border-metal-border p-6 rounded-sm relative">
+              <div class="absolute top-0 left-0 w-full h-1 bg-neon-orange"></div>
+              
+              <div class="flex items-center justify-between mb-4">
+                <h3 id="form-product-title" class="font-display text-sm font-bold text-white uppercase flex items-center gap-2">
+                  <i data-lucide="plus-circle" class="w-4 h-4 text-neon-orange"></i> Agregar Producto
+                </h3>
+                <button id="btn-cancel-edit" onclick="cancelProductEdit()" class="hidden text-[10px] font-mono text-[#7d1829] hover:underline flex items-center gap-1">
+                  Cancelar Edición
+                </button>
+              </div>
+
+              <!-- Formulario de Producto -->
+              <form id="admin-product-form" onsubmit="handleProductSubmit(event)" class="space-y-4">
+                <input type="hidden" id="product-form-mode" value="add"> <!-- 'add' o 'edit' -->
+                <input type="hidden" id="product-edit-original-sku" value="">
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">SKU Código</label>
+                    <input type="text" id="prod-sku" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="HERR-NUEVO-123">
+                  </div>
+                  <div>
+                    <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Categoría</label>
+                    <select id="prod-category" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white">
+                      <option value="Herramientas Eléctricas">Herramientas Eléctricas</option>
+                      <option value="Iluminación Solar">Iluminación Solar</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Nombre Comercial del Producto</label>
+                  <input type="text" id="prod-name" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Atornillador Recargable Max">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Precio (en CLP)</label>
+                    <input type="number" id="prod-price" required min="0" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="25000">
+                  </div>
+                  <div>
+                    <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Etiqueta Destacada</label>
+                    <input type="text" id="prod-tag" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Más Vendido, Autónomo">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Imagen del Producto</label>
+                  <input type="text" id="prod-image-url" required class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-[11px] text-white" placeholder="Link de imagen o sube archivo abajo">
+                  
+                  <!-- File Upload integration combining drag & drop or selection -->
+                  <div class="mt-2 text-center">
+                    <div id="image-drag-zone" class="border border-dashed border-metal-border hover:border-neon-orange bg-metal-dark py-3 px-2 rounded-sm cursor-pointer transition-all flex flex-col items-center justify-center">
+                      <i data-lucide="upload-cloud" class="w-5 h-5 text-gray-400 mb-1"></i>
+                      <span class="text-[9px] font-mono text-gray-400">Suelta una foto aquí o haz clic para subir</span>
+                      <input type="file" id="prod-image-file" accept="image/*" class="hidden" onchange="handleImageFilePicker(event)">
+                    </div>
+                    <div id="image-upload-status" class="hidden text-[9px] font-mono text-neon-orange mt-1">Cargando imagen al servidor...</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Descripción Completa</label>
+                  <textarea id="prod-description" required rows="3" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white resize-none" placeholder="Especifica el diseño, batería, potencia..."></textarea>
+                </div>
+
+                <!-- Specs specifications block -->
+                <div class="space-y-2 border-t border-metal-border pt-3">
+                  <span class="block font-mono text-[9px] uppercase tracking-wider text-[#9e2539] font-bold mb-1">Especificaciones Técnicas (Specs)</span>
+                  
+                  <div class="grid grid-cols-2 gap-2">
+                    <input type="text" id="spec-lbl-1" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Etiqueta 1 (Ej: Batería)">
+                    <input type="text" id="spec-val-1" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Valor 1 (Ej: 24V Litio)">
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <input type="text" id="spec-lbl-2" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Etiqueta 2 (Ej: Uso)">
+                    <input type="text" id="spec-val-2" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Valor 2 (Ej: Industrial)">
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <input type="text" id="spec-lbl-3" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Etiqueta 3 (Ej: Potencia)">
+                    <input type="text" id="spec-val-3" class="bg-metal-dark border border-metal-border rounded-sm px-2 py-1.5 text-[10px] text-white" placeholder="Valor 3 (Ej: 2000W)">
+                  </div>
+                </div>
+
+                <button type="submit" id="btn-submit-product" class="w-full bg-burgundy hover:bg-burgundy-light text-white font-mono text-xs uppercase tracking-wider py-2.5 border border-neon-orange/20 rounded-sm transition-all font-bold flex items-center justify-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-neon-orange"></i> Guardar Producto
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- COLUMNA DERECHA: LISTADO INTERACTIVO DEL CATÁLOGO PARA EDICIÓN RÁPIDA (8 COLS) -->
+          <div class="lg:col-span-8 space-y-6">
+            
+            <div class="bg-metal-card border border-metal-border p-6 rounded-sm">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div>
+                  <h3 class="font-display text-sm font-bold text-white uppercase flex items-center gap-2">
+                    <i data-lucide="align-left" class="w-4 h-4 text-[#7d1829]"></i> Productos en el Catálogo (<span id="admin-catalog-count">0</span>)
+                  </h3>
+                  <p class="text-[10px] text-gray-400 font-mono mt-0.5">Selecciona editar o eliminar productos en tiempo real.</p>
+                </div>
+                
+                <!-- Buscador de productos administrativo -->
+                <div class="relative w-full sm:w-64">
+                  <input type="text" id="admin-search-input" oninput="renderAdminCatalogList()" class="w-full bg-metal-dark border border-metal-border rounded-sm pl-8 pr-3 py-1.5 text-xs text-white" placeholder="Buscar por nombre o SKU...">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-gray-500">
+                    <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Tabla de Productos Administrativa -->
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-left">
+                  <thead>
+                    <tr class="border-b border-metal-border font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                      <th class="py-3 px-2 font-bold select-none h-12">Detalle Producto</th>
+                      <th class="py-3 px-2 font-bold select-none h-12">SKU / Categoria</th>
+                      <th class="py-3 px-2 font-bold select-none h-12 text-right">Precio Actual</th>
+                      <th class="py-3 px-2 font-bold select-none h-12 text-center w-36">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-products-table-body" class="divide-y divide-metal-border">
+                    <!-- Injected dynamically -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 
   <!-- FLOATING ACTION NOTIFICATIONS TOAST -->
   <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden max-w-sm bg-metal-light border-2 border-neon-orange/40 text-white p-4 shadow-xl flex items-center gap-3 animate-fade-in rounded-sm">
@@ -760,8 +991,11 @@
           &copy; 2026 TecnoSolar Santa Cruz S.A. Todos los derechos reservados.
         </p>
         <div class="flex items-center gap-6 text-[10px] font-mono text-gray-400">
-          <a href="#" class="hover:text-white">Políticas de Garantía</a>
-          <a href="#" class="hover:text-white">Despachos Colchagua</a>
+          <a href="#" class="hover:text-white border-b border-transparent hover:border-white pb-0.5">Políticas de Garantía</a>
+          <a href="#" class="hover:text-white border-b border-transparent hover:border-white pb-0.5">Despachos Colchagua</a>
+          <a href="#" onclick="navigateTo('admin'); return false;" class="text-neon-orange hover:text-white font-bold flex items-center gap-1 border-b border-transparent hover:border-white pb-0.5">
+            <i data-lucide="lock" class="w-3 h-3"></i> Administrar Tienda
+          </a>
         </div>
       </div>
     </div>
@@ -860,14 +1094,13 @@
         const rawProducts = await response.json();
         
         ProductsDatabase = rawProducts.map(p => {
-             // Normalize names, SKUs, prices, categories robustly according to parameters requested
+          // Normalize names, SKUs, prices, categories robustly according to parameters requested
           const sku = p.sku || p.SKU || (p.id ? `TS-${p.id}` : 'SIN-SKU');
           
           // Map to lowercase Spanish properties explicitly
           const nombre = p.nombre || p['Producto / Descripción'] || p.name || 'Producto';
           const precio = cleanPrice(p.precio !== undefined ? p.precio : (p.price !== undefined ? p.price : 0));
           const descripcion = p.descripcion || p.description || '';
-          const sku = p.sku || `TS-${id}`;
           const imagen = p.imagen || p.image || p.Imagen || '';
           const categoria = p.categoria || p.category || 'Equipos';
           const tag = p.tag || '';
@@ -878,7 +1111,6 @@
             nombre,
             precio,
             descripcion,
-        
             imagen,
             categoria,
             tag,
@@ -897,269 +1129,266 @@
         
         // Custom robust absolute fallback array designed strictly with lower case Spanish properties
         ProductsDatabase = [
-  {
-    "sku": "HERR-LLAV-001",
-    "nombre": "2 en 1 Llave impacto más esmeril",
-    "precio": 49990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a11c4c54-42d0-4364-8883-71bfeb7902e4.jpg",
-    "descripcion": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos."
-  },
-  {
-    "sku": "ELEC-CAM-002",
-    "nombre": "Camara de seguridad solar",
-    "precio": 59990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
-    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables."
-  },
-  {
-    "sku": "HERR-DEST-003",
-    "nombre": "Destornillador inalámbrico mandril metalico",
-    "precio": 25990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/852f4567-48bc-4187-84e6-d24fa9bec454.jpg",
-    "descripcion": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje."
-  },
-  {
-    "sku": "ILUM-FOCO-2000",
-    "nombre": "Foco solar 2.000w con panel separado",
-    "precio": 34000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/7542a9fa-56a4-45a3-8a23-02010a2e35e7.png",
-    "descripcion": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra."
-  },
-  {
-    "sku": "ACC-DADO-005",
-    "nombre": "SET de 10 dados de impacto",
-    "precio": 9990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a7629fb8-e1e1-4d19-8517-da218635bc57.jpg",
-    "descripcion": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse."
-  },
-  {
-    "sku": "ILUM-FOCO-100",
-    "nombre": "Foco solar de 100w de panel separado",
-    "precio": 18000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/302a1902-6552-4837-b2ea-f463860d0f5f.png",
-    "descripcion": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz."
-  },
-  {
-    "sku": "HERR-MULT-007",
-    "nombre": "Multifuncional oscilante",
-    "precio": 38000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78c09ad3-c761-4c89-bbcc-463506ac04e3.jpg",
-    "descripcion": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios."
-  },
-  {
-    "sku": "HERR-CLAV-008",
-    "nombre": "Pistola de clavos inalambrica",
-    "precio": 65000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/11345cd0-1b40-418e-acaf-f53d91eec861.jpg",
-    "descripcion": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera."
-  },
-  {
-    "sku": "ILUM-GUIR-009",
-    "nombre": "Guirnalda 10 luces x 10 mts",
-    "precio": 14000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/cc02c41e-eeda-4fa5-a42f-b6c422c445f2.jpg",
-    "descripcion": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre."
-  },
-  {
-    "sku": "HERR-COMP-010",
-    "nombre": "Compresor de dos cilindros",
-    "precio": 29990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/97e469df-09c2-427a-a7b7-7cb83e3ee676.jpg",
-    "descripcion": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables."
-  },
-  {
-    "sku": "HERR-SOLD-MIG",
-    "nombre": "Soldadora MIG, MMA y TIG",
-    "precio": 80000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a2cdafc5-697f-4f48-90bf-1eac7cba733c.jpg",
-    "descripcion": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar."
-  },
-  {
-    "sku": "HERR-SOLD-MMA",
-    "nombre": "Soldadora MMA",
-    "precio": 44000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2fc8f999-b062-4c00-a74d-a812e6a80e06.jpg",
-    "descripcion": "Soldadora inverter para electrodo revestido (MMA). Compacta y potente, ideal para reparaciones rápidas y trabajos de herrería en general."
-  },
-  {
-    "sku": "ELEC-ZAPA-013",
-    "nombre": "Zapatilla electrica alargador de 5 metros",
-    "precio": 6000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/6dcf7429-7a94-492d-8ffb-9608fe03abe8.png",
-    "descripcion": "Extensión eléctrica reforzada de 5 metros con 4 tomas. Incluye interruptor de encendido con protección térmica para seguridad."
-  },
-  {
-    "sku": "HERR-ROTO-014",
-    "nombre": "Rotomartillo",
-    "precio": 47990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/68082b6b-51eb-49a1-aeb5-50b8def9db6b.jpg",
-    "descripcion": "Herramienta de perforación pesada con sistema SDS-Plus. Tres modos de uso: rotación, percusión y cincelado para concreto y piedra."
-  },
-  {
-    "sku": "ELEC-CARG-015",
-    "nombre": "Cargador de baterías",
-    "precio": 14000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a4599987-45c2-479b-8b36-307e53b558e9.jpg",
-    "descripcion": "Cargador inteligente compatible con 12V y 24V. Protege contra cortocircuitos, ideal para vehículos y maquinaria agrícola."
-  },
-  {
-    "sku": "HERR-SIER-016",
-    "nombre": "Sierra circular inalambrica",
-    "precio": 59990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d564a331-7141-452a-9cc8-194b8c520fd8.jpg",
-    "descripcion": "Sierra de disco portátil para cortes rectos en madera. Ajuste de profundidad y ángulo para trabajos de carpintería en terreno."
-  },
-  {
-    "sku": "HERR-MINI-017",
-    "nombre": "Mini amoladora 3 en 1",
-    "precio": 37000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f63c572a-4260-40f4-b5e6-cdcfb17f85ff.jpg",
-    "descripcion": "Herramienta compacta multifunción para corte, pulido y detalles en metal o madera. Incluye accesorios básicos."
-  },
-  {
-    "sku": "HERR-ESME-018",
-    "nombre": "Esmeril inalámbrico con 2 baterías",
-    "precio": 32990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78e20ec6-dc30-4a5c-8a20-d833c91b3b43.jpg",
-    "descripcion": "Esmeril angular para discos de 4.5 pulgadas. Libertad total de movimiento para cortes rápidos y desbaste de soldaduras."
-  },
-  {
-    "sku": "HERR-CHIC-019",
-    "nombre": "Chicharra inalambrica",
-    "precio": 44000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c1968d40-a4e1-47f4-aaf3-53ab0110dfad.jpg",
-    "descripcion": "Llave de trinquete (chicharra) eléctrica para mecánica. Permite apretar y soltar pernos en espacios reducidos sin esfuerzo manual."
-  },
-  {
-    "sku": "ILUM-EMER-020",
-    "nombre": "Foco emergencia 2 X 3",
-    "precio": 9990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/62b7fe9d-0627-4124-a715-6d05c1961107.jpg",
-    "descripcion": "Lámpara de doble foco LED recargable. Se activa automáticamente ante cortes de luz, ideal para pasillos y bodegas."
-  },
-  {
-    "sku": "ILUM-FOCO-021",
-    "nombre": "Farol Solar Interactivo",
-    "precio": 5000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/b656fb67-4fee-45a1-a9a1-3240bf61ff5f.jpg",
-    "descripcion": "Farol decorativo solar para jardín. Resistente al agua, se enciende al anochecer creando un ambiente acogedor en terrazas."
-  },
-  {
-    "sku": "ELEC-CAM-022",
-    "nombre": "Camara videollamada wifi",
-    "precio": 15990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5a803ec0-95bc-4c47-a998-609bba036cc6.jpg",
-    "descripcion": "Cámara interior con pantalla. Permite realizar videollamadas directas, ideal para monitoreo de niños o adultos mayores."
-  },
-  {
-    "sku": "ILUM-EMER-023",
-    "nombre": "Foco emergencia simple",
-    "precio": 7500,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/198b786c-adb2-4bc1-90c4-d185658fe9f4.jpg",
-    "descripcion": "Luminaria LED solar básica para exteriores. Resistente a la lluvia y con encendido automático por sensor."
-  },
-  {
-    "sku": "ILUM-EMER-024",
-    "nombre": "Foco emergencia con herramientas",
-    "precio": 15000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f500b8a4-ebb5-4895-acd3-01e39dd40274.jpg",
-    "descripcion": "Kit de emergencia que combina un foco LED potente con un set de herramientas básicas para el vehículo."
-  },
-  {
-    "sku": "JARD-KIT-025",
-    "nombre": "Kit de herramientas de jardin",
-    "precio": 37000,
-    "nombre_pack_2x": "PROMO 2x Kit Jardín",
-    "precio_pack_2x": 60000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5311cbc3-2620-44df-a1c4-682f9b2724bb.jpg",
-    "descripcion": "Set completo para el cuidado del patio. Incluye herramientas eléctricas para poda y mantención de áreas verdes."
-  },
-  {
-    "sku": "JARD-CORT-026",
-    "nombre": "Cortacetos",
-    "precio": 26990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/bf39c9de-ebf0-476b-b3cc-7cf325b23e62.jpg",
-    "descripcion": "Cortasetos eléctrico ligero. Cuchillas de doble acción para un corte limpio en arbustos y cercos vivos."
-  },
-  {
-    "sku": "ELEC-TIMB-027",
-    "nombre": "Camara timbre",
-    "precio": 19990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/832d3b09-cd5c-4d5b-a58b-17c3c7311f78.jpg",
-    "descripcion": "Timbre inteligente con video HD. Ve y habla con quien toque la puerta desde tu celular en cualquier lugar."
-  },
-  {
-    "sku": "HERR-DEST-028",
-    "nombre": "Atornillador inalámbrico",
-    "precio": 19990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/20bcb94a-912c-4369-b34e-ed8df90c67c0.jpg",
-    "descripcion": "Atornillador compacto de 12V. Ideal para armado de muebles y trabajos domésticos rápidos."
-  },
-  {
-    "sku": "HERR-SOPL-029",
-    "nombre": "Sopladora y aspirador inalambrica",
-    "precio": 18000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9b4e91a3-550c-4fa6-b492-71d3c8ce993d.jpg",
-    "descripcion": "Herramienta dual para limpieza. Sopla hojas del patio o aspira el interior del vehículo sin cables."
-  },
-  {
-    "sku": "HERR-CALA-030",
-    "nombre": "Sierra caladora",
-    "precio": 39990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2f8cb920-22f5-4ebf-82c3-91339d915e0d.jpg",
-    "descripcion": "Sierra eléctrica para cortes curvos. Velocidad variable para madera, metal o plástico."
-  },
-  {
-    "sku": "ILUM-FOCO-1000",
-    "nombre": "Foco solar de 1000w metálico",
-    "precio": 27000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d23b871c-b307-4b10-a040-7d430b0bc58f.jpg",
-    "descripcion": "Foco solar potente con chasis de aluminio. Gran durabilidad para parcelas y patios grandes."
-  },
-  {
-    "sku": "ILUM-FOCO-1200",
-    "nombre": "Foco de 1200w",
-    "precio": 28500,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1229b27f-f736-4dbc-99ea-1b6adddf2da6.png",
-    "descripcion": "Proyector LED solar de gran cobertura. Incluye control remoto y sensor para ahorro de energía."
-  },
-  {
-    "sku": "ILUM-EMER-033",
-    "nombre": "Foco solar emergencia con parlante",
-    "precio": 13500,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c37c3646-7c86-4527-9b0d-eed0670fb558.jpg",
-    "descripcion": "Foco multifunción. Luz potente y parlante Bluetooth integrado para camping o terrazas."
-  },
-  {
-    "sku": "ILUM-EMER-034",
-    "nombre": "Foco solar emergencia 1 x 3",
-    "precio": 8990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ab26c375-4fac-451e-bc0c-a981f0082f99.png",
-    "descripcion": "Foco compacto de seguridad solar. Proporciona luz inmediata en pasillos exteriores sin cables."
-  },
-  {
-    "sku": "HERR-DEST-035",
-    "nombre": "Atornillador eléctrico mini con accesorios",
-    "precio": 8990,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/83d67297-53d8-45b8-9dde-b4680bdcd128.jpg",
-    "descripcion": "Mini atornillador recargable. Incluye set de puntas para reparaciones domésticas y armado de juguetes."
-  },
-  {
-    "sku": "GEN-ELE-200",
-    "nombre": "Generador eléctrico portátil 200w",
-    "precio": 115000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1d6017e9-540c-49bf-bdf0-9ea3d830faa3.jpg",
-    "descripcion": "Estación de energía silenciosa. Carga celulares y laptops en camping o situaciones de emergencia."
-  },
-  {
-    "sku": "GEN-ELE-500",
-    "nombre": "Generador eléctrico portátil 500w",
-    "precio": 290000,
-    "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ae79788f-cb0e-4faa-86b4-6cb664324931.jpg",
-    "descripcion": "Generador de gran capacidad. Alimenta herramientas pequeñas y electrodomésticos durante cortes de luz prolongados."
-  }
-];
-        
+          {
+            "sku": "HERR-LLAV-001",
+            "nombre": "2 en 1 Llave impacto más esmeril",
+            "precio": 49990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a11c4c54-42d0-4364-8883-71bfeb7902e4.jpg",
+            "descripcion": "Kit dual inalámbrico de alto rendimiento. Incluye una llave de impacto para pernos y un esmeril angular para corte y desbaste. Ideal para talleres mecánicos."
+          },
+          {
+            "sku": "ELEC-CAM-002",
+            "nombre": "Camara de seguridad solar",
+            "precio": 59990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
+            "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables."
+          },
+          {
+            "sku": "HERR-DEST-003",
+            "nombre": "Destornillador inalámbrico mandril metalico",
+            "precio": 25990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/852f4567-48bc-4187-84e6-d24fa9bec454.jpg",
+            "descripcion": "Atornillador de torque ajustable con mandril metálico de alta durabilidad. Diseño ergonómico y batería de larga duración para trabajos de montaje."
+          },
+          {
+            "sku": "ILUM-FOCO-2000",
+            "nombre": "Foco solar 2.000w con panel separado",
+            "precio": 34000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/7542a9fa-56a4-45a3-8a23-02010a2e35e7.png",
+            "descripcion": "Foco LED de ultra alta potencia con panel solar independiente. Permite la carga óptima en exteriores mientras el foco ilumina áreas bajo techo o sombra."
+          },
+          {
+            "sku": "ACC-DADO-005",
+            "nombre": "SET de 10 dados de impacto",
+            "precio": 9990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a7629fb8-e1e1-4d19-8517-da218635bc57.jpg",
+            "descripcion": "Juego de llaves de vaso (dados) fabricados en acero reforzado. Diseñados específicamente para resistir el torque de herramientas de impacto sin fracturarse."
+          },
+          {
+            "sku": "ILUM-FOCO-100",
+            "nombre": "Foco solar de 100w de panel separado",
+            "precio": 18000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/302a1902-6552-4837-b2ea-f463860d0f5f.png",
+            "descripcion": "Luminaria exterior eficiente con panel separado. Ideal para iluminación perimetral, resistente al agua y con encendido automático por sensor de luz."
+          },
+          {
+            "sku": "HERR-MULT-007",
+            "nombre": "Multifuncional oscilante",
+            "precio": 38000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78c09ad3-c761-4c89-bbcc-463506ac04e3.jpg",
+            "descripcion": "Herramienta versátil para terminaciones. Permite lijar, cortar y raspar en ángulos difíciles gracias a su cabezal de oscilación rápida y accesorios."
+          },
+          {
+            "sku": "HERR-CLAV-008",
+            "nombre": "Pistola de clavos inalambrica",
+            "precio": 65000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/11345cd0-1b40-418e-acaf-f53d91eec861.jpg",
+            "descripcion": "Clavadora eléctrica a batería que elimina la necesidad de compresores. Perfecta para carpintería fina, molduras y fijación de paneles de madera."
+          },
+          {
+            "sku": "ILUM-GUIR-009",
+            "nombre": "Guirnalda 10 luces x 10 mts",
+            "precio": 14000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/cc02c41e-eeda-4fa5-a42f-b6c422c445f2.jpg",
+            "descripcion": "Cadena decorativa de 10 metros con ampolletas LED tipo vintage. Resistente a la intemperie (IP65), ideal para ambientar terrazas y eventos al aire libre."
+          },
+          {
+            "sku": "HERR-COMP-010",
+            "nombre": "Compresor de dos cilindros",
+            "precio": 29990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/97e469df-09c2-427a-a7b7-7cb83e3ee676.jpg",
+            "descripcion": "Compresor de aire portátil con motor de doble pistón para un flujo constante y rápido. Útil para inflar neumáticos de vehículos y equipos inflables."
+          },
+          {
+            "sku": "HERR-SOLD-MIG",
+            "nombre": "Soldadora MIG, MMA y TIG",
+            "precio": 80000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a2cdafc5-697f-4f48-90bf-1eac7cba733c.jpg",
+            "descripcion": "Máquina de soldar profesional 3 en 1 con tecnología inverter. Permite soldaduras limpias con alambre o electrodo, siendo ligera y fácil de transportar."
+          },
+          {
+            "sku": "HERR-SOLD-MMA",
+            "nombre": "Soldadora MMA",
+            "precio": 44000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2fc8f999-b062-4c00-a74d-a812e6a80e06.jpg",
+            "descripcion": "Soldadora inverter para electrodo revestido (MMA). Compacta y potente, ideal para reparaciones rápidas y trabajos de herrería en general."
+          },
+          {
+            "sku": "ELEC-ZAPA-013",
+            "nombre": "Zapatilla electrica alargador de 5 metros",
+            "precio": 6000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/6dcf7429-7a94-492d-8ffb-9608fe03abe8.png",
+            "descripcion": "Extensión eléctrica para alargador de 5 metros con 4 tomas. Con interruptor de seguridad de alta durabilidad."
+          },
+          {
+            "sku": "HERR-ROTO-014",
+            "nombre": "Rotomartillo",
+            "precio": 47990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/68082b6b-51eb-49a1-aeb5-50b8def9db6b.jpg",
+            "descripcion": "Herramienta de perforación pesada con sistema SDS-Plus. Tres modos de uso: rotación, percusión y cincelado para concreto y piedra."
+          },
+          {
+            "sku": "ELEC-CARG-015",
+            "nombre": "Cargador de baterías",
+            "precio": 14000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/a4599987-45c2-479b-8b36-307e53b558e9.jpg",
+            "descripcion": "Cargador inteligente compatible con 12V y 24V. Protege contra cortocircuitos, ideal para vehículos y maquinaria agrícola."
+          },
+          {
+            "sku": "HERR-SIER-016",
+            "nombre": "Sierra circular inalambrica",
+            "precio": 59990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d564a331-7141-452a-9cc8-194b8c520fd8.jpg",
+            "descripcion": "Sierra de disco portátil para cortes rectos en madera. Ajuste de profundidad y ángulo para trabajos de carpintería en terreno."
+          },
+          {
+            "sku": "HERR-MINI-017",
+            "nombre": "Mini amoladora 3 en 1",
+            "precio": 37000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f63c572a-4260-40f4-b5e6-cdcfb17f85ff.jpg",
+            "descripcion": "Herramienta compacta multifunción para corte, pulido y detalles en metal o madera. Incluye accesorios básicos."
+          },
+          {
+            "sku": "HERR-ESME-018",
+            "nombre": "Esmeril inalámbrico con 2 baterías",
+            "precio": 32990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/78e20ec6-dc30-4a5c-8a20-d833c91b3b43.jpg",
+            "descripcion": "Esmeril angular para discos de 4.5 pulgadas. Libertad total de movimiento para cortes rápidos y desbaste de soldaduras."
+          },
+          {
+            "sku": "HERR-CHIC-019",
+            "nombre": "Chicharra inalambrica",
+            "precio": 44000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c1968d40-a4e1-47f4-aaf3-53ab0110dfad.jpg",
+            "descripcion": "Llave de trinquete (chicharra) eléctrica para mecánica. Permite apretar y soltar pernos en espacios reducidos sin esfuerzo manual."
+          },
+          {
+            "sku": "ILUM-EMER-020",
+            "nombre": "Foco emergencia 2 X 3",
+            "precio": 9990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/62b7fe9d-0627-4124-a715-6d05c1961107.jpg",
+            "descripcion": "Lámpara de doble foco LED recargable. Se activa automáticamente ante cortes de luz, ideal para pasillos y bodegas."
+          },
+          {
+            "sku": "ILUM-FOCO-021",
+            "nombre": "Farol Solar Interactivo",
+            "precio": 5000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/b656fb67-4fee-45a1-a9a1-3240bf61ff5f.jpg",
+            "descripcion": "Farol decorativo solar para jardín. Resistente al agua, se enciende al anochecer creando un ambiente acogedor en terrazas."
+          },
+          {
+            "sku": "ELEC-CAM-022",
+            "nombre": "Camara videollamada wifi",
+            "precio": 15990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5a803ec0-95bc-4c47-a998-609bba036cc6.jpg",
+            "descripcion": "Cámara interior con pantalla. Permite realizar videollamadas directas, ideal para monitoreo de niños o adultos mayores."
+          },
+          {
+            "sku": "ILUM-EMER-023",
+            "nombre": "Foco emergencia simple",
+            "precio": 7500,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/198b786c-adb2-4bc1-90c4-d185658fe9f4.jpg",
+            "descripcion": "Luminaria LED solar básica para exteriores. Resistente a la lluvia y con encendido automático por sensor."
+          },
+          {
+            "sku": "ILUM-EMER-024",
+            "nombre": "Foco emergencia con herramientas",
+            "precio": 15000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/f500b8a4-ebb5-4895-acd3-01e39dd40274.jpg",
+            "descripcion": "Kit de emergencia que combina un foco LED potente con un set de herramientas básicas para el vehículo."
+          },
+          {
+            "sku": "JARD-KIT-025",
+            "nombre": "Kit de herramientas de jardin",
+            "precio": 37000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/5311cbc3-2620-44df-a1c4-682f9b2724bb.jpg",
+            "descripcion": "Set completo para el cuidado del patio. Incluye herramientas eléctricas para poda y mantención de áreas verdes."
+          },
+          {
+            "sku": "JARD-CORT-026",
+            "nombre": "Cortacetos",
+            "precio": 26990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/bf39c9de-ebf0-476b-b3cc-7cf325b23e62.jpg",
+            "descripcion": "Cortasetos eléctrico ligero. Cuchillas de doble acción para un corte limpio en arbustos y cercos vivos."
+          },
+          {
+            "sku": "ELEC-TIMB-027",
+            "nombre": "Camara timbre",
+            "precio": 19990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/832d3b09-cd5c-4d5b-a58b-17c3c7311f78.jpg",
+            "descripcion": "Timbre inteligente con video HD. Ve y habla con quien toque la puerta desde tu celular en cualquier lugar."
+          },
+          {
+            "sku": "HERR-DEST-028",
+            "nombre": "Atornillador inalámbrico",
+            "precio": 19990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/20bcb94a-912c-4369-b34e-ed8df90c67c0.jpg",
+            "descripcion": "Atornillador compacto de 12V. Ideal para armado de muebles y trabajos domésticos rápidos."
+          },
+          {
+            "sku": "HERR-SOPL-029",
+            "nombre": "Sopladora y aspirador inalambrica",
+            "precio": 18000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/9b4e91a3-550c-4fa6-b492-71d3c8ce993d.jpg",
+            "descripcion": "Herramienta dual para limpieza. Sopla hojas del patio o aspira el interior del vehículo sin cables."
+          },
+          {
+            "sku": "HERR-CALA-030",
+            "nombre": "Sierra caladora",
+            "precio": 39990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/2f8cb920-22f5-4ebf-82c3-91339d915e0d.jpg",
+            "descripcion": "Sierra eléctrica para cortes curvos. Velocidad variable para madera, metal o plástico."
+          },
+          {
+            "sku": "ILUM-FOCO-1000",
+            "nombre": "Foco solar de 1000w metálico",
+            "precio": 27000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/d23b871c-b307-4b10-a040-7d430b0bc58f.jpg",
+            "descripcion": "Foco solar potente con chasis de aluminio. Gran durabilidad para parcelas y patios grandes."
+          },
+          {
+            "sku": "ILUM-FOCO-1200",
+            "nombre": "Foco de 1200w",
+            "precio": 28500,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1229b27f-f736-4dbc-99ea-1b6adddf2da6.png",
+            "descripcion": "Proyector LED solar de gran cobertura. Incluye control remoto y sensor para ahorro de energía."
+          },
+          {
+            "sku": "ILUM-EMER-033",
+            "nombre": "Foco solar emergencia con parlante",
+            "precio": 13500,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/c37c3646-7c86-4527-9b0d-eed0670fb558.jpg",
+            "descripcion": "Foco multifunción. Luz potente y parlante Bluetooth integrado para camping o terrazas."
+          },
+          {
+            "sku": "ILUM-EMER-034",
+            "nombre": "Foco solar emergencia 1 x 3",
+            "precio": 8990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ab26c375-4fac-451e-bc0c-a981f0082f99.png",
+            "descripcion": "Foco compacto de seguridad solar. Proporciona luz inmediata en pasillos exteriores sin cables."
+          },
+          {
+            "sku": "HERR-DEST-035",
+            "nombre": "Atornillador eléctrico mini con accesorios",
+            "precio": 8990,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/83d67297-53d8-45b8-9dde-b4680bdcd128.jpg",
+            "descripcion": "Mini atornillador recargable. Incluye set de puntas para reparaciones domésticas y armado de juguetes."
+          },
+          {
+            "sku": "GEN-ELE-200",
+            "nombre": "Generador eléctrico portátil 200w",
+            "precio": 115000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/1d6017e9-540c-49bf-bdf0-9ea3d830faa3.jpg",
+            "descripcion": "Estación de energía silenciosa. Carga celulares y laptops en camping o situaciones de emergencia."
+          },
+          {
+            "sku": "GEN-ELE-500",
+            "nombre": "Generador eléctrico portátil 500w",
+            "precio": 290000,
+            "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/ae79788f-cb0e-4faa-86b4-6cb664324931.jpg",
+            "descripcion": "Generador de gran capacidad. Alimenta herramientas pequeñas y electrodomésticos durante cortes de luz prolongados."
+          }
+        ];
         
         if (loader) loader.classList.add('hidden');
         if (gridContainer) gridContainer.classList.remove('hidden');
@@ -1200,6 +1429,9 @@
       if (tabId === 'cart') {
         renderCartView();
       }
+      if (tabId === 'admin') {
+        initAdminView();
+      }
     }
 
     // Toggle menu dropdown for small devices
@@ -1218,7 +1450,7 @@
     }
 
     // 3. CATALOG RENDERING & FILTERING
-function filterCatalog(categoryKey) {
+    function filterCatalog(categoryKey) {
       CurrentCategoryFilter = categoryKey;
       document.querySelectorAll('.p-btn-filter').forEach(btn => {
         btn.classList.remove('bg-[#ff5a1f]', 'text-white', 'border-neon-orange', 'font-semibold');
@@ -1265,35 +1497,35 @@ function filterCatalog(categoryKey) {
       }
 
       filtered.forEach(product => {
-        const currentName = product.nombre || product["Producto / Descripción"] || 'Producto';
-        const currentPrice = Math.max(0, cleanPrice(product.precio || 0));
-        const currentTag = product.tag || '';
-        const currentCat = product.categoria || 'Equipos';
-        const currentSKU = product.sku || product.SKU || 'SIN-SKU';
-        const currentImg = product.imagen || product.Imagen || '';
+        const nombre = product.nombre || product["Producto / Descripción"] || 'Producto';
+        const precio = Math.max(0, cleanPrice(product.precio || 0));
+        const tag = product.tag || '';
+        const categoria = product.categoria || 'Equipos';
+        const itemSKU = product.sku || product.SKU || 'SIN-SKU';
+        const imagen = product.imagen || product.Imagen || '';
 
-        const tagHTML = currentTag ? `
+        const tagHTML = tag ? `
           <span class="absolute top-4 left-4 bg-burgundy text-white font-mono text-[9px] px-2.5 py-1 z-10 rounded-sm uppercase tracking-widest border border-neon-orange/20">
-            ${currentTag}
+            ${tag}
           </span>
         ` : '';
 
         const card = document.createElement('article');
         card.className = "bg-metal-card border border-metal-border hover:border-burgundy-light transition-all rounded-sm flex flex-col h-full relative group";
         card.innerHTML = `
-          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal('${sku}')">
+          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal('${itemSKU}')">
             ${tagHTML}
             <div class="w-full h-full bg-white rounded-sm p-4 flex items-center justify-center">
               <img src="${getSafeImageUrl(imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${nombre}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
           <div class="p-5 flex flex-col flex-grow space-y-4">
-            <div class="space-y-1 cursor-pointer" onclick="openSpecModal('${sku}')">
+            <div class="space-y-1 cursor-pointer" onclick="openSpecModal('${itemSKU}')">
               <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${categoria}</span>
               <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
                 ${nombre}
               </h4>
-              <p class="text-[10px] text-gray-400 font-mono">SKU: ${sku}</p>
+              <p class="text-[10px] text-gray-400 font-mono">SKU: ${itemSKU}</p>
             </div>
             
             <div class="mt-auto space-y-4.5 pt-2">
@@ -1303,10 +1535,10 @@ function filterCatalog(categoryKey) {
               </div>
               
               <div class="grid grid-cols-2 gap-2">
-                <button onclick="openSpecModal('${sku}')" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
+                <button onclick="openSpecModal('${itemSKU}')" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
                   Ver Ficha
                 </button>
-                <button onclick="addProductToCart('${sku}')" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
+                <button onclick="addProductToCart('${itemSKU}')" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
                   <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Añadir
                 </button>
               </div>
@@ -1321,8 +1553,9 @@ function filterCatalog(categoryKey) {
         lucide.createIcons();
       }
     }
+
     // 4. SPECIFICATIONS MODAL WINDOW
-     function openSpecModal(productSKU) {
+    function openSpecModal(productSKU) {
       const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
       if (!product) return;
 
@@ -1330,10 +1563,11 @@ function filterCatalog(categoryKey) {
 
       document.getElementById('modal-product-name').innerText = `Ficha: ${product.sku || product.SKU}`;
       document.getElementById('modal-product-title').innerText = nombre;
-      document.getElementById('modal-product-category').innerText = product.categoria;
+      document.getElementById('modal-product-category').innerText = product.categoria || 'Equipos';
       document.getElementById('modal-product-price').innerText = `$${Math.round(cleanPrice(product.precio)).toLocaleString("es-CL")} CLP`;
-      document.getElementById('modal-product-descr').innerText = product.descripcion;
+      document.getElementById('modal-product-descr').innerText = product.descripcion || '';
       document.getElementById('modal-product-image').setAttribute('src', getSafeImageUrl(product.imagen || product.Imagen));
+      
       // Render specification rows
       const specsBody = document.getElementById('modal-specs-table-body');
       specsBody.innerHTML = '';
@@ -1355,12 +1589,13 @@ function filterCatalog(categoryKey) {
         `;
       }
 
-     // Configure direct add action to pass SKU as string correctly
+      // Configure direct add action to pass SKU as string correctly
       const addBtn = document.getElementById('modal-btn-add-to-cart');
       addBtn.onclick = () => {
         addProductToCart(product.sku || product.SKU);
         closeSpecModal();
       };
+      
       // Show modal backdrop
       document.getElementById('spec-modal').classList.remove('hidden');
       document.getElementById('spec-modal').classList.add('flex');
@@ -1372,8 +1607,7 @@ function filterCatalog(categoryKey) {
       document.getElementById('spec-modal').classList.remove('flex');
     }
 
-    // 5. CARTS CORE MANAGEMENT// --- FUNCIONES CORREGIDAS PARA TECNOSOLAR ---
-
+    // 5. CARTS CORE MANAGEMENT
     function loadCartFromStorage() {
       try {
         const stored = localStorage.getItem('tecnosolar_cart');
@@ -1382,16 +1616,14 @@ function filterCatalog(categoryKey) {
           const sku = item.sku || item.SKU || '';
           const nombre = item.nombre || item["Producto / Descripción"] || item.name || 'Producto';
           const precio = cleanPrice(item.precio !== undefined ? item.precio : (item.price !== undefined ? item.price : 0));
-          const descripcion = item.descripcion || item.description || '';
           const imagen = item.imagen || item.image || item.Imagen || '';
-          const categoria = item.categoria || item.category || 'Equipos';
           const quantity = Number(item.quantity || 1);
           return {
-            sku: item.sku || item.SKU,
-            nombre: item.nombre || item["Producto / Descripción"] || 'Producto',
-            precio: Number(item.precio) || 0,
-            imagen: item.imagen || item.Imagen || '',
-            quantity: Number(item.quantity || 1)
+            sku,
+            nombre,
+            precio,
+            imagen,
+            quantity
           };
         });
       } catch (e) {
@@ -1423,7 +1655,7 @@ function filterCatalog(categoryKey) {
       });
     }
 
-       function addProductToCart(productSKU) {
+    function addProductToCart(productSKU) {
       const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
       if (!product) return;
 
@@ -1439,14 +1671,12 @@ function filterCatalog(categoryKey) {
           sku: product.sku || product.SKU,
           nombre: nombre,
           precio: precio,
-          descripcion: product.descripcion || '',
           imagen: imagen,
-          categoria: product.categoria || '',
           quantity: 1
         });
       }
 
-     saveCartToStorage();
+      saveCartToStorage();
       triggerToast("Equipo Añadido", `${product.nombre || product["Producto / Descripción"] || 'Producto'} fue agregado correctamente al carro de compras.`);
     }
 
@@ -1464,7 +1694,7 @@ function filterCatalog(categoryKey) {
       }
     }
 
-      function removeCartItem(productSKU) {
+    function removeCartItem(productSKU) {
       const item = CartData.find(item => (item.sku || item.SKU) === productSKU);
       const label = item ? (item.nombre || item["Producto / Descripción"]) : "Producto";
       CartData = CartData.filter(item => (item.sku || item.SKU) !== productSKU);
@@ -1480,6 +1710,7 @@ function filterCatalog(categoryKey) {
       if(typeof renderCartView === 'function') renderCartView();
       if(typeof triggerToast === 'function') triggerToast("Carro Vaciado", "Se limpió la lista.");
     }
+
     // Render cart tables
     function renderCartView() {
       const emptyView = document.getElementById('cart-empty-view');
@@ -1517,20 +1748,20 @@ function filterCatalog(categoryKey) {
         tr.innerHTML = `
           <td class="p-4 flex items-center gap-4">
             <div class="w-14 h-14 bg-white rounded-sm p-1.5 flex items-center justify-center shrink-0 border border-metal-border">
-              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.nombre}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${nombre}" class="max-h-full object-contain">
             </div>
             <div>
-              <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${item.nombre}</p>
-              <p class="text-[10px] text-gray-400 font-mono mt-0.5">SKU: ${item.sku}</p>
+              <p class="font-semibold text-white uppercase text-xs tracking-tight line-clamp-1">${nombre}</p>
+              <p class="text-[10px] text-gray-400 font-mono mt-0.5">SKU: ${sku}</p>
             </div>
           </td>
           <td class="p-4 text-center">
             <div class="inline-flex items-center border border-metal-border bg-metal-dark rounded-sm">
-              <button onclick="updateCartItemQuantity(${item.id}, -1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
+              <button onclick="updateCartItemQuantity('${sku}', -1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
                 <i data-lucide="minus" class="w-3 h-3"></i>
               </button>
               <span class="px-3 font-mono font-bold text-xs select-none">${item.quantity}</span>
-              <button onclick="updateCartItemQuantity(${item.id}, 1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
+              <button onclick="updateCartItemQuantity('${sku}', 1)" class="p-2 hover:bg-burgundy/10 hover:text-neon-orange transition-colors">
                 <i data-lucide="plus" class="w-3 h-3"></i>
               </button>
             </div>
@@ -1542,7 +1773,7 @@ function filterCatalog(categoryKey) {
             $${(itemSubtotal || 0).toLocaleString("es-CL")}
           </td>
           <td class="p-4 text-center">
-            <button onclick="removeCartItem(${item.id})" class="text-gray-500 hover:text-white hover:bg-burgundy/20 p-2 rounded-sm transition-all" title="Eliminar">
+            <button onclick="removeCartItem('${sku}')" class="text-gray-500 hover:text-white hover:bg-burgundy/20 p-2 rounded-sm transition-all" title="Eliminar">
               <i data-lucide="trash-2" class="w-4 h-4 text-red-500"></i>
             </button>
           </td>
@@ -1555,22 +1786,22 @@ function filterCatalog(categoryKey) {
         cardMobile.innerHTML = `
           <div class="flex items-start gap-3">
             <div class="w-16 h-16 bg-white rounded-sm p-1.5 shrink-0 border border-metal-border flex items-center justify-center">
-              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${item.nombre}" class="max-h-full object-contain">
+              <img src="${getSafeImageUrl(item.imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${nombre}" class="max-h-full object-contain">
             </div>
             <div class="space-y-1">
-              <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${item.nombre}</h4>
-              <p class="font-mono text-[9px] text-gray-400">SKU: ${item.sku}</p>
+              <h4 class="font-bold text-xs uppercase text-white line-clamp-2 leading-tight">${nombre}</h4>
+              <p class="font-mono text-[9px] text-gray-400">SKU: ${sku}</p>
               <p class="font-mono text-xs text-neon-orange font-bold">$${(item.precio || 0).toLocaleString("es-CL")} c/u</p>
             </div>
           </div>
           
           <div class="flex justify-between items-center bg-metal-dark p-2.5 border border-metal-border/50 rounded-sm">
             <div class="flex items-center border border-metal-light bg-metal-light/40 rounded-sm">
-              <button onclick="updateCartItemQuantity(${item.id}, -1)" class="p-2">
+              <button onclick="updateCartItemQuantity('${sku}', -1)" class="p-2">
                 <i data-lucide="minus" class="w-3.5 h-3.5"></i>
               </button>
               <span class="px-4 font-mono font-bold text-xs">${item.quantity}</span>
-              <button onclick="updateCartItemQuantity(${item.id}, 1)" class="p-2">
+              <button onclick="updateCartItemQuantity('${sku}', 1)" class="p-2">
                 <i data-lucide="plus" class="w-3.5 h-3.5"></i>
               </button>
             </div>
@@ -1580,7 +1811,7 @@ function filterCatalog(categoryKey) {
               <span class="font-mono font-bold text-xs text-neon-orange">$${(itemSubtotal || 0).toLocaleString("es-CL")}</span>
             </div>
             
-            <button onclick="removeCartItem(${item.id})" class="p-2 bg-burgundy/10 hover:bg-burgundy/30 rounded-sm text-red-500 border border-burgundy/20">
+            <button onclick="removeCartItem('${sku}')" class="p-2 bg-burgundy/10 hover:bg-burgundy/30 rounded-sm text-red-500 border border-burgundy/20">
               <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -1598,7 +1829,9 @@ function filterCatalog(categoryKey) {
       document.getElementById('price-iva').innerText = `$${ivaAmount.toLocaleString("es-CL")} CLP`;
       document.getElementById('price-total').innerText = `$${totalAmount.toLocaleString("es-CL")} CLP`;
 
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     // 6. WHATSAPP CHECKOUT MESSAGE BUILDER
@@ -1671,14 +1904,18 @@ function filterCatalog(categoryKey) {
       navigator.clipboard.writeText(comprehensiveText).then(() => {
         const btn = document.getElementById('btn-copy-bank');
         btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-green-500"></i> ¡Datos Copiados!`;
-        lucide.createIcons();
+        if (window.lucide) {
+          lucide.createIcons();
+        }
 
         triggerToast("Datos Copiados", "Se copiaron los datos de transferencia en su portapapeles.");
 
         // Timeout transition back
         setTimeout(() => {
           btn.innerHTML = `<i data-lucide="copy" class="w-4 h-4 text-neon-orange"></i> Copiar Datos Comerciales`;
-          lucide.createIcons();
+          if (window.lucide) {
+            lucide.createIcons();
+          }
         }, 3000);
       }).catch(err => {
         console.error("Error copying clipboard details:", err);
@@ -1697,6 +1934,541 @@ function filterCatalog(categoryKey) {
       setTimeout(() => {
         toast.classList.add('hidden');
       }, 5000);
+    }
+
+    // ==========================================
+    // PORTAL DE ADMINISTRACIÓN - CORE UTILITIES
+    // ==========================================
+    let isAdminAuthenticated = false;
+    let adminToken = sessionStorage.getItem('admin_token') || '';
+
+    // Initialize/Toggle Password Input Eye
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('admin-password-input');
+      const icon = document.getElementById('password-toggle-icon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        icon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        pwdInput.type = 'password';
+        icon.setAttribute('data-lucide', 'eye');
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Handle Admin Session Login
+    async function handleAdminLogin(event) {
+      if (event) event.preventDefault();
+      const passwordInput = document.getElementById('admin-password-input');
+      const pwdStr = passwordInput ? passwordInput.value.trim() : '';
+
+      try {
+        const response = await fetch('/api/admin/verify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + pwdStr
+          },
+          body: JSON.stringify({ password: pwdStr })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          sessionStorage.setItem('admin_token', pwdStr);
+          adminToken = pwdStr;
+          isAdminAuthenticated = true;
+          
+          triggerToast("Éxito", "Sesión de administración autorizada.");
+          if (passwordInput) passwordInput.value = '';
+          
+          initAdminView();
+        } else {
+          triggerToast("Error de Acceso", result.error || "Contraseña inválida.");
+        }
+      } catch (err) {
+        console.error("Auth verify failed:", err);
+        triggerToast("Falla de Red", "No se pudo conectar con el servidor para validar.");
+      }
+    }
+
+    // Close Admin Session
+    function logoutAdmin() {
+      sessionStorage.removeItem('admin_token');
+      adminToken = '';
+      isAdminAuthenticated = false;
+      
+      initAdminView();
+      triggerToast("Sesión Cerrada", "Has salido del panel de administración.");
+    }
+
+    // Initialize Admin Page View States
+    async function initAdminView() {
+      const loginBox = document.getElementById('admin-login-box');
+      const dashboard = document.getElementById('admin-dashboard');
+      const sessionInd = document.getElementById('admin-session-indicator');
+      
+      const savedToken = sessionStorage.getItem('admin_token');
+      if (savedToken) {
+        adminToken = savedToken;
+        isAdminAuthenticated = true;
+      } else {
+        isAdminAuthenticated = false;
+      }
+
+      if (isAdminAuthenticated) {
+        // Show administrative dashboard, hide password challenge
+        if (loginBox) loginBox.classList.add('hidden');
+        if (dashboard) dashboard.classList.remove('hidden');
+        if (sessionInd) sessionInd.classList.remove('hidden');
+        
+        // Load settings from metadata.json
+        try {
+          const res = await fetch('/metadata.json');
+          if (res.ok) {
+            const meta = await res.json();
+            const setSiteName = document.getElementById('setting-site-name');
+            const setSiteDesc = document.getElementById('setting-site-desc');
+            if (setSiteName) setSiteName.value = meta.name || '';
+            if (setSiteDesc) setSiteDesc.value = meta.description || '';
+          }
+        } catch (e) {
+          console.error("No se pudo cargar metadatos para editar:", e);
+        }
+
+        // Render current shop products in the administration panel list
+        renderAdminCatalogList();
+        
+        // Wire up Drag & Drop events if they aren't wired already
+        setupDragAndDrop();
+      } else {
+        // Show login modal, hide dashboard
+        if (loginBox) loginBox.classList.remove('hidden');
+        if (dashboard) dashboard.classList.add('hidden');
+        if (sessionInd) sessionInd.classList.add('hidden');
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Render Admin Interactive Products Table
+    function renderAdminCatalogList() {
+      const tableBody = document.getElementById('admin-products-table-body');
+      const counterSpan = document.getElementById('admin-catalog-count');
+      const searchInput = document.getElementById('admin-search-input');
+      
+      if (!tableBody) return;
+      
+      const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      let filtered = ProductsDatabase;
+
+      if (searchTerm) {
+        filtered = ProductsDatabase.filter(p => {
+          const nom = (p.nombre || '').toLowerCase();
+          const sku = (p.sku || '').toLowerCase();
+          const desc = (p.descripcion || '').toLowerCase();
+          const cat = (p.categoria || '').toLowerCase();
+          return nom.includes(searchTerm) || sku.includes(searchTerm) || desc.includes(searchTerm) || cat.includes(searchTerm);
+        });
+      }
+
+      if (counterSpan) {
+        counterSpan.innerText = filtered.length;
+      }
+
+      tableBody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="4" class="py-10 text-center text-xs font-mono text-gray-500 uppercase tracking-widest">
+              No hay productos que coincidan.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const isSolar = (p.categoria || '').toLowerCase().includes('solar') || (p.categoria || '').toLowerCase().includes('iluminación');
+        const badgeColor = isSolar ? 'text-[#ff5a1f] border-[#ff5a1f]/30 bg-[#ff5a1f]/5' : 'text-[#7d1829] border-[#7d1829]/30 bg-[#7d1829]/5';
+        
+        const tr = document.createElement('tr');
+        tr.className = "border-b border-metal-border hover:bg-metal-dark/50 transition-colors";
+        tr.innerHTML = `
+          <td class="py-4 px-2">
+            <div class="flex items-center gap-3">
+              <img src="${getSafeImageUrl(p.imagen)}" alt="${p.nombre}" class="w-10 h-10 object-cover border border-metal-border rounded-sm bg-metal-dark shrink-0" onerror="this.src='${FALLBACK_IMAGE_URL}'">
+              <div class="max-w-xs md:max-w-md truncate">
+                <p class="font-sans text-xs font-semibold text-white truncate">${p.nombre}</p>
+                <p class="font-sans text-[10px] text-gray-400 truncate mt-0.5">${p.descripcion || 'Sin descripción'}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-2 font-mono text-[10px]">
+            <span class="text-white font-bold p-1 bg-metal-light rounded-sm border border-metal-border">${p.sku}</span>
+            <span class="ml-1.5 border px-1.5 py-0.5 rounded-full text-[9px] uppercase tracking-wide font-sans ${badgeColor}">${p.categoria}</span>
+          </td>
+          <td class="py-4 px-2 font-mono text-xs font-bold text-right text-white">
+            $${(p.precio || 0).toLocaleString('es-CL')}
+          </td>
+          <td class="py-4 px-2 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <button onclick="editProductInAdmin('${p.sku}')" class="p-1.5 bg-metal-light border border-metal-border hover:border-white text-gray-300 hover:text-white rounded-sm transition-all" title="Editar Producto">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+              </button>
+              <button onclick="deleteProductInAdmin('${p.sku}')" class="p-1.5 bg-[#7d1829]/10 border border-[#7d1829]/30 hover:bg-[#7d1829] text-burgundy-light hover:text-white rounded-sm transition-all" title="Eliminar Producto">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Save Title & Description Settings
+    async function handleSaveSettings(event) {
+      if (event) event.preventDefault();
+      const siteName = document.getElementById('setting-site-name').value.trim();
+      const siteDesc = document.getElementById('setting-site-desc').value.trim();
+
+      try {
+        const response = await fetch('/api/admin/save-metadata', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminToken
+          },
+          body: JSON.stringify({ name: siteName, description: siteDesc })
+        });
+
+        if (response.ok) {
+          triggerToast("Ajustes Guardados", "Se ha actualizado la información comercial en el servidor.");
+          
+          // Apply changes live in client document title and branding nodes
+          document.title = siteName + " - Un Mundo en Herramientas y Soluciones Solares";
+          
+          // Try to locate and replace generic header labels in the HTML
+          const brandTexts = document.querySelectorAll('.brand-site-name');
+          brandTexts.forEach(el => el.innerText = siteName);
+        } else {
+          const err = await response.json();
+          triggerToast("Error", err.error || "No se pudieron aplicar los ajustes.");
+        }
+      } catch (e) {
+        console.error("Save settings error:", e);
+        triggerToast("Falla de Red", "No se pudo actualizar los metadatos de la página.");
+      }
+    }
+
+    // Trigger Product form save (Create or Update)
+    async function handleProductSubmit(event) {
+      if (event) event.preventDefault();
+      
+      const mode = document.getElementById('product-form-mode').value;
+      const originalSku = document.getElementById('product-edit-original-sku').value;
+      
+      const sku = document.getElementById('prod-sku').value.trim().toUpperCase();
+      const category = document.getElementById('prod-category').value;
+      const name = document.getElementById('prod-name').value.trim();
+      const price = parseInt(document.getElementById('prod-price').value);
+      const tag = document.getElementById('prod-tag').value.trim();
+      const imageUrl = document.getElementById('prod-image-url').value.trim();
+      const description = document.getElementById('prod-description').value.trim();
+
+      // Assemble specs technically
+      const specs = [];
+      for (let i = 1; i <= 3; i++) {
+        const lbl = document.getElementById(`spec-lbl-${i}`).value.trim();
+        const val = document.getElementById(`spec-val-${i}`).value.trim();
+        if (lbl && val) {
+          specs.push({ label: lbl, value: val });
+        }
+      }
+
+      // Input sanitation validations
+      if (!sku || !name || isNaN(price) || !imageUrl) {
+        triggerToast("Formulario Incompleto", "Por favor ingresa SKU, Nombre, Precio e Imagen.");
+        return;
+      }
+
+      let updatedCatalog = [...ProductsDatabase];
+
+      if (mode === 'add') {
+        const alreadyExists = ProductsDatabase.some(p => p.sku === sku);
+        if (alreadyExists) {
+          triggerToast("SKU Duplicado", "Ya existe un producto en el catálogo con el SKU ingresado.");
+          return;
+        }
+
+        const newProd = {
+          sku,
+          nombre: name,
+          precio: price,
+          imagen: imageUrl,
+          descripcion: description,
+          categoria: category,
+          tag,
+          specs
+        };
+        updatedCatalog.push(newProd);
+      } else {
+        // Edit mode
+        const index = updatedCatalog.findIndex(p => p.sku === originalSku);
+        if (index === -1) {
+          triggerToast("Error", "No se encontró el producto original para editar.");
+          return;
+        }
+
+        // If the SKU was edited, check if the new SKU collides with another product
+        if (sku !== originalSku) {
+          const skuOccupied = updatedCatalog.some((p, idx) => idx !== index && p.sku === sku);
+          if (skuOccupied) {
+            triggerToast("SKU Duplicado", "Ese SKU ya está en uso por otro producto.");
+            return;
+          }
+        }
+
+        updatedCatalog[index] = {
+          sku,
+          nombre: name,
+          precio: price,
+          imagen: imageUrl,
+          descripcion: description,
+          categoria: category,
+          tag,
+          specs
+        };
+      }
+
+      // Send to Express API to save to productos.json
+      try {
+        const response = await fetch('/api/admin/save-catalog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminToken
+          },
+          body: JSON.stringify({ catalog: updatedCatalog })
+        });
+
+        if (response.ok) {
+          triggerToast("Catálogo Guardado", mode === 'add' ? `Se agregó "${name}" correctamente.` : `Se editó "${name}" correctamente.`);
+          
+          // Clear and reset form
+          cancelProductEdit();
+          
+          // Re-fetch database elements and re-render grids and tables
+          ProductsDatabase = updatedCatalog;
+          renderCatalogGrid();
+          renderAdminCatalogList();
+        } else {
+          const err = await response.json();
+          triggerToast("Error de Escritura", err.error || "No se pudo actualizar el catálogo en el servidor.");
+        }
+      } catch (e) {
+        console.error("Save catalog error:", e);
+        triggerToast("Error de Red", "No se pudo comunicar con el servidor para guardar.");
+      }
+    }
+
+    // Prefill form with selected product to trigger edit mode
+    function editProductInAdmin(sku) {
+      const p = ProductsDatabase.find(x => x.sku === sku);
+      if (!p) return;
+
+      document.getElementById('product-form-mode').value = 'edit';
+      document.getElementById('product-edit-original-sku').value = sku;
+      
+      document.getElementById('prod-sku').value = p.sku || '';
+      document.getElementById('prod-category').value = p.categoria || 'Herramientas Eléctricas';
+      document.getElementById('prod-name').value = p.nombre || '';
+      document.getElementById('prod-price').value = p.precio !== undefined ? p.precio : 0;
+      document.getElementById('prod-tag').value = p.tag || '';
+      document.getElementById('prod-image-url').value = p.imagen || '';
+      document.getElementById('prod-description').value = p.descripcion || '';
+
+      // Clear all spec fields first
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`spec-lbl-${i}`).value = '';
+        document.getElementById(`spec-val-${i}`).value = '';
+      }
+
+      // Prefill loaded product specs
+      if (p.specs && Array.isArray(p.specs)) {
+        p.specs.slice(0, 3).forEach((spec, idx) => {
+          const slot = idx + 1;
+          const lblField = document.getElementById(`spec-lbl-${slot}`);
+          const valField = document.getElementById(`spec-val-${slot}`);
+          if (lblField) lblField.value = spec.label || '';
+          if (valField) valField.value = spec.value || '';
+        });
+      }
+
+      document.getElementById('form-product-title').innerHTML = `<i data-lucide="edit-2" class="w-4 h-4 text-neon-orange"></i> Editar Producto: ${sku}`;
+      document.getElementById('btn-cancel-edit').classList.remove('hidden');
+      document.getElementById('btn-submit-product').innerText = 'Actualizar Datos';
+
+      if (window.lucide) lucide.createIcons();
+
+      // Scroll form panel smoothly into view
+      document.getElementById('product-form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Cancel edit mode and restore form
+    function cancelProductEdit() {
+      document.getElementById('admin-product-form').reset();
+      
+      document.getElementById('product-form-mode').value = 'add';
+      document.getElementById('product-edit-original-sku').value = '';
+      
+      document.getElementById('form-product-title').innerHTML = `<i data-lucide="plus-circle" class="w-4 h-4 text-neon-orange"></i> Agregar Producto`;
+      document.getElementById('btn-cancel-edit').classList.add('hidden');
+      document.getElementById('btn-submit-product').innerText = 'Guardar Producto';
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Interactive product deletion
+    async function deleteProductInAdmin(sku) {
+      const p = ProductsDatabase.find(x => x.sku === sku);
+      if (!p) return;
+
+      const userConfirmed = confirm(`¿Está totalmente seguro que desea eliminar "${p.nombre}" del catálogo comercial? Esta acción no se puede deshacer.`);
+      if (!userConfirmed) return;
+
+      const updatedCatalog = ProductsDatabase.filter(x => x.sku !== sku);
+
+      try {
+        const response = await fetch('/api/admin/save-catalog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminToken
+          },
+          body: JSON.stringify({ catalog: updatedCatalog })
+        });
+
+        if (response.ok) {
+          triggerToast("Producto Eliminado", `"${p.nombre}" ha sido borrado del servidor.`);
+          
+          ProductsDatabase = updatedCatalog;
+          renderCatalogGrid();
+          renderAdminCatalogList();
+        } else {
+          const err = await response.json();
+          triggerToast("Error", err.error || "No se pudo borrar el producto.");
+        }
+      } catch (e) {
+        console.error("Delete product error:", e);
+        triggerToast("Error de Conexión", "No se pudo comunicar con el servidor.");
+      }
+    }
+
+    // Wire up Drag & Drop events & filepicker integration
+    let isDragAndDropSetup = false;
+    function setupDragAndDrop() {
+      if (isDragAndDropSetup) return;
+      isDragAndDropSetup = true;
+
+      const dragZone = document.getElementById('image-drag-zone');
+      const fileInput = document.getElementById('prod-image-file');
+
+      if (!dragZone || !fileInput) return;
+
+      // Handle simple click to open filepicker
+      dragZone.addEventListener('click', () => {
+        fileInput.click();
+      });
+
+      // Handle drag states
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dragZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dragZone.classList.add('border-neon-orange', 'bg-metal-light');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dragZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dragZone.classList.remove('border-neon-orange', 'bg-metal-light');
+        }, false);
+      });
+
+      // Handle drop upload
+      dragZone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files.length > 0) {
+          uploadImageFile(files[0]);
+        }
+      }, false);
+    }
+
+    // On file select picker trigger
+    function handleImageFilePicker(event) {
+      if (event.target.files && event.target.files.length > 0) {
+        uploadImageFile(event.target.files[0]);
+      }
+    }
+
+    // Raw Base64 upload file worker
+    function uploadImageFile(file) {
+      const statusIndicator = document.getElementById('image-upload-status');
+      
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        triggerToast("Formato Inválido", "Por favor selecciona una imagen válida.");
+        return;
+      }
+
+      if (statusIndicator) {
+        statusIndicator.innerText = "Cargando imagen al servidor...";
+        statusIndicator.classList.remove('hidden');
+      }
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = async () => {
+        const base64Data = reader.result;
+
+        try {
+          const response = await fetch('/api/admin/upload-image', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + adminToken
+            },
+            body: JSON.stringify({
+              fileName: file.name,
+              fileData: base64Data
+            })
+          });
+
+          const result = await response.json();
+          
+          if (response.ok && result.url) {
+            document.getElementById('prod-image-url').value = result.url;
+            triggerToast("Imagen Lista", "La foto se ha guardado correctamente.");
+            if (statusIndicator) {
+              statusIndicator.innerText = "✓ Carga completada con éxito";
+              setTimeout(() => statusIndicator.classList.add('hidden'), 3500);
+            }
+          } else {
+            triggerToast("Error de Carga", result.error || "No se pudo procesar la imagen.");
+            if (statusIndicator) statusIndicator.classList.add('hidden');
+          }
+        } catch (err) {
+          console.error("Image upload failed:", err);
+          triggerToast("Error de Red", "Carga fallida. No se puede conectar al servidor.");
+          if (statusIndicator) statusIndicator.classList.add('hidden');
+        }
+      };
     }
   </script>
 </body>
