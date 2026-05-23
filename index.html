@@ -1008,10 +1008,8 @@
     }
 
     // 3. CATALOG RENDERING & FILTERING
-    function filterCatalog(categoryKey) {
+function filterCatalog(categoryKey) {
       CurrentCategoryFilter = categoryKey;
-      
-      // Update filter UI buttons
       document.querySelectorAll('.p-btn-filter').forEach(btn => {
         btn.classList.remove('bg-[#ff5a1f]', 'text-white', 'border-neon-orange', 'font-semibold');
         btn.classList.add('bg-metal-light', 'text-gray-300', 'border-metal-border');
@@ -1057,12 +1055,11 @@
       }
 
       filtered.forEach(product => {
-        const id = product.id || 0;
         const nombre = product.nombre || 'Producto';
         const precio = Math.max(0, Number(product.precio || 0));
         const tag = product.tag || '';
         const categoria = product.categoria || 'Equipos';
-        const sku = product.sku || `TS-${id}`;
+        const sku = product.sku || product.SKU || 'SIN-SKU';
         const imagen = product.imagen || '';
 
         const tagHTML = tag ? `
@@ -1074,14 +1071,14 @@
         const card = document.createElement('article');
         card.className = "bg-metal-card border border-metal-border hover:border-burgundy-light transition-all rounded-sm flex flex-col h-full relative group";
         card.innerHTML = `
-          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal(${id})">
+          <div class="block relative bg-metal-dark/30 aspect-square p-6 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openSpecModal('${sku}')">
             ${tagHTML}
             <div class="w-full h-full bg-white rounded-sm p-4 flex items-center justify-center">
               <img src="${getSafeImageUrl(imagen)}" onerror="this.onerror=null; this.src='${FALLBACK_IMAGE_URL}'" alt="${nombre}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
           <div class="p-5 flex flex-col flex-grow space-y-4">
-            <div class="space-y-1 cursor-pointer" onclick="openSpecModal(${id})">
+            <div class="space-y-1 cursor-pointer" onclick="openSpecModal('${sku}')">
               <span class="font-mono text-[9px] text-[#9e2539] tracking-wider uppercase font-bold">${categoria}</span>
               <h4 class="font-display font-bold text-sm text-[#f5f5f5] uppercase tracking-tight group-hover:text-neon-orange transition-colors leading-snug line-clamp-2">
                 ${nombre}
@@ -1096,10 +1093,10 @@
               </div>
               
               <div class="grid grid-cols-2 gap-2">
-                <button onclick="openSpecModal(${id})" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
+                <button onclick="openSpecModal('${sku}')" class="text-[10px] font-mono uppercase bg-metal-light hover:bg-[#262626] text-white py-2 px-1 border border-metal-border rounded-sm transition-all text-center">
                   Ver Ficha
                 </button>
-                <button onclick="addProductToCart(${id})" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
+                <button onclick="addProductToCart('${sku}')" class="text-[10px] font-mono uppercase bg-burgundy hover:bg-burgundy-light text-white py-2 px-1 border border-neon-orange/20 rounded-sm transition-all flex items-center justify-center gap-1">
                   <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Añadir
                 </button>
               </div>
@@ -1109,10 +1106,11 @@
         catalogGrid.appendChild(card);
       });
 
-      // Update embedded icons
-      lucide.createIcons();
+      // Recargar iconos de Lucide
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
-
     // 4. SPECIFICATIONS MODAL WINDOW
     function openSpecModal(productId) {
       const product = ProductsDatabase.find(p => p.id === Number(productId));
