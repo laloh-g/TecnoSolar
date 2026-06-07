@@ -1105,7 +1105,7 @@
           const categoria = p.categoria || p.category || 'Equipos';
           const tag = p.tag || '';
           const specs = p.specs || [];
-
+          const stock = p.stock !== undefined ? parseInt(p.stock) : 10;
           return {
             sku,
             nombre,
@@ -1114,7 +1114,8 @@
             imagen,
             categoria,
             tag,
-            specs
+            specs,
+            stock
           };
         });
         
@@ -1483,7 +1484,13 @@
           const cat = (product.categoria || '').toLowerCase();
           return cat.includes('solar') || cat.includes('iluminación');
         });
-      }
+      } }
+
+      // Hide products when stock <= 0
+      filtered = filtered.filter(product => {
+        const stock = product.stock !== undefined ? parseInt(product.stock) : 10;
+        return stock > 0;
+      });
 
       catalogGrid.innerHTML = '';
 
@@ -1659,7 +1666,15 @@
       const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
       if (!product) return;
 
+      const maxStock = product.stock !== undefined ? parseInt(product.stock) : 10;
       const existingIndex = CartData.findIndex(item => (item.sku || item.SKU) === productSKU);
+      const currentQty = existingIndex > -1 ? CartData[existingIndex].quantity : 0;
+
+      if (currentQty >= maxStock) {
+        triggerToast("Stock Insuficiente", `Lo sentimos, no hay más existencias de este producto (${maxStock} disponibles).`);
+        return;
+      }
+
       if (existingIndex > -1) {
         CartData[existingIndex].quantity += 1;
       } else {
@@ -1683,9 +1698,14 @@
     function updateCartItemQuantity(productSKU, delta) {
       const itemIndex = CartData.findIndex(item => (item.sku || item.SKU) === productSKU);
       if (itemIndex > -1) {
+        const product = ProductsDatabase.find(p => (p.sku || p.SKU) === productSKU);
+        const maxStock = product && product.stock !== undefined ? parseInt(product.stock) : 10;
+
         const newQty = CartData[itemIndex].quantity + delta;
         if (newQty <= 0) {
           removeCartItem(productSKU);
+        } else if (newQty > maxStock) {
+          triggerToast("Stock Insuficiente", `Lo sentimos, sólo quedan ${maxStock} unidades disponibles de este producto.`);
         } else {
           CartData[itemIndex].quantity = newQty;
           saveCartToStorage();
