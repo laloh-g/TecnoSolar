@@ -8,23 +8,41 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Más Vendido",
     "specs": [
-      { "label": "Uso", "value": "Industrial / Automotriz" },
-      { "label": "Batería", "value": "24V Litio recargable" },
-      { "label": "Motor", "value": "Brushless (Sin carbones)" }
+      {
+        "label": "Uso",
+        "value": "Industrial / Automotriz"
+      },
+      {
+        "label": "Batería",
+        "value": "24V Litio recargable"
+      },
+      {
+        "label": "Motor",
+        "value": "Brushless (Sin carbones)"
+      }
     ]
   },
   {
     "sku": "ELEC-CAM-002",
-    "nombre": "Camara de seguridad solar",
+    "nombre": "Camara solar de seguridad",
     "precio": 59990,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
-    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión WiFi, visión nocturna HD y alertas al celular sin cables.",
+    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión 4G, visión nocturna HD y alertas al celular sin cables.",
     "categoria": "Iluminación Solar",
     "tag": "Autónomo",
     "specs": [
-      { "label": "Conexión", "value": "WiFi 2.4GHz" },
-      { "label": "Carga", "value": "Panel solar fotovoltaico" },
-      { "label": "Resolución", "value": "1085p Full HD" }
+      {
+        "label": "Conexión",
+        "value": "SIM 4G"
+      },
+      {
+        "label": "Carga",
+        "value": "Panel solar fotovoltaico"
+      },
+      {
+        "label": "Resolución",
+        "value": "1085p Full HD"
+      }
     ]
   },
   {
@@ -36,9 +54,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Alta Resistencia",
     "specs": [
-      { "label": "Mandril", "value": "Metálico reforzado" },
-      { "label": "Torque", "value": "Ajustable múltiples etapas" },
-      { "label": "Iluminación", "value": "LED de trabajo frontal" }
+      {
+        "label": "Mandril",
+        "value": "Metálico reforzado"
+      },
+      {
+        "label": "Torque",
+        "value": "Ajustable múltiples etapas"
+      },
+      {
+        "label": "Iluminación",
+        "value": "LED de trabajo frontal"
+      }
     ]
   },
   {
@@ -50,9 +77,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Gran Cobertura",
     "specs": [
-      { "label": "Potencia", "value": "2000W LED equivalente" },
-      { "label": "Panel", "value": "Separado con cable extensor" },
-      { "label": "Control", "value": "Remoto multifuncional" }
+      {
+        "label": "Potencia",
+        "value": "2000W LED equivalente"
+      },
+      {
+        "label": "Panel",
+        "value": "Separado con cable extensor"
+      },
+      {
+        "label": "Control",
+        "value": "Remoto multifuncional"
+      }
     ]
   },
   {
@@ -64,9 +100,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Accesorio",
     "specs": [
-      { "label": "Dados", "value": "10 piezas estandar" },
-      { "label": "Material", "value": "Acero Cromo Vanadio Industrial" },
-      { "label": "Compatibilidad", "value": "Encastre de 1/2 pulgada" }
+      {
+        "label": "Dados",
+        "value": "10 piezas estandar"
+      },
+      {
+        "label": "Material",
+        "value": "Acero Cromo Vanadio Industrial"
+      },
+      {
+        "label": "Compatibilidad",
+        "value": "Encastre de 1/2 pulgada"
+      }
     ]
   },
   {
@@ -78,9 +123,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Eficiente",
     "specs": [
-      { "label": "Potencia", "value": "100W" },
-      { "label": "Panel", "value": "Independiente de alta transferencia" },
-      { "label": "Protección", "value": "IP67 contra lluvia y polvo" }
+      {
+        "label": "Potencia",
+        "value": "100W"
+      },
+      {
+        "label": "Panel",
+        "value": "Independiente de alta transferencia"
+      },
+      {
+        "label": "Protección",
+        "value": "IP67 contra lluvia y polvo"
+      }
     ]
   },
   {
@@ -92,9 +146,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Versátil",
     "specs": [
-      { "label": "Uso", "value": "Lijar, Cortar, Desbastar" },
-      { "label": "Accesorios", "value": "Set completo de cuchillas y lijas" },
-      { "label": "Alimentación", "value": "Batería inalámbrica recargable" }
+      {
+        "label": "Uso",
+        "value": "Lijar, Cortar, Desbastar"
+      },
+      {
+        "label": "Accesorios",
+        "value": "Set completo de cuchillas y lijas"
+      },
+      {
+        "label": "Alimentación",
+        "value": "Batería inalámbrica recargable"
+      }
     ]
   },
   {
@@ -106,9 +169,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Inalámbrico",
     "specs": [
-      { "label": "Tipo", "value": "Fijación y Clavado rápido" },
-      { "label": "Batería", "value": "20V Litio de gran retencion" },
-      { "label": "Capacidad", "value": "Cargador reforzado integrado" }
+      {
+        "label": "Tipo",
+        "value": "Fijación y Clavado rápido"
+      },
+      {
+        "label": "Batería",
+        "value": "20V Litio de gran retencion"
+      },
+      {
+        "label": "Capacidad",
+        "value": "Cargador reforzado integrado"
+      }
     ]
   },
   {
@@ -120,9 +192,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Impermeable",
     "specs": [
-      { "label": "Longitud", "value": "10 Metros" },
-      { "label": "Ampolletas", "value": "10 Ampolletas LED Filamento Vintage" },
-      { "label": "Resistencia", "value": "IP65 aptas para lluvia" }
+      {
+        "label": "Longitud",
+        "value": "10 Metros"
+      },
+      {
+        "label": "Ampolletas",
+        "value": "10 Ampolletas LED Filamento Vintage"
+      },
+      {
+        "label": "Resistencia",
+        "value": "IP65 aptas para lluvia"
+      }
     ]
   },
   {
@@ -134,9 +215,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Portátil",
     "specs": [
-      { "label": "Motor", "value": "Doble pistón de alta compresion" },
-      { "label": "Tensión", "value": "12V - Conexión pinzas batería / encendedor" },
-      { "label": "Manómetro", "value": "Análogo integrado de precisión" }
+      {
+        "label": "Motor",
+        "value": "Doble pistón de alta compresion"
+      },
+      {
+        "label": "Tensión",
+        "value": "12V - Conexión pinzas batería / encendedor"
+      },
+      {
+        "label": "Manómetro",
+        "value": "Análogo integrado de precisión"
+      }
     ]
   },
   {
@@ -148,9 +238,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Profesional",
     "specs": [
-      { "label": "Tecnología", "value": "IGBT Inverter de alta eficiencia" },
-      { "label": "Procesos", "value": "MIG (Alambre flux) / MMA (Arco) / TIG" },
-      { "label": "Regulación", "value": "Digital dual amperaje" }
+      {
+        "label": "Tecnología",
+        "value": "IGBT Inverter de alta eficiencia"
+      },
+      {
+        "label": "Procesos",
+        "value": "MIG (Alambre flux) / MMA (Arco) / TIG"
+      },
+      {
+        "label": "Regulación",
+        "value": "Digital dual amperaje"
+      }
     ]
   },
   {
@@ -162,9 +261,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Compacta",
     "specs": [
-      { "label": "Tipo", "value": "Soldadora de electrodo MMA" },
-      { "label": "Ventilación", "value": "Turbo ventilada asistida" },
-      { "label": "Peso", "value": "Ligero para faenas" }
+      {
+        "label": "Tipo",
+        "value": "Soldadora de electrodo MMA"
+      },
+      {
+        "label": "Ventilación",
+        "value": "Turbo ventilada asistida"
+      },
+      {
+        "label": "Peso",
+        "value": "Ligero para faenas"
+      }
     ]
   },
   {
@@ -176,9 +284,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Protección",
     "specs": [
-      { "label": "Longitud", "value": "5 Metros extendida" },
-      { "label": "Tomas", "value": "4 tomas universales chilenas" },
-      { "label": "Seguridad", "value": "Switch On/Off con fusible térmico" }
+      {
+        "label": "Longitud",
+        "value": "5 Metros extendida"
+      },
+      {
+        "label": "Tomas",
+        "value": "4 tomas universales chilenas"
+      },
+      {
+        "label": "Seguridad",
+        "value": "Switch On/Off con fusible térmico"
+      }
     ]
   },
   {
@@ -190,9 +307,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Alto Poder",
     "specs": [
-      { "label": "Encastre", "value": "SDS-Plus rápido" },
-      { "label": "Modos", "value": "Perforación, Percusión y Martillo cincelador" },
-      { "label": "Fuerza de Impacto", "value": "Alta tasa de Julios" }
+      {
+        "label": "Encastre",
+        "value": "SDS-Plus rápido"
+      },
+      {
+        "label": "Modos",
+        "value": "Perforación, Percusión y Martillo cincelador"
+      },
+      {
+        "label": "Fuerza de Impacto",
+        "value": "Alta tasa de Julios"
+      }
     ]
   },
   {
@@ -204,9 +330,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Inteligente",
     "specs": [
-      { "label": "Voltaje salida", "value": "12V y 24V inteligente" },
-      { "label": "Seguridad", "value": "Protector térmico y anti cortocircuito" },
-      { "label": "Pantalla", "value": "Indicadora LED de carga" }
+      {
+        "label": "Voltaje salida",
+        "value": "12V y 24V inteligente"
+      },
+      {
+        "label": "Seguridad",
+        "value": "Protector térmico y anti cortocircuito"
+      },
+      {
+        "label": "Pantalla",
+        "value": "Indicadora LED de carga"
+      }
     ]
   },
   {
@@ -218,9 +353,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Precisión",
     "specs": [
-      { "label": "Tipo", "value": "Carpintería inalámbrica" },
-      { "label": "Ajuste corte", "value": "Profundidad y biseal hasta 45°" },
-      { "label": "Disco", "value": "Diámetro industrial estándar" }
+      {
+        "label": "Tipo",
+        "value": "Carpintería inalámbrica"
+      },
+      {
+        "label": "Ajuste corte",
+        "value": "Profundidad y biseal hasta 45°"
+      },
+      {
+        "label": "Disco",
+        "value": "Diámetro industrial estándar"
+      }
     ]
   },
   {
@@ -232,9 +376,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Compacto",
     "specs": [
-      { "label": "Funciones", "value": "Corte de gran precisión / Desbaste / Pulido" },
-      { "label": "Alimentación", "value": "Batería inalámbrica recargable" },
-      { "label": "Diseño", "value": "Ultra compacto agarre una mano" }
+      {
+        "label": "Funciones",
+        "value": "Corte de gran precisión / Desbaste / Pulido"
+      },
+      {
+        "label": "Alimentación",
+        "value": "Batería inalámbrica recargable"
+      },
+      {
+        "label": "Diseño",
+        "value": "Ultra compacto agarre una mano"
+      }
     ]
   },
   {
@@ -246,9 +399,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Kit Doble Batería",
     "specs": [
-      { "label": "Diámetro disco", "value": "4.1/2 pulgadas (115mm)" },
-      { "label": "Baterías", "value": "2 Baterías Litio incluidas de alto amperaje" },
-      { "label": "Arranque", "value": "Suave progresivo de seguridad" }
+      {
+        "label": "Diámetro disco",
+        "value": "4.1/2 pulgadas (115mm)"
+      },
+      {
+        "label": "Baterías",
+        "value": "2 Baterías Litio incluidas de alto amperaje"
+      },
+      {
+        "label": "Arranque",
+        "value": "Suave progresivo de seguridad"
+      }
     ]
   },
   {
@@ -260,9 +422,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Automotriz",
     "specs": [
-      { "label": "Uso específico", "value": "Mapeo automotriz y espacios angostos" },
-      { "label": "Tipo herramienta", "value": "Trinquete Chicharra eléctrica" },
-      { "label": "Batería", "value": "Litio formato vertical" }
+      {
+        "label": "Uso específico",
+        "value": "Mapeo automotriz y espacios angostos"
+      },
+      {
+        "label": "Tipo herramienta",
+        "value": "Trinquete Chicharra eléctrica"
+      },
+      {
+        "label": "Batería",
+        "value": "Litio formato vertical"
+      }
     ]
   },
   {
@@ -274,9 +445,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Seguridad",
     "specs": [
-      { "label": "Focos", "value": "2 Focos con movimiento ajustable" },
-      { "label": "Activación", "value": "Automatizada ante falla de red eléctrica" },
-      { "label": "Durabilidad", "value": "Batería recargable integrada plomo-ácido" }
+      {
+        "label": "Focos",
+        "value": "2 Focos con movimiento ajustable"
+      },
+      {
+        "label": "Activación",
+        "value": "Automatizada ante falla de red eléctrica"
+      },
+      {
+        "label": "Durabilidad",
+        "value": "Batería recargable integrada plomo-ácido"
+      }
     ]
   },
   {
@@ -288,9 +468,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Jardín",
     "specs": [
-      { "label": "Uso", "value": "Exterior / Jardín" },
-      { "label": "Carga", "value": "Fotovoltaica diurna integrada superior" },
-      { "label": "Encendido", "value": "Sensor inteligente crepuscular" }
+      {
+        "label": "Uso",
+        "value": "Exterior / Jardín"
+      },
+      {
+        "label": "Carga",
+        "value": "Fotovoltaica diurna integrada superior"
+      },
+      {
+        "label": "Encendido",
+        "value": "Sensor inteligente crepuscular"
+      }
     ]
   },
   {
@@ -302,9 +491,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Interactiva",
     "specs": [
-      { "label": "Pantalla", "value": "Integrada de alta definicion interactiva" },
-      { "label": "Comunicación", "value": "Videollamada doble vía WiFi" },
-      { "label": "Montaje", "value": "Soporte mesa o muro" }
+      {
+        "label": "Pantalla",
+        "value": "Integrada de alta definicion interactiva"
+      },
+      {
+        "label": "Comunicación",
+        "value": "Videollamada doble vía WiFi"
+      },
+      {
+        "label": "Montaje",
+        "value": "Soporte mesa o muro"
+      }
     ]
   },
   {
@@ -316,9 +514,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Básico",
     "specs": [
-      { "label": "Tipo", "value": "Foco de seguridad solar simple" },
-      { "label": "Protección", "value": "Impermeable apto para intemperie" },
-      { "label": "Instalación", "value": "Sin cableados compleja" }
+      {
+        "label": "Tipo",
+        "value": "Foco de seguridad solar simple"
+      },
+      {
+        "label": "Protección",
+        "value": "Impermeable apto para intemperie"
+      },
+      {
+        "label": "Instalación",
+        "value": "Sin cableados compleja"
+      }
     ]
   },
   {
@@ -330,9 +537,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Kit Auto",
     "specs": [
-      { "label": "Kit", "value": "Mochila herramientas + Foco portátil potente" },
-      { "label": "Uso ideal", "value": "Asistencia en carretera nocturna" },
-      { "label": "Carga", "value": "Cable recargable USB multifunción" }
+      {
+        "label": "Kit",
+        "value": "Mochila herramientas + Foco portátil potente"
+      },
+      {
+        "label": "Uso ideal",
+        "value": "Asistencia en carretera nocturna"
+      },
+      {
+        "label": "Carga",
+        "value": "Cable recargable USB multifunción"
+      }
     ]
   },
   {
@@ -344,9 +560,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Jardinería",
     "specs": [
-      { "label": "Componentes", "value": "Set completo de poda, regado y corte" },
-      { "label": "Alimentación", "value": "Máquinas inalámbricas de alta durabilidad" },
-      { "label": "Maletín", "value": "Metálico incluido de transporte" }
+      {
+        "label": "Componentes",
+        "value": "Set completo de poda, regado y corte"
+      },
+      {
+        "label": "Alimentación",
+        "value": "Máquinas inalámbricas de alta durabilidad"
+      },
+      {
+        "label": "Maletín",
+        "value": "Metálico incluido de transporte"
+      }
     ]
   },
   {
@@ -358,9 +583,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Ligero",
     "specs": [
-      { "label": "Cuchillas", "value": "Doble acción de acero endurecido" },
-      { "label": "Peso", "value": "Ultra liviano facil manipulacion" },
-      { "label": "Seguridad", "value": "Switch doble de accionamiento" }
+      {
+        "label": "Cuchillas",
+        "value": "Doble acción de acero endurecido"
+      },
+      {
+        "label": "Peso",
+        "value": "Ultra liviano facil manipulacion"
+      },
+      {
+        "label": "Seguridad",
+        "value": "Switch doble de accionamiento"
+      }
     ]
   },
   {
@@ -372,9 +606,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Hogar Conectado",
     "specs": [
-      { "label": "Video", "value": "Resolución HD Gran angular" },
-      { "label": "Audio", "value": "Bidireccional con cancelacion de ruido" },
-      { "label": "Conectividad", "value": "WiFi de larga distancia" }
+      {
+        "label": "Video",
+        "value": "Resolución HD Gran angular"
+      },
+      {
+        "label": "Audio",
+        "value": "Bidireccional con cancelacion de ruido"
+      },
+      {
+        "label": "Conectividad",
+        "value": "WiFi de larga distancia"
+      }
     ]
   },
   {
@@ -386,9 +629,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Para Armados",
     "specs": [
-      { "label": "Voltaje", "value": "12V Litio-Ion" },
-      { "label": "Velocidades", "value": "Dual con reversa rápida" },
-      { "label": "Uso", "value": "Hogar y mantenimiento suave" }
+      {
+        "label": "Voltaje",
+        "value": "12V Litio-Ion"
+      },
+      {
+        "label": "Velocidades",
+        "value": "Dual con reversa rápida"
+      },
+      {
+        "label": "Uso",
+        "value": "Hogar y mantenimiento suave"
+      }
     ]
   },
   {
@@ -400,9 +652,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Doble Función",
     "specs": [
-      { "label": "Función", "value": "Soplador potente / Aspiradora de polvo" },
-      { "label": "Diseño", "value": "Equilibrado peso liviano" },
-      { "label": "Boquilla", "value": "Goma flexible para esquinas" }
+      {
+        "label": "Función",
+        "value": "Soplador potente / Aspiradora de polvo"
+      },
+      {
+        "label": "Diseño",
+        "value": "Equilibrado peso liviano"
+      },
+      {
+        "label": "Boquilla",
+        "value": "Goma flexible para esquinas"
+      }
     ]
   },
   {
@@ -414,9 +675,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Cortes Curvos",
     "specs": [
-      { "label": "Velocidad", "value": "Múltiple por potenciómetro" },
-      { "label": "Aditamentos", "value": "Sistema de soplado de aserrín" },
-      { "label": "Materiales", "value": "Madera, Aluminios ligeros y Plástico" }
+      {
+        "label": "Velocidad",
+        "value": "Múltiple por potenciómetro"
+      },
+      {
+        "label": "Aditamentos",
+        "value": "Sistema de soplado de aserrín"
+      },
+      {
+        "label": "Materiales",
+        "value": "Madera, Aluminios ligeros y Plástico"
+      }
     ]
   },
   {
@@ -428,9 +698,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Aluminio",
     "specs": [
-      { "label": "Potencia", "value": "1000W LED equivalente" },
-      { "label": "Cuerpo", "value": "Metálico aluminio moldeado alta durabilidad" },
-      { "label": "Instalación", "value": "Brazo soporte incluido para poste/muro" }
+      {
+        "label": "Potencia",
+        "value": "1000W LED equivalente"
+      },
+      {
+        "label": "Cuerpo",
+        "value": "Metálico aluminio moldeado alta durabilidad"
+      },
+      {
+        "label": "Instalación",
+        "value": "Brazo soporte incluido para poste/muro"
+      }
     ]
   },
   {
@@ -442,9 +721,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Gran Cobertura",
     "specs": [
-      { "label": "Potencia", "value": "1200W" },
-      { "label": "Accesorios", "value": "Control remoto inalámbrico de control" },
-      { "label": "Modo ahorro", "value": "Sensor inteligente de presencia" }
+      {
+        "label": "Potencia",
+        "value": "1200W"
+      },
+      {
+        "label": "Accesorios",
+        "value": "Control remoto inalámbrico de control"
+      },
+      {
+        "label": "Modo ahorro",
+        "value": "Sensor inteligente de presencia"
+      }
     ]
   },
   {
@@ -456,9 +744,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Multifuncional",
     "specs": [
-      { "label": "Luz", "value": "LED potencia focal de gran espectro" },
-      { "label": "Audio", "value": "Conexión Bluetooth parlante de alta potencia" },
-      { "label": "Batería", "value": "Recargable mediante celdas solares integradas" }
+      {
+        "label": "Luz",
+        "value": "LED potencia focal de gran espectro"
+      },
+      {
+        "label": "Audio",
+        "value": "Conexión Bluetooth parlante de alta potencia"
+      },
+      {
+        "label": "Batería",
+        "value": "Recargable mediante celdas solares integradas"
+      }
     ]
   },
   {
@@ -470,9 +767,18 @@
     "categoria": "Iluminación Solar",
     "tag": "Compacto",
     "specs": [
-      { "label": "Montaje", "value": "Rápido de pared exterior" },
-      { "label": "Lentes", "value": "Distribución angular alta difusión" },
-      { "label": "Celda", "value": "De silicio monocristalino eficiente" }
+      {
+        "label": "Montaje",
+        "value": "Rápido de pared exterior"
+      },
+      {
+        "label": "Lentes",
+        "value": "Distribución angular alta difusión"
+      },
+      {
+        "label": "Celda",
+        "value": "De silicio monocristalino eficiente"
+      }
     ]
   },
   {
@@ -484,9 +790,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Mini Recargable",
     "specs": [
-      { "label": "Batería", "value": "Recargable integrada puerto USB universal" },
-      { "label": "Accesorios", "value": "Set variado de puntas de atornillado" },
-      { "label": "Uso recomendado", "value": "Electrónica, armado menor, computación" }
+      {
+        "label": "Batería",
+        "value": "Recargable integrada puerto USB universal"
+      },
+      {
+        "label": "Accesorios",
+        "value": "Set variado de puntas de atornillado"
+      },
+      {
+        "label": "Uso recomendado",
+        "value": "Electrónica, armado menor, computación"
+      }
     ]
   },
   {
@@ -498,9 +813,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Camping",
     "specs": [
-      { "label": "Potencia", "value": "200W nominales de soporte" },
-      { "label": "Tomas de fuerza", "value": "220V CA estándar / USB múltiple de alta velocidad" },
-      { "label": "Funcionamiento", "value": "Completamente insonoro sin motores fósiles" }
+      {
+        "label": "Potencia",
+        "value": "200W nominales de soporte"
+      },
+      {
+        "label": "Tomas de fuerza",
+        "value": "220V CA estándar / USB múltiple de alta velocidad"
+      },
+      {
+        "label": "Funcionamiento",
+        "value": "Completamente insonoro sin motores fósiles"
+      }
     ]
   },
   {
@@ -512,9 +836,18 @@
     "categoria": "Herramientas Eléctricas",
     "tag": "Estación de Poder",
     "specs": [
-      { "label": "Potencia Máxima", "value": "500W de Onda pura" },
-      { "label": "Baterías", "value": "Gran celdaje de litio para respaldo persistente" },
-      { "label": "Extras", "value": "Luminaria LED auxiliar de alta intensidad incluida" }
+      {
+        "label": "Potencia Máxima",
+        "value": "500W de Onda pura"
+      },
+      {
+        "label": "Baterías",
+        "value": "Gran celdaje de litio para respaldo persistente"
+      },
+      {
+        "label": "Extras",
+        "value": "Luminaria LED auxiliar de alta intensidad incluida"
+      }
     ]
   }
 ]
