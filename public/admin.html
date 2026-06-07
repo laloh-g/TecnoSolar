@@ -257,9 +257,14 @@
                   <input type="number" id="prod-price" required min="0" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="38990">
                 </div>
                 <div>
-                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Tag Notificación</label>
-                  <input type="text" id="prod-tag" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Oferta, Nuevo">
+                  <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Stock / Existencias</label>
+                  <input type="number" id="prod-stock" required min="0" defaultValue="10" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="10">
                 </div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[9px] uppercase tracking-wider text-gray-400 mb-1">Tag Notificación</label>
+                <input type="text" id="prod-tag" class="w-full bg-metal-dark border border-metal-border rounded-sm px-3 py-2 text-xs text-white" placeholder="Ej: Oferta, Nuevo">
               </div>
 
               <div>
@@ -336,6 +341,7 @@
                   <tr class="border-b border-metal-border font-mono text-[9px] uppercase tracking-wider text-gray-400">
                     <th class="py-3 px-2 font-bold select-none">Detalles del Producto</th>
                     <th class="py-3 px-2 font-bold select-none">SKU / Categoría</th>
+                    <th class="py-3 px-2 font-bold select-none text-center">Stock</th>
                     <th class="py-3 px-2 font-bold select-none text-right">Precio</th>
                     <th class="py-3 px-2 font-semibold select-none text-center w-28">Acción</th>
                   </tr>
@@ -538,7 +544,7 @@
       if (filtered.length === 0) {
         tableBody.innerHTML = `
           <tr>
-            <td colspan="4" class="py-10 text-center font-mono text-[10px] uppercase tracking-wider text-gray-400">
+            <td colspan="5" class="py-10 text-center font-mono text-[10px] uppercase tracking-wider text-gray-400">
               No se encontraron productos.
             </td>
           </tr>
@@ -550,6 +556,9 @@
         const isSolar = (p.categoria || '').toLowerCase().includes('solar');
         const badgeColor = isSolar ? 'text-[#ff5a1f] border-[#ff5a1f]/30 bg-[#ff5a1f]/5' : 'text-[#7d1829] border-[#7d1829]/30 bg-[#7d1829]/5';
         
+        const stockVal = p.stock !== undefined ? parseInt(p.stock) : 10;
+        const stockColor = stockVal === 0 ? "text-red-500 font-bold" : (stockVal <= 3 ? "text-amber-500 font-bold" : "text-emerald-400 font-bold");
+
         const tr = document.createElement('tr');
         tr.className = "border-b border-metal-border hover:bg-neutral-900/40 transition-colors";
         tr.innerHTML = `
@@ -565,6 +574,13 @@
           <td class="py-4 px-2 font-mono text-[10px]">
             <span class="text-white font-bold p-1 bg-metal-light rounded-sm border border-metal-border">${p.sku}</span>
             <span class="ml-1.5 border px-1.5 py-0.5 rounded-full text-[9px] uppercase tracking-wide font-sans ${badgeColor}">${p.categoria}</span>
+          </td>
+          <td class="py-4 px-2 text-center font-mono text-xs select-none">
+            <div class="flex items-center justify-center gap-2">
+              <button onclick="adjustStock('${p.sku}', -1)" type="button" class="w-6 h-6 rounded-full flex items-center justify-center bg-metal-light border border-metal-border hover:border-red-500/50 hover:bg-red-500/10 hover:text-red-400 text-gray-400 text-sm font-bold transition-all" title="Restar 1">-</button>
+              <span id="stock-display-${p.sku}" class="min-w-[20px] text-center tracking-tight transition-colors ${stockColor}">${stockVal}</span>
+              <button onclick="adjustStock('${p.sku}', 1)" type="button" class="w-6 h-6 rounded-full flex items-center justify-center bg-metal-light border border-metal-border hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400 text-gray-400 text-sm font-bold transition-all" title="Sumar 1">+</button>
+            </div>
           </td>
           <td class="py-4 px-2 font-mono text-xs font-bold text-right text-white">
             $${(p.precio || 0).toLocaleString('es-CL')}
@@ -586,6 +602,26 @@
       if (window.lucide) lucide.createIcons();
     };
 
+    // Incremental adjusting stock on cell row buttons
+    window.adjustStock = function(sku, amount) {
+      const p = ProductsDatabase.find(x => x.sku === sku);
+      if (!p) return;
+
+      const currentStock = p.stock !== undefined ? parseInt(p.stock) : 10;
+      const newStock = Math.max(0, currentStock + amount);
+      p.stock = newStock;
+
+      const display = document.getElementById(`stock-display-${sku}`);
+      if (display) {
+        display.innerText = newStock;
+        
+        // Update coloring class
+        display.className = "min-w-[20px] text-center tracking-tight transition-colors font-bold " + (newStock === 0 ? "text-red-500" : (newStock <= 3 ? "text-amber-500" : "text-emerald-400"));
+      }
+
+      triggerToast("Stock Ajustado", `Se actualizó el stock de "${p.nombre}" a ${newStock} unidades. Guarde los cambios para sincronizarlos con la tienda.`);
+    };
+
     // Load product keys into Left sidebar form for EDIT mode
     window.editProductInForm = function(sku) {
       const p = ProductsDatabase.find(x => x.sku === sku);
@@ -601,6 +637,7 @@
       document.getElementById('prod-tag').value = p.tag || '';
       document.getElementById('prod-image-url').value = p.imagen || '';
       document.getElementById('prod-description').value = p.descripcion || '';
+      document.getElementById('prod-stock').value = p.stock !== undefined ? p.stock : 10;
 
       // Reset specs
       for (let i = 1; i <= 3; i++) {
@@ -665,6 +702,7 @@
       const tag = document.getElementById('prod-tag').value.trim();
       const imageUrl = document.getElementById('prod-image-url').value.trim();
       const description = document.getElementById('prod-description').value.trim();
+      const stock = parseInt(document.getElementById('prod-stock').value || '10');
 
       // Setup Specs dictionary
       const specs = [];
@@ -676,7 +714,7 @@
         }
       }
 
-      if (!sku || !name || isNaN(price) || !imageUrl) {
+      if (!sku || !name || isNaN(price) || !imageUrl || isNaN(stock)) {
         triggerToast("Formulario Incompleto", "Verifique que todos los campos requeridos estén completos.");
         return;
       }
@@ -698,7 +736,8 @@
           descripcion: description,
           categoria: category,
           tag,
-          specs
+          specs,
+          stock
         };
         clonedCatalog.push(newProduct);
       } else {
@@ -725,7 +764,8 @@
           descripcion: description,
           categoria: category,
           tag,
-          specs
+          specs,
+          stock
         };
       }
 
