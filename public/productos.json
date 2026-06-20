@@ -25,9 +25,9 @@
   {
     "sku": "ELEC-CAM-002",
     "nombre": "Camara solar de seguridad",
-    "precio": 59990,
+    "precio": 68000,
     "imagen": "https://i.supaimg.com/5b6fa341-739d-417b-aff8-fe8062f6afec/974428a6-74c6-45a0-b10d-408e971720e7.jpg",
-    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. Cuenta con conexión 4G, visión nocturna HD y alertas al celular sin cables.",
+    "descripcion": "Sistema de vigilancia 100% autónomo con panel solar integrado. El equipo se vende HOMOLOGADO y CERTIFICADO por la SUBTEL, lista para ser operada, sin trámites extra. Cuenta con conexión 4G, visión nocturna HD y alertas al celular sin cables.",
     "categoria": "Iluminación Solar",
     "tag": "Autónomo",
     "specs": [
@@ -43,7 +43,8 @@
         "label": "Resolución",
         "value": "1085p Full HD"
       }
-    ]
+    ],
+    "stock": 10
   },
   {
     "sku": "HERR-DEST-003",
